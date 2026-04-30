@@ -4,8 +4,8 @@ import tailwindcss from '@tailwindcss/vite';
 import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
-  site: 'https://lumi-zone.github.io',
-  base: '/aevo-web',
+  site: 'https://aevo-ada-pruefung.de',
+  base: '/',
   integrations: [sitemap()],
   vite: {
     plugins: [tailwindcss()],

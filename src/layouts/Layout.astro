@@ -20,7 +20,7 @@ const {
 } = Astro.props;
 
 const baseUrl = import.meta.env.BASE_URL;
-const siteUrl = Astro.site?.toString() ?? 'https://lumi-zone.github.io/aevo-web/';
+const siteUrl = Astro.site?.toString() ?? 'https://aevo-ada-pruefung.de/';
 const currentPath = Astro.url.pathname;
 const canonicalHref = canonical ?? new URL(currentPath, siteUrl).href;
 const ogImage = new URL('og-image.png', siteUrl).href;
@@ -48,12 +48,19 @@ const jsonLd = {
   },
 };
 
+const base = baseUrl.endsWith('/') ? baseUrl : `${baseUrl}/`;
 const navLinks = [
-  { href: baseUrl, label: 'Startseite' },
-  { href: `${baseUrl}support`, label: 'Support' },
-  { href: `${baseUrl}datenschutz`, label: 'Datenschutz' },
-  { href: `${baseUrl}nutzungsbedingungen`, label: 'Nutzungsbedingungen' },
+  { href: base, label: 'Startseite' },
+  { href: `${base}support/`, label: 'Support' },
+  { href: `${base}datenschutz/`, label: 'Datenschutz' },
+  { href: `${base}nutzungsbedingungen/`, label: 'Nutzungsbedingungen' },
 ];
+
+const isActive = (href: string) => {
+  const path = Astro.url.pathname;
+  if (href === base) return path === base || path === base.slice(0, -1);
+  return path.startsWith(href) || path.startsWith(href.slice(0, -1));
+};
 ---
 
 <!doctype html>
@@ -116,11 +123,11 @@ const navLinks = [
               <a
                 href={href}
                 class={`text-sm font-medium transition-colors hover:text-wine ${
-                  Astro.url.pathname === href
+                  isActive(href)
                     ? 'text-wine font-semibold'
                     : 'text-muted'
                 }`}
-                aria-current={Astro.url.pathname === href ? 'page' : undefined}
+                aria-current={isActive(href) ? 'page' : undefined}
               >
                 {label}
               </a>
@@ -151,7 +158,7 @@ const navLinks = [
               <a
                 href={href}
                 class={`block px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
-                  Astro.url.pathname === href
+                  isActive(href)
                     ? 'bg-wine/10 text-wine font-semibold'
                     : 'text-muted hover:bg-cream-dark hover:text-brown'
                 }`}
@@ -203,13 +210,13 @@ const navLinks = [
             <h3 class="text-cream font-semibold text-sm mb-3">Rechtliches</h3>
             <ul class="space-y-2">
               <li>
-                <a href={`${baseUrl}datenschutz`} class="text-sm text-cream/60 hover:text-cream transition-colors">Datenschutzerklärung</a>
+                <a href={`${base}datenschutz/`} class="text-sm text-cream/60 hover:text-cream transition-colors">Datenschutzerklärung</a>
               </li>
               <li>
-                <a href={`${baseUrl}nutzungsbedingungen`} class="text-sm text-cream/60 hover:text-cream transition-colors">Nutzungsbedingungen</a>
+                <a href={`${base}nutzungsbedingungen/`} class="text-sm text-cream/60 hover:text-cream transition-colors">Nutzungsbedingungen</a>
               </li>
               <li>
-                <a href={`${baseUrl}support`} class="text-sm text-cream/60 hover:text-cream transition-colors">Support</a>
+                <a href={`${base}support/`} class="text-sm text-cream/60 hover:text-cream transition-colors">Support</a>
               </li>
               <li>
                 <a href="mailto:cfsmobiletech@gmail.com" class="text-sm text-cream/60 hover:text-cream transition-colors">Kontakt</a>
@@ -223,7 +230,7 @@ const navLinks = [
             &copy; {new Date().getFullYear()} AEVO Ada · Lumi-Zone. Alle Rechte vorbehalten.
           </p>
           <p class="text-xs text-cream/40">
-            Made with ❤️ für angehende Ausbilder
+            Für angehende Ausbilder in Deutschland
           </p>
         </div>
       </div>
