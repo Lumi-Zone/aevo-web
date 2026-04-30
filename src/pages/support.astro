@@ -58,6 +58,7 @@ const faqs = [
     ],
   },
 ];
+const baseUrl = import.meta.env.BASE_URL;
 ---
 
 <Layout
@@ -69,7 +70,7 @@ const faqs = [
 
     <!-- Header -->
     <div class="text-center mb-14">
-      <a href="/" class="inline-flex items-center gap-2 text-muted hover:text-wine text-sm transition-colors mb-8">
+      <a href={baseUrl} class="inline-flex items-center gap-2 text-muted hover:text-wine text-sm transition-colors mb-8">
         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
         </svg>
@@ -139,9 +140,9 @@ const faqs = [
         Schreib uns an <a href="mailto:cfsmobiletech@gmail.com" class="text-wine hover:underline">cfsmobiletech@gmail.com</a> und wir helfen dir weiter.
       </p>
       <div class="flex justify-center gap-4 text-xs text-muted">
-        <a href="/datenschutz" class="hover:text-wine transition-colors">Datenschutzerklärung</a>
+        <a href={`${baseUrl}datenschutz`} class="hover:text-wine transition-colors">Datenschutzerklärung</a>
         <span>·</span>
-        <a href="/nutzungsbedingungen" class="hover:text-wine transition-colors">Nutzungsbedingungen</a>
+        <a href={`${baseUrl}nutzungsbedingungen`} class="hover:text-wine transition-colors">Nutzungsbedingungen</a>
       </div>
     </div>
   </div>

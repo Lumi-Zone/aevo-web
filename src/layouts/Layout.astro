@@ -19,10 +19,11 @@ const {
   noindex = false,
 } = Astro.props;
 
-const siteUrl = 'https://aevo-ada-pruefung.de';
+const baseUrl = import.meta.env.BASE_URL;
+const siteUrl = Astro.site?.toString() ?? 'https://lumi-zone.github.io/aewo-web/';
 const currentPath = Astro.url.pathname;
 const canonicalHref = canonical ?? new URL(currentPath, siteUrl).href;
-const ogImage = `${siteUrl}/og-image.png`;
+const ogImage = new URL('og-image.png', siteUrl).href;
 const robotsContent = noindex
   ? 'noindex, nofollow'
   : 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1';
@@ -48,10 +49,10 @@ const jsonLd = {
 };
 
 const navLinks = [
-  { href: '/', label: 'Startseite' },
-  { href: '/support', label: 'Support' },
-  { href: '/datenschutz', label: 'Datenschutz' },
-  { href: '/nutzungsbedingungen', label: 'Nutzungsbedingungen' },
+  { href: baseUrl, label: 'Startseite' },
+  { href: `${baseUrl}support`, label: 'Support' },
+  { href: `${baseUrl}datenschutz`, label: 'Datenschutz' },
+  { href: `${baseUrl}nutzungsbedingungen`, label: 'Nutzungsbedingungen' },
 ];
 ---
 
@@ -89,8 +90,8 @@ const navLinks = [
     <meta name="twitter:image" content={ogImage} />
 
     <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/svg+xml" href={`${baseUrl}favicon.svg`} />
+    <link rel="apple-touch-icon" href={`${baseUrl}apple-touch-icon.png`} />
 
     <!-- Structured Data -->
     <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
@@ -101,7 +102,7 @@ const navLinks = [
     <!-- Navigation -->
     <header class="fixed top-0 left-0 right-0 z-50 bg-cream/90 backdrop-blur-md border-b border-cream-border">
       <nav class="max-w-5xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
-        <a href="/" class="flex items-center gap-2 group" aria-label="AEVO Ada – Startseite">
+        <a href={baseUrl} class="flex items-center gap-2 group" aria-label="AEVO Ada – Startseite">
           <div class="w-8 h-8 rounded-xl bg-wine flex items-center justify-center shadow-sm">
             <span class="text-gold font-serif font-bold text-sm">A</span>
           </div>
@@ -202,13 +203,13 @@ const navLinks = [
             <h3 class="text-cream font-semibold text-sm mb-3">Rechtliches</h3>
             <ul class="space-y-2">
               <li>
-                <a href="/datenschutz" class="text-sm text-cream/60 hover:text-cream transition-colors">Datenschutzerklärung</a>
+                <a href={`${baseUrl}datenschutz`} class="text-sm text-cream/60 hover:text-cream transition-colors">Datenschutzerklärung</a>
               </li>
               <li>
-                <a href="/nutzungsbedingungen" class="text-sm text-cream/60 hover:text-cream transition-colors">Nutzungsbedingungen</a>
+                <a href={`${baseUrl}nutzungsbedingungen`} class="text-sm text-cream/60 hover:text-cream transition-colors">Nutzungsbedingungen</a>
               </li>
               <li>
-                <a href="/support" class="text-sm text-cream/60 hover:text-cream transition-colors">Support</a>
+                <a href={`${baseUrl}support`} class="text-sm text-cream/60 hover:text-cream transition-colors">Support</a>
               </li>
               <li>
                 <a href="mailto:cfsmobiletech@gmail.com" class="text-sm text-cream/60 hover:text-cream transition-colors">Kontakt</a>
