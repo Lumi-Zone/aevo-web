@@ -1,0 +1,148 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const faqs = [
+  {
+    category: 'App & Download',
+    items: [
+      {
+        q: 'Auf welchen Geräten ist AEVO Ada verfügbar?',
+        a: 'AEVO Ada ist für iOS (iPhone, iPad) und Android verfügbar. Du kannst die App im Apple App Store oder im Google Play Store herunterladen.',
+      },
+      {
+        q: 'Die App startet nicht oder stürzt ab – was kann ich tun?',
+        a: 'Versuche zunächst, die App zu schließen und neu zu starten. Wenn das nicht hilft, prüfe ob Updates verfügbar sind. Als letzten Schritt kannst du die App deinstallieren und neu installieren – dein Lernfortschritt wird lokal gespeichert und kann dabei verloren gehen.',
+      },
+      {
+        q: 'Kann ich AEVO Ada auf mehreren Geräten nutzen?',
+        a: 'Ja. Du kannst die App auf mehreren Geräten installieren. Der Lernfortschritt wird jedoch lokal auf dem jeweiligen Gerät gespeichert und nicht geräteübergreifend synchronisiert.',
+      },
+    ],
+  },
+  {
+    category: 'Premium & Abonnement',
+    items: [
+      {
+        q: 'Wie kündige ich mein Premium-Abonnement?',
+        a: 'Abonnements werden über den Apple App Store oder Google Play Store verwaltet. Zur Kündigung gehe in die Einstellungen deines Geräts → Dein Profil → Abonnements (iOS) bzw. Google Play → Abonnements (Android).',
+      },
+      {
+        q: 'Kann ich eine Rückerstattung beantragen?',
+        a: 'Rückerstattungen werden gemäß den Richtlinien von Apple oder Google bearbeitet. Bitte kontaktiere den jeweiligen Support: Bei Apple über reportaproblem.apple.com, bei Google über den Google Play Store.',
+      },
+      {
+        q: 'Mein Premium ist nach einem Gerätewechsel weg – was tun?',
+        a: 'Öffne die App und gehe zu den Einstellungen. Tippe auf „Kauf wiederherstellen". Dein Premium-Status wird mit dem Account verknüpft, über den du die App ursprünglich erworben hast (Apple ID / Google-Konto).',
+      },
+      {
+        q: 'Was ist im kostenlosen Tarif enthalten?',
+        a: 'In der kostenlosen Version hast du Zugang zu einer begrenzten Anzahl an Fragen zum Kennenlernen der App. Mit AEVO Ada Pro schaltest du alle 700+ Fragen, Erklärungen und die Prüfungssimulation frei.',
+      },
+    ],
+  },
+  {
+    category: 'Lernen & Inhalte',
+    items: [
+      {
+        q: 'Sind die Prüfungsfragen aktuell?',
+        a: 'Ja. Wir aktualisieren die Fragen regelmäßig, um Änderungen in der AEVO-Prüfungsordnung zu berücksichtigen. Bei einem App-Update erhältst du automatisch die neuesten Inhalte.',
+      },
+      {
+        q: 'Wie funktioniert die Prüfungssimulation?',
+        a: 'Die Prüfungssimulation bildet die echte AEVO-Prüfung nach: 90 Minuten, alle vier Handlungsfelder, echte Prüfungsbedingungen. Du kannst die Simulation nicht pausieren – genau wie die echte Prüfung. Zum Bestehen sind mindestens 50 % erforderlich.',
+      },
+      {
+        q: 'Wie setze ich meinen Lernfortschritt zurück?',
+        a: 'In den App-Einstellungen (Profil-Tab) findest du die Option, deinen Fortschritt zurückzusetzen. Bitte beachte, dass dieser Schritt nicht rückgängig gemacht werden kann.',
+      },
+    ],
+  },
+];
+---
+
+<Layout
+  title="Support – AEVO Ada | Häufige Fragen & Kontakt"
+  description="Support für die AEVO Ada App. Finde Antworten auf häufig gestellte Fragen oder kontaktiere uns direkt bei Problemen mit der App."
+  keywords="AEVO Ada Support, AEVO Ada Hilfe, AEVO App Problem"
+>
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 py-16">
+
+    <!-- Header -->
+    <div class="text-center mb-14">
+      <a href="/" class="inline-flex items-center gap-2 text-muted hover:text-wine text-sm transition-colors mb-8">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+        </svg>
+        Zurück zur Startseite
+      </a>
+      <h1 class="font-serif text-3xl sm:text-4xl font-bold text-brown mb-4">
+        Wie können wir <span class="text-wine">helfen?</span>
+      </h1>
+      <p class="text-muted text-lg max-w-2xl mx-auto">
+        Finde schnell Antworten auf häufige Fragen oder schreib uns direkt.
+      </p>
+    </div>
+
+    <!-- Contact Card -->
+    <div class="bg-wine rounded-2xl p-6 sm:p-8 mb-12 relative overflow-hidden">
+      <div class="absolute top-0 right-0 w-48 h-48 rounded-full bg-wine-dark/30 blur-2xl" aria-hidden="true"></div>
+      <div class="relative flex flex-col sm:flex-row items-start sm:items-center gap-5 justify-between">
+        <div>
+          <h2 class="font-serif text-xl font-bold text-cream mb-1">Direkte Unterstützung</h2>
+          <p class="text-cream/70 text-sm">
+            Deine Frage ist nicht dabei? Schreib uns – wir antworten so schnell wie möglich.
+          </p>
+        </div>
+        <a
+          href="mailto:cfsmobiletech@gmail.com?subject=AEVO%20Ada%20Support"
+          class="flex-shrink-0 inline-flex items-center gap-2 bg-cream text-wine px-5 py-2.5 rounded-xl font-semibold text-sm hover:bg-cream-dark transition-colors shadow-md"
+        >
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+          </svg>
+          E-Mail schreiben
+        </a>
+      </div>
+    </div>
+
+    <!-- FAQ Sections -->
+    <div class="space-y-10">
+      {faqs.map(({ category, items }) => (
+        <div>
+          <h2 class="font-serif text-xl font-bold text-brown mb-4 flex items-center gap-3">
+            <span class="w-1 h-6 bg-wine rounded-full inline-block flex-shrink-0"></span>
+            {category}
+          </h2>
+          <div class="space-y-3">
+            {items.map(({ q, a }) => (
+              <details class="bg-card rounded-2xl border border-cream-border group overflow-hidden">
+                <summary class="px-6 py-4 cursor-pointer font-semibold text-brown text-sm flex justify-between items-center gap-4 list-none hover:text-wine transition-colors">
+                  {q}
+                  <svg class="w-4 h-4 text-muted flex-shrink-0 group-open:rotate-180 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                  </svg>
+                </summary>
+                <div class="px-6 pb-5 text-muted text-sm leading-relaxed border-t border-cream-border pt-3">
+                  {a}
+                </div>
+              </details>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Bottom CTA -->
+    <div class="mt-14 text-center bg-cream-dark/60 rounded-2xl border border-cream-border p-8">
+      <p class="text-brown font-semibold mb-1">Problem nicht gefunden?</p>
+      <p class="text-muted text-sm mb-4">
+        Schreib uns an <a href="mailto:cfsmobiletech@gmail.com" class="text-wine hover:underline">cfsmobiletech@gmail.com</a> und wir helfen dir weiter.
+      </p>
+      <div class="flex justify-center gap-4 text-xs text-muted">
+        <a href="/datenschutz" class="hover:text-wine transition-colors">Datenschutzerklärung</a>
+        <span>·</span>
+        <a href="/nutzungsbedingungen" class="hover:text-wine transition-colors">Nutzungsbedingungen</a>
+      </div>
+    </div>
+  </div>
+</Layout>

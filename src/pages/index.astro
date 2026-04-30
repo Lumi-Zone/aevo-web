@@ -1,0 +1,399 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const features = [
+  {
+    icon: '📋',
+    title: '700+ Prüfungsfragen',
+    desc: 'Aus allen vier Handlungsfeldern der AEVO – regelmäßig aktualisiert und geprüft.',
+  },
+  {
+    icon: '🧠',
+    title: 'Intelligentes Lernsystem',
+    desc: 'Unser Spaced-Repetition-Algorithmus stellt sicher, dass du das Richtige zur richtigen Zeit wiederholst.',
+  },
+  {
+    icon: '⏱️',
+    title: 'Realistische Prüfungssimulation',
+    desc: '90 Minuten, echte Bedingungen – übe so, als wärst du bereits in der Prüfung.',
+  },
+  {
+    icon: '🚫',
+    title: 'Komplett werbefrei',
+    desc: 'Fokussiertes Lernen ohne Unterbrechungen. Deine Konzentration gehört dem Stoff.',
+  },
+  {
+    icon: '📊',
+    title: 'Detaillierte Statistiken',
+    desc: 'Verfolge deinen Fortschritt je Handlungsfeld und erkenne gezielt deine Schwächen.',
+  },
+  {
+    icon: '🎯',
+    title: 'Ausführliche Erklärungen',
+    desc: 'Jede Antwort mit verständlichen Begründungen – du verstehst, nicht nur auswendig lernst.',
+  },
+];
+
+const handlungsfelder = [
+  {
+    nr: '1',
+    title: 'Ausbildungsvoraussetzungen prüfen und Ausbildung planen',
+    weight: '15 %',
+    desc: 'Ausbildungsberufe, betriebliche Ausbildungsplanung, Rahmenbedingungen und rechtliche Grundlagen.',
+  },
+  {
+    nr: '2',
+    title: 'Ausbildung vorbereiten und bei der Einstellung mitwirken',
+    weight: '20 %',
+    desc: 'Auswahl von Auszubildenden, Ausbildungsvertrag, Berufsschule und Zusammenarbeit mit Behörden.',
+  },
+  {
+    nr: '3',
+    title: 'Ausbildung durchführen',
+    weight: '50 %',
+    desc: 'Lernförderung, Lernmethoden, Motivation, Beurteilung und Konfliktsituationen meistern.',
+  },
+  {
+    nr: '4',
+    title: 'Ausbildung abschließen',
+    weight: '15 %',
+    desc: 'Prüfungsvorbereitung, Abschlusszeugnis, Übernahme und Weiterqualifizierung der Absolventen.',
+  },
+];
+
+const steps = [
+  {
+    nr: '1',
+    title: 'App herunterladen',
+    desc: 'Starte sofort kostenlos – kein Abo nötig. In 2 Minuten ist dein persönlicher Lernplan erstellt.',
+  },
+  {
+    nr: '2',
+    title: 'Täglich üben',
+    desc: 'Dein intelligenter Lernplan bringt dich Schritt für Schritt ans Ziel – angepasst an deinen Fortschritt.',
+  },
+  {
+    nr: '3',
+    title: 'Prüfung bestehen',
+    desc: 'Mit realistischen Simulationen und ausführlichen Erklärungen bist du optimal vorbereitet.',
+  },
+];
+
+const premiumFeatures = [
+  'Alle 700+ Prüfungsfragen – regelmäßig aktualisiert',
+  'Ausführliche Erklärungen zu jeder Frage',
+  'Realistische 90-Minuten-Prüfungssimulation',
+  'Komplett werbefrei',
+  'Unbegrenzte Wiederholungen',
+  'Detaillierte Fortschrittsstatistiken',
+];
+---
+
+<Layout
+  title="AEVO Ada – AEVO Prüfungsvorbereitung App | Bestehe im ersten Anlauf"
+  description="AEVO Ada ist die smarte App zur Vorbereitung auf die AEVO-Prüfung (Ausbilder-Eignungsverordnung). 700+ Prüfungsfragen, realistische Simulationen und ein intelligentes Lernsystem. Kostenlos starten."
+  keywords="AEVO Prüfung, AEVO Prüfungsvorbereitung, Ausbilder-Eignungsverordnung, AEVO App, AEVO Lernen, AEVO Fragen, Ausbilder Prüfung, IHK AEVO, AEVO App iOS Android"
+>
+  <!-- Hero Section -->
+  <section class="relative overflow-hidden bg-cream pt-16 pb-20 sm:pt-24 sm:pb-28">
+    <!-- Subtle background pattern -->
+    <div class="absolute inset-0 opacity-30" aria-hidden="true">
+      <div class="absolute top-20 right-10 w-72 h-72 rounded-full bg-gold/10 blur-3xl"></div>
+      <div class="absolute bottom-10 left-10 w-96 h-96 rounded-full bg-wine/5 blur-3xl"></div>
+    </div>
+
+    <div class="relative max-w-5xl mx-auto px-4 sm:px-6">
+      <div class="text-center max-w-3xl mx-auto">
+        <!-- Badge -->
+        <div class="inline-flex items-center gap-2 bg-wine/10 text-wine px-4 py-1.5 rounded-full text-sm font-semibold mb-6 border border-wine/20">
+          <span class="text-gold text-base">♛</span>
+          AEVO Prüfungsvorbereitung
+        </div>
+
+        <!-- Heading -->
+        <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold text-brown leading-tight mb-6">
+          Bestehe die AEVO-Prüfung<br class="hidden sm:block" />
+          <span class="text-wine">im ersten Anlauf.</span>
+        </h1>
+
+        <p class="text-lg sm:text-xl text-muted leading-relaxed mb-8 max-w-2xl mx-auto">
+          Die smarte Lern-App für angehende Ausbilder – mit 700+ offiziellen Prüfungsfragen, realistischen Simulationen und einem intelligenten Lernalgorithmus.
+        </p>
+
+        <!-- CTA Buttons -->
+        <div class="flex flex-col sm:flex-row gap-3 justify-center items-center mb-4">
+          <a
+            href="#"
+            class="flex items-center gap-3 bg-brown text-cream px-6 py-3.5 rounded-xl font-semibold text-sm hover:bg-wine transition-colors shadow-md w-full sm:w-auto justify-center opacity-60 cursor-not-allowed"
+            title="Demnächst verfügbar"
+            aria-label="Im App Store laden – demnächst verfügbar"
+          >
+            <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+            </svg>
+            <span>
+              <span class="block text-xs opacity-70">Demnächst im</span>
+              App Store
+            </span>
+          </a>
+          <a
+            href="#"
+            class="flex items-center gap-3 bg-wine text-cream px-6 py-3.5 rounded-xl font-semibold text-sm hover:bg-wine-dark transition-colors shadow-md w-full sm:w-auto justify-center opacity-60 cursor-not-allowed"
+            title="Demnächst verfügbar"
+            aria-label="Bei Google Play laden – demnächst verfügbar"
+          >
+            <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M3.18 23.76c.3.17.64.24.99.2l12.7-7.34-2.79-2.79-10.9 9.93zM.35 1.12C.13 1.48 0 1.94 0 2.49v19.02c0 .55.13 1.01.35 1.37l.07.06 10.65-10.65v-.25L.42 1.06l-.07.06zM21.1 10.42l-2.9-1.68-3.13 3.13 3.13 3.13 2.93-1.7c.83-.48.83-1.26-.03-1.88zM3.18.24L15.88 7.58l-2.79 2.79L2.19.44c.29-.22.66-.29.99-.2z"/>
+            </svg>
+            <span>
+              <span class="block text-xs opacity-70">Demnächst bei</span>
+              Google Play
+            </span>
+          </a>
+        </div>
+        <p class="text-xs text-muted">Kostenlos starten · Kein Abo nötig</p>
+      </div>
+
+      <!-- Visual: Feature preview card -->
+      <div class="mt-14 max-w-sm mx-auto">
+        <div class="bg-card rounded-3xl shadow-2xl border border-cream-border overflow-hidden">
+          <!-- Mock app header -->
+          <div class="bg-wine/5 border-b border-cream-border px-5 py-4 flex items-center justify-between">
+            <div class="flex items-center gap-2">
+              <div class="w-6 h-6 rounded-lg bg-wine flex items-center justify-center">
+                <span class="text-gold font-serif font-bold text-xs">A</span>
+              </div>
+              <span class="font-serif font-semibold text-brown text-sm">AEVO Ada</span>
+            </div>
+            <span class="text-xs text-muted bg-cream-dark px-2 py-0.5 rounded-full">PRO</span>
+          </div>
+          <!-- Mock feature list -->
+          <div class="px-5 py-4 space-y-3">
+            {['700+ Prüfungsfragen', 'Ausführliche Erklärungen', 'Realistische Simulationen', 'Komplett werbefrei'].map((item) => (
+              <div class="flex items-center gap-3">
+                <div class="w-5 h-5 rounded-full bg-wine/10 flex items-center justify-center flex-shrink-0">
+                  <svg class="w-3 h-3 text-wine" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
+                  </svg>
+                </div>
+                <span class="text-sm font-medium text-brown">{item}</span>
+              </div>
+            ))}
+            <div class="pt-2">
+              <div class="bg-wine text-cream text-center py-2.5 rounded-xl text-sm font-semibold">
+                Jetzt kostenlos starten
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section id="features" class="py-20 bg-cream-dark/40">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <div class="text-center mb-12">
+        <h2 class="font-serif text-3xl sm:text-4xl font-bold text-brown mb-4">
+          Alles, was du für die <span class="text-wine">AEVO-Prüfung</span> brauchst
+        </h2>
+        <p class="text-muted text-lg max-w-2xl mx-auto">
+          AEVO Ada vereint alle wichtigen Lernwerkzeuge in einer App – durchdacht, effizient und auf dein Ziel ausgerichtet.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        {features.map(({ icon, title, desc }) => (
+          <div class="bg-card rounded-2xl p-6 border border-cream-border hover:shadow-md hover:border-wine/20 transition-all">
+            <div class="text-3xl mb-4">{icon}</div>
+            <h3 class="font-semibold text-brown text-base mb-2">{title}</h3>
+            <p class="text-muted text-sm leading-relaxed">{desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Handlungsfelder Section -->
+  <section id="handlungsfelder" class="py-20">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <div class="text-center mb-12">
+        <h2 class="font-serif text-3xl sm:text-4xl font-bold text-brown mb-4">
+          Alle <span class="text-wine">4 Handlungsfelder</span> abgedeckt
+        </h2>
+        <p class="text-muted text-lg max-w-2xl mx-auto">
+          Die AEVO-Prüfung gliedert sich in vier Bereiche. AEVO Ada bereitet dich auf jeden einzelnen vor.
+        </p>
+      </div>
+
+      <div class="space-y-4">
+        {handlungsfelder.map(({ nr, title, weight, desc }) => (
+          <div class="bg-card rounded-2xl p-6 border border-cream-border flex gap-5 hover:shadow-md hover:border-wine/20 transition-all">
+            <div class="flex-shrink-0 w-12 h-12 rounded-xl bg-wine text-cream font-serif font-bold text-lg flex items-center justify-center shadow-sm">
+              {nr}
+            </div>
+            <div class="min-w-0">
+              <div class="flex flex-wrap items-center gap-3 mb-1.5">
+                <h3 class="font-semibold text-brown text-base">{title}</h3>
+                <span class="text-xs bg-gold/20 text-brown/70 px-2.5 py-0.5 rounded-full font-medium flex-shrink-0">
+                  Anteil: {weight}
+                </span>
+              </div>
+              <p class="text-muted text-sm leading-relaxed">{desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- How it works Section -->
+  <section class="py-20 bg-cream-dark/40">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <div class="text-center mb-12">
+        <h2 class="font-serif text-3xl sm:text-4xl font-bold text-brown mb-4">
+          In 3 Schritten zur <span class="text-wine">bestandenen Prüfung</span>
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+        {steps.map(({ nr, title, desc }) => (
+          <div class="text-center">
+            <div class="w-14 h-14 rounded-2xl bg-wine text-cream font-serif font-bold text-2xl flex items-center justify-center mx-auto mb-4 shadow-md">
+              {nr}
+            </div>
+            <h3 class="font-semibold text-brown text-base mb-2">{title}</h3>
+            <p class="text-muted text-sm leading-relaxed">{desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Premium Section -->
+  <section id="premium" class="py-20">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <div class="bg-brown rounded-3xl p-8 sm:p-12 relative overflow-hidden">
+        <!-- Decorative -->
+        <div class="absolute top-0 right-0 w-64 h-64 rounded-full bg-wine/20 blur-3xl" aria-hidden="true"></div>
+        <div class="absolute bottom-0 left-0 w-48 h-48 rounded-full bg-gold/10 blur-3xl" aria-hidden="true"></div>
+
+        <div class="relative grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+          <div>
+            <div class="inline-flex items-center gap-2 bg-gold/20 text-gold px-4 py-1.5 rounded-full text-sm font-semibold mb-5 border border-gold/30">
+              <span>♛</span>
+              AEVO Ada Pro
+            </div>
+            <h2 class="font-serif text-3xl sm:text-4xl font-bold text-cream mb-4">
+              Dein volles Potenzial. Freigeschaltet.
+            </h2>
+            <p class="text-cream/70 text-base leading-relaxed mb-6">
+              Mit AEVO Ada Pro erhältst du uneingeschränkten Zugang zu allen Lernmaterialien – für deine optimale Prüfungsvorbereitung.
+            </p>
+            <a
+              href="#"
+              class="inline-flex items-center gap-2 bg-gold text-brown px-6 py-3 rounded-xl font-bold text-sm hover:bg-gold-light transition-colors shadow-lg opacity-60 cursor-not-allowed"
+              title="App demnächst verfügbar"
+            >
+              Demnächst verfügbar
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+              </svg>
+            </a>
+          </div>
+
+          <ul class="space-y-3">
+            {premiumFeatures.map((feature) => (
+              <li class="flex items-center gap-3">
+                <div class="w-5 h-5 rounded-full bg-gold/20 border border-gold/40 flex items-center justify-center flex-shrink-0">
+                  <svg class="w-3 h-3 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
+                  </svg>
+                </div>
+                <span class="text-cream/80 text-sm">{feature}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="py-20 bg-cream-dark/40">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+      <div class="text-center mb-12">
+        <h2 class="font-serif text-3xl sm:text-4xl font-bold text-brown mb-4">
+          Häufig gestellte <span class="text-wine">Fragen</span>
+        </h2>
+      </div>
+
+      <div class="space-y-4">
+        {[
+          {
+            q: 'Was ist die AEVO-Prüfung?',
+            a: 'Die AEVO-Prüfung (Ausbilder-Eignungsverordnung) ist eine Prüfung, die nachweist, dass du die berufs- und arbeitspädagogischen Fähigkeiten zur Ausbildung von Azubis besitzt. Sie ist Voraussetzung, um selbstständig ausbilden zu dürfen.',
+          },
+          {
+            q: 'Wie viele Fragen enthält AEVO Ada?',
+            a: 'AEVO Ada enthält über 700 Prüfungsfragen aus allen vier Handlungsfeldern der AEVO – regelmäßig aktualisiert und von Experten geprüft.',
+          },
+          {
+            q: 'Ist die App kostenlos?',
+            a: 'Ja! Du kannst sofort kostenlos mit dem Lernen beginnen. Mit AEVO Ada Pro schaltest du unbegrenzten Zugang zu allen Fragen, Erklärungen und der Prüfungssimulation frei.',
+          },
+          {
+            q: 'Für welche Prüfungsform eignet sich die App?',
+            a: 'AEVO Ada unterstützt dich bei der schriftlichen Prüfung (Multiple-Choice-Fragen) sowie bei der praktischen mündlichen Prüfung mit Szenarien und Fallbeispielen.',
+          },
+          {
+            q: 'Wie funktioniert die Prüfungssimulation?',
+            a: 'Die Simulation bildet die echte AEVO-Prüfung nach: 90 Minuten, alle vier Handlungsfelder, echte Bedingungen. Du kannst sie nicht pausieren – genau wie die echte Prüfung.',
+          },
+        ].map(({ q, a }) => (
+          <details class="bg-card rounded-2xl border border-cream-border group overflow-hidden">
+            <summary class="px-6 py-4 cursor-pointer font-semibold text-brown text-sm flex justify-between items-center gap-4 list-none hover:text-wine transition-colors">
+              {q}
+              <svg class="w-4 h-4 text-muted flex-shrink-0 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </summary>
+            <div class="px-6 pb-4 text-muted text-sm leading-relaxed border-t border-cream-border pt-3">
+              {a}
+            </div>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA Section -->
+  <section class="py-20">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 text-center">
+      <span class="text-4xl mb-4 block" aria-hidden="true">♛</span>
+      <h2 class="font-serif text-3xl sm:text-4xl font-bold text-brown mb-4">
+        Bereit für deine <span class="text-wine">AEVO-Prüfung?</span>
+      </h2>
+      <p class="text-muted text-lg mb-8">
+        Starte noch heute kostenlos und leg den Grundstein für deine Ausbilderlizenz.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-3 justify-center">
+        <a
+          href="#"
+          class="flex items-center gap-3 bg-wine text-cream px-7 py-3.5 rounded-xl font-semibold text-sm hover:bg-wine-dark transition-colors shadow-md justify-center opacity-60 cursor-not-allowed"
+          title="Demnächst verfügbar"
+        >
+          Demnächst im App Store
+        </a>
+        <a
+          href="#"
+          class="flex items-center gap-3 bg-brown text-cream px-7 py-3.5 rounded-xl font-semibold text-sm hover:bg-wine transition-colors shadow-md justify-center opacity-60 cursor-not-allowed"
+          title="Demnächst verfügbar"
+        >
+          Demnächst bei Google Play
+        </a>
+      </div>
+      <p class="text-xs text-muted mt-4">Kostenlos starten · Kein Abo nötig · Jederzeit kündbar</p>
+    </div>
+  </section>
+</Layout>

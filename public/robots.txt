@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://aevo-ada-pruefung.de/sitemap-index.xml
