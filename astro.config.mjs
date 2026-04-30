@@ -5,7 +5,7 @@ import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
   site: 'https://lumi-zone.github.io',
-  base: '/aewo-web',
+  base: '/aevo-web',
   integrations: [sitemap()],
   vite: {
     plugins: [tailwindcss()],

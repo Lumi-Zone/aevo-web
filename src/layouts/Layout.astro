@@ -20,7 +20,7 @@ const {
 } = Astro.props;
 
 const baseUrl = import.meta.env.BASE_URL;
-const siteUrl = Astro.site?.toString() ?? 'https://lumi-zone.github.io/aewo-web/';
+const siteUrl = Astro.site?.toString() ?? 'https://lumi-zone.github.io/aevo-web/';
 const currentPath = Astro.url.pathname;
 const canonicalHref = canonical ?? new URL(currentPath, siteUrl).href;
 const ogImage = new URL('og-image.png', siteUrl).href;
