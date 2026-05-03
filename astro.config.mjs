@@ -11,7 +11,8 @@ import sitemap from '@astrojs/sitemap';
 function pagesConfig() {
   const full = process.env.GITHUB_REPOSITORY;
   if (!full?.includes('/')) {
-    return { site: 'https://aevo-ada-pruefung.de', base: '/' };
+    // Local / preview: origin only; CI sets base to /aevo-web/ via GITHUB_REPOSITORY.
+    return { site: 'https://lumi-zone.github.io', base: '/' };
   }
   const [owner, repo] = full.split('/');
   return {

@@ -23,7 +23,7 @@ const rawBase = import.meta.env.BASE_URL;
 const baseUrl = rawBase.endsWith('/') ? rawBase : `${rawBase}/`;
 const siteOrigin = Astro.site
   ? `${new URL(Astro.site).origin}/`
-  : 'https://aevo-ada-pruefung.de/';
+  : 'https://lumi-zone.github.io/aevo-web/';
 const publicRoot = new URL(baseUrl, siteOrigin);
 const siteUrl = siteOrigin;
 const currentPath = Astro.url.pathname;
