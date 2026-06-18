@@ -97,6 +97,8 @@ const baseUrl = import.meta.env.BASE_URL;
         <a
           href="mailto:cfsmobiletech@gmail.com?subject=AEVO%20Ada%20Support"
           class="flex-shrink-0 inline-flex items-center gap-2 bg-cream text-wine px-5 py-2.5 rounded-xl font-semibold text-sm hover:bg-cream-dark transition-colors shadow-md"
+          data-umami-event="support-email-click"
+          data-umami-event-location="support-hero"
         >
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
@@ -137,7 +139,7 @@ const baseUrl = import.meta.env.BASE_URL;
     <div class="mt-14 text-center bg-cream-dark/60 rounded-2xl border border-cream-border p-8">
       <p class="text-brown font-semibold mb-1">Problem nicht gefunden?</p>
       <p class="text-muted text-sm mb-4">
-        Schreib uns an <a href="mailto:cfsmobiletech@gmail.com" class="text-wine hover:underline">cfsmobiletech@gmail.com</a> und wir helfen dir weiter.
+        Schreib uns an <a href="mailto:cfsmobiletech@gmail.com" class="text-wine hover:underline" data-umami-event="support-email-click" data-umami-event-location="support-bottom">cfsmobiletech@gmail.com</a> und wir helfen dir weiter.
       </p>
       <div class="flex justify-center gap-4 text-xs text-muted">
         <a href={`${baseUrl}datenschutz`} class="hover:text-wine transition-colors">Datenschutzerklärung</a>

@@ -22,6 +22,9 @@ jobs:
       CUSTOM_DOMAIN: aevo-ada-pruefung.de
       # Fallback for non-custom-domain deploys; Astro uses this only when CUSTOM_DOMAIN is unset.
       GITHUB_REPOSITORY: ${{ github.repository }}
+      PUBLIC_UMAMI_WEBSITE_ID: ${{ vars.PUBLIC_UMAMI_WEBSITE_ID }}
+      PUBLIC_UMAMI_DOMAINS: ${{ vars.PUBLIC_UMAMI_DOMAINS }}
+      PUBLIC_UMAMI_SCRIPT_URL: ${{ vars.PUBLIC_UMAMI_SCRIPT_URL }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4

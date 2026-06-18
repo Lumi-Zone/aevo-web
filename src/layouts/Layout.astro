@@ -56,6 +56,10 @@ const jsonLd = {
 const base = baseUrl.endsWith('/') ? baseUrl : `${baseUrl}/`;
 const appStoreUrl = 'https://apps.apple.com/de/app/aevo-ihk-app-ada-schein/id6763579448';
 const appleAppId = '6763579448';
+const defaultUmamiWebsiteId = '688db29c-e411-4983-8eb8-6667eb5eeb6b';
+const umamiWebsiteId = import.meta.env.PUBLIC_UMAMI_WEBSITE_ID?.trim() || defaultUmamiWebsiteId;
+const umamiScriptUrl = import.meta.env.PUBLIC_UMAMI_SCRIPT_URL?.trim() || 'https://cloud.umami.is/script.js';
+const umamiDomains = import.meta.env.PUBLIC_UMAMI_DOMAINS?.trim() || 'aevo-ada-pruefung.de';
 const navLinks = [
   { href: base, label: 'Startseite' },
   { href: `${base}support/`, label: 'Support' },
@@ -110,6 +114,15 @@ const isActive = (href: string) => {
 
     <!-- Structured Data -->
     <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+    {umamiWebsiteId && (
+      <script
+        is:inline
+        defer
+        src={umamiScriptUrl}
+        data-website-id={umamiWebsiteId}
+        data-domains={umamiDomains || undefined}
+      ></script>
+    )}
   </head>
   <body>
     <a href="#main-content" class="skip-link">Zum Inhalt springen</a>
@@ -148,6 +161,8 @@ const isActive = (href: string) => {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="AEVO Ada App öffnen"
+            data-umami-event="app-store-click"
+            data-umami-event-location="mobile-app-banner"
           >
             Öffnen
           </a>
@@ -265,7 +280,14 @@ const isActive = (href: string) => {
                 <a href={`${base}support/`} class="text-sm text-cream/60 hover:text-cream transition-colors">Support</a>
               </li>
               <li>
-                <a href="mailto:cfsmobiletech@gmail.com" class="text-sm text-cream/60 hover:text-cream transition-colors">Kontakt</a>
+                <a
+                  href="mailto:cfsmobiletech@gmail.com"
+                  class="text-sm text-cream/60 hover:text-cream transition-colors"
+                  data-umami-event="support-email-click"
+                  data-umami-event-location="footer"
+                >
+                  Kontakt
+                </a>
               </li>
             </ul>
           </div>
