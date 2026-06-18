@@ -54,6 +54,8 @@ const jsonLd = {
 };
 
 const base = baseUrl.endsWith('/') ? baseUrl : `${baseUrl}/`;
+const appStoreUrl = 'https://apps.apple.com/de/app/aevo-ihk-app-ada-schein/id6763579448';
+const appleAppId = '6763579448';
 const navLinks = [
   { href: base, label: 'Startseite' },
   { href: `${base}support/`, label: 'Support' },
@@ -104,6 +106,7 @@ const isActive = (href: string) => {
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href={`${baseUrl}favicon.svg`} />
     <link rel="apple-touch-icon" href={`${baseUrl}apple-touch-icon.png`} />
+    <meta name="apple-itunes-app" content={`app-id=${appleAppId}, app-argument=${canonicalHref}`} />
 
     <!-- Structured Data -->
     <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
@@ -112,7 +115,45 @@ const isActive = (href: string) => {
     <a href="#main-content" class="skip-link">Zum Inhalt springen</a>
 
     <!-- Navigation -->
-    <header class="fixed top-0 left-0 right-0 z-50 bg-cream/90 backdrop-blur-md border-b border-cream-border">
+    <header id="site-header" class="fixed top-0 left-0 right-0 z-50 bg-cream/90 backdrop-blur-md border-b border-cream-border">
+      <div
+        id="mobile-app-banner"
+        class="md:hidden border-b border-cream-border bg-card"
+        hidden
+      >
+        <div class="max-w-5xl mx-auto px-3 py-2.5 flex items-center gap-3">
+          <button
+            id="mobile-app-banner-close"
+            type="button"
+            class="flex-shrink-0 w-8 h-8 rounded-full text-muted hover:text-brown hover:bg-cream-dark transition-colors flex items-center justify-center"
+            aria-label="App-Banner schließen"
+          >
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+
+          <div class="flex-shrink-0 w-10 h-10 rounded-xl bg-wine flex items-center justify-center shadow-sm">
+            <span class="text-gold font-serif font-bold text-base">A</span>
+          </div>
+
+          <div class="min-w-0 flex-1">
+            <p class="text-sm font-semibold text-brown leading-tight truncate">AEVO Ada</p>
+            <p class="text-xs text-muted leading-tight truncate">AEVO-Prüfung mobil lernen</p>
+          </div>
+
+          <a
+            href={appStoreUrl}
+            class="flex-shrink-0 inline-flex items-center justify-center bg-wine text-cream px-4 py-2 rounded-full text-xs font-bold hover:bg-wine-dark transition-colors"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="AEVO Ada App öffnen"
+          >
+            Öffnen
+          </a>
+        </div>
+      </div>
+
       <nav class="max-w-5xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
         <a href={baseUrl} class="flex items-center gap-2 group" aria-label="AEVO Ada – Startseite">
           <div class="w-8 h-8 rounded-xl bg-wine flex items-center justify-center shadow-sm">
@@ -244,6 +285,32 @@ const isActive = (href: string) => {
     <script>
       const btn = document.getElementById('mobile-menu-btn');
       const menu = document.getElementById('mobile-menu');
+      const appBanner = document.getElementById('mobile-app-banner');
+      const appBannerClose = document.getElementById('mobile-app-banner-close');
+      const isMobileDevice = /Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent);
+      const isMobileViewport = window.matchMedia('(max-width: 767px)').matches;
+      const appBannerStorageKey = 'aevo-app-banner-dismissed';
+      const isAppBannerDismissed = (() => {
+        try {
+          return localStorage.getItem(appBannerStorageKey) === 'true';
+        } catch {
+          return false;
+        }
+      })();
+
+      if (appBanner && (isMobileDevice || isMobileViewport) && !isAppBannerDismissed) {
+        appBanner.hidden = false;
+        document.body.classList.add('has-mobile-app-banner');
+      }
+
+      appBannerClose?.addEventListener('click', () => {
+        appBanner?.setAttribute('hidden', '');
+        document.body.classList.remove('has-mobile-app-banner');
+        try {
+          localStorage.setItem(appBannerStorageKey, 'true');
+        } catch {}
+      });
+
       btn?.addEventListener('click', () => {
         const isOpen = !menu?.classList.contains('hidden');
         menu?.classList.toggle('hidden', isOpen);
@@ -269,6 +336,12 @@ const isActive = (href: string) => {
       }
       .skip-link:focus {
         transform: translateY(0);
+      }
+
+      @media (max-width: 767px) {
+        body.has-mobile-app-banner #main-content {
+          padding-top: 8.75rem;
+        }
       }
     </style>
   </body>
