@@ -6,8 +6,13 @@ interface Props {
   description?: string;
   canonical?: string;
   keywords?: string;
+  ogImage?: string;
   ogType?: 'website' | 'article';
   noindex?: boolean;
+  publishedDate?: string;
+  updatedDate?: string;
+  breadcrumbs?: Array<{ name: string; href: string }>;
+  jsonLd?: Record<string, unknown> | Array<Record<string, unknown>> | null;
 }
 
 const {
@@ -15,8 +20,13 @@ const {
   description = 'AEVO Ada – Die smarte App zur AEVO-Prüfungsvorbereitung. 700+ Prüfungsfragen, realistische Simulationen und ein intelligentes Lernsystem für angehende Ausbilder.',
   canonical,
   keywords = 'AEVO Prüfung, AEVO Prüfungsvorbereitung, Ausbilder-Eignungsverordnung, AEVO App, AEVO Lernen, AEVO Fragen, Ausbilder Prüfung, IHK AEVO',
+  ogImage: ogImageProp = 'og-image.png',
   ogType = 'website',
   noindex = false,
+  publishedDate,
+  updatedDate,
+  breadcrumbs,
+  jsonLd,
 } = Astro.props;
 
 const rawBase = import.meta.env.BASE_URL;
@@ -28,19 +38,20 @@ const publicRoot = new URL(baseUrl, siteOrigin);
 const siteUrl = siteOrigin;
 const currentPath = Astro.url.pathname;
 const canonicalHref = canonical ?? new URL(currentPath, publicRoot).href;
-const ogImage = new URL('og-image.png', publicRoot).href;
+const ogImage = new URL(ogImageProp, publicRoot).href;
 const robotsContent = noindex
   ? 'noindex, nofollow'
   : 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1';
 
-const jsonLd = {
+const defaultJsonLd = {
   '@context': 'https://schema.org',
-  '@type': 'MobileApplication',
+  '@type': 'SoftwareApplication',
   name: 'AEVO Ada',
   description:
     'Die smarte App zur Vorbereitung auf die AEVO-Prüfung (Ausbilder-Eignungsverordnung) mit 700+ Fragen, Prüfungssimulationen und intelligentem Lernalgorithmus.',
-  applicationCategory: 'EducationApplication',
-  operatingSystem: 'iOS, Android',
+  applicationCategory: 'EducationalApplication',
+  operatingSystem: 'iOS',
+  downloadUrl: 'https://apps.apple.com/de/app/aevo-ihk-app-ada-schein/id6763579448',
   offers: {
     '@type': 'Offer',
     price: '0',
@@ -62,9 +73,10 @@ const umamiScriptUrl = import.meta.env.PUBLIC_UMAMI_SCRIPT_URL?.trim() || 'https
 const umamiDomains = import.meta.env.PUBLIC_UMAMI_DOMAINS?.trim() || 'aevo-ada-pruefung.de';
 const navLinks = [
   { href: base, label: 'Startseite' },
+  { href: `${base}aevo-pruefung/`, label: 'AEVO Prüfung' },
+  { href: `${base}aevo-pruefungsfragen/`, label: 'Prüfungsfragen' },
+  { href: `${base}ausbilderschein-ada-schein/`, label: 'ADA-Schein' },
   { href: `${base}support/`, label: 'Support' },
-  { href: `${base}datenschutz/`, label: 'Datenschutz' },
-  { href: `${base}nutzungsbedingungen/`, label: 'Nutzungsbedingungen' },
 ];
 
 const isActive = (href: string) => {
@@ -72,6 +84,25 @@ const isActive = (href: string) => {
   if (href === base) return path === base || path === base.slice(0, -1);
   return path.startsWith(href) || path.startsWith(href.slice(0, -1));
 };
+
+const breadcrumbJsonLd = breadcrumbs?.length
+  ? {
+      '@context': 'https://schema.org',
+      '@type': 'BreadcrumbList',
+      itemListElement: breadcrumbs.map((item, index) => ({
+        '@type': 'ListItem',
+        position: index + 1,
+        name: item.name,
+        item: new URL(item.href, publicRoot).href,
+      })),
+    }
+  : null;
+
+const pageJsonLd = jsonLd === undefined ? defaultJsonLd : jsonLd;
+const jsonLdEntries = [
+  ...(Array.isArray(pageJsonLd) ? pageJsonLd : pageJsonLd ? [pageJsonLd] : []),
+  ...(breadcrumbJsonLd ? [breadcrumbJsonLd] : []),
+];
 ---
 
 <!doctype html>
@@ -100,6 +131,8 @@ const isActive = (href: string) => {
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:image:alt" content="AEVO Ada – AEVO Prüfungsvorbereitung App" />
+    {ogType === 'article' && publishedDate && <meta property="article:published_time" content={publishedDate} />}
+    {ogType === 'article' && updatedDate && <meta property="article:modified_time" content={updatedDate} />}
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
@@ -113,7 +146,9 @@ const isActive = (href: string) => {
     <meta name="apple-itunes-app" content={`app-id=${appleAppId}, app-argument=${canonicalHref}`} />
 
     <!-- Structured Data -->
-    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+    {jsonLdEntries.map((entry) => (
+      <script type="application/ld+json" set:html={JSON.stringify(entry)} />
+    ))}
     {umamiWebsiteId && (
       <script
         is:inline
@@ -169,7 +204,7 @@ const isActive = (href: string) => {
         </div>
       </div>
 
-      <nav class="max-w-5xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+      <nav class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
         <a href={baseUrl} class="flex items-center gap-2 group" aria-label="AEVO Ada – Startseite">
           <div class="w-8 h-8 rounded-xl bg-wine flex items-center justify-center shadow-sm">
             <span class="text-gold font-serif font-bold text-sm">A</span>
@@ -178,7 +213,7 @@ const isActive = (href: string) => {
         </a>
 
         <!-- Desktop Nav -->
-        <ul class="hidden md:flex items-center gap-6" role="list">
+        <ul class="hidden md:flex items-center gap-5" role="list">
           {navLinks.map(({ href, label }) => (
             <li>
               <a
@@ -238,8 +273,8 @@ const isActive = (href: string) => {
 
     <!-- Footer -->
     <footer class="bg-brown text-cream/80 mt-20">
-      <div class="max-w-5xl mx-auto px-4 sm:px-6 py-12">
-        <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 mb-10">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 py-12">
+        <div class="grid grid-cols-1 sm:grid-cols-4 gap-8 mb-10">
           <div>
             <div class="flex items-center gap-2 mb-3">
               <div class="w-7 h-7 rounded-lg bg-wine flex items-center justify-center">
@@ -256,13 +291,31 @@ const isActive = (href: string) => {
             <h3 class="text-cream font-semibold text-sm mb-3">App</h3>
             <ul class="space-y-2">
               <li>
-                <a href="#features" class="text-sm text-cream/60 hover:text-cream transition-colors">Funktionen</a>
+                <a href={`${base}#features`} class="text-sm text-cream/60 hover:text-cream transition-colors">Funktionen</a>
               </li>
               <li>
-                <a href="#handlungsfelder" class="text-sm text-cream/60 hover:text-cream transition-colors">Handlungsfelder</a>
+                <a href={`${base}#handlungsfelder`} class="text-sm text-cream/60 hover:text-cream transition-colors">Handlungsfelder</a>
               </li>
               <li>
-                <a href="#premium" class="text-sm text-cream/60 hover:text-cream transition-colors">Premium</a>
+                <a href={`${base}#premium`} class="text-sm text-cream/60 hover:text-cream transition-colors">Premium</a>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="text-cream font-semibold text-sm mb-3">AEVO Lernen</h3>
+            <ul class="space-y-2">
+              <li>
+                <a href={`${base}aevo-pruefung/`} class="text-sm text-cream/60 hover:text-cream transition-colors">AEVO Prüfung</a>
+              </li>
+              <li>
+                <a href={`${base}aevo-pruefungsvorbereitung/`} class="text-sm text-cream/60 hover:text-cream transition-colors">Prüfungsvorbereitung</a>
+              </li>
+              <li>
+                <a href={`${base}aevo-pruefungsfragen/`} class="text-sm text-cream/60 hover:text-cream transition-colors">Prüfungsfragen</a>
+              </li>
+              <li>
+                <a href={`${base}ausbilderschein-ada-schein/`} class="text-sm text-cream/60 hover:text-cream transition-colors">Ausbilderschein / ADA-Schein</a>
               </li>
             </ul>
           </div>

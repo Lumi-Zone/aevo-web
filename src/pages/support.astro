@@ -7,7 +7,7 @@ const faqs = [
     items: [
       {
         q: 'Auf welchen Geräten ist AEVO Ada verfügbar?',
-        a: 'AEVO Ada ist für iOS (iPhone, iPad) und Android verfügbar. Du kannst die App im Apple App Store oder im Google Play Store herunterladen.',
+        a: 'AEVO Ada ist aktuell für iOS (iPhone, iPad) verfügbar. Die Android-Version ist demnächst verfügbar.',
       },
       {
         q: 'Die App startet nicht oder stürzt ab – was kann ich tun?',
@@ -24,15 +24,15 @@ const faqs = [
     items: [
       {
         q: 'Wie kündige ich mein Premium-Abonnement?',
-        a: 'Abonnements werden über den Apple App Store oder Google Play Store verwaltet. Zur Kündigung gehe in die Einstellungen deines Geräts → Dein Profil → Abonnements (iOS) bzw. Google Play → Abonnements (Android).',
+        a: 'Abonnements werden aktuell über den Apple App Store verwaltet. Zur Kündigung gehe in die Einstellungen deines Geräts → Dein Profil → Abonnements. Für die Android-Version gelten nach Veröffentlichung die Google Play Abonnement-Einstellungen.',
       },
       {
         q: 'Kann ich eine Rückerstattung beantragen?',
-        a: 'Rückerstattungen werden gemäß den Richtlinien von Apple oder Google bearbeitet. Bitte kontaktiere den jeweiligen Support: Bei Apple über reportaproblem.apple.com, bei Google über den Google Play Store.',
+        a: 'Rückerstattungen werden gemäß den Richtlinien von Apple bearbeitet. Bitte kontaktiere den Apple Support über reportaproblem.apple.com. Für die Android-Version gelten nach Veröffentlichung die Google Play Richtlinien.',
       },
       {
         q: 'Mein Premium ist nach einem Gerätewechsel weg – was tun?',
-        a: 'Öffne die App und gehe zu den Einstellungen. Tippe auf „Kauf wiederherstellen". Dein Premium-Status wird mit dem Account verknüpft, über den du die App ursprünglich erworben hast (Apple ID / Google-Konto).',
+        a: 'Öffne die App und gehe zu den Einstellungen. Tippe auf „Kauf wiederherstellen". Dein Premium-Status wird mit der Apple ID verknüpft, über die du die App ursprünglich erworben hast. Für die Android-Version gilt nach Veröffentlichung das entsprechende Google-Konto.',
       },
       {
         q: 'Was ist im kostenlosen Tarif enthalten?',
@@ -59,12 +59,20 @@ const faqs = [
   },
 ];
 const baseUrl = import.meta.env.BASE_URL;
+const supportJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  name: 'Support – AEVO Ada',
+  description:
+    'Support und häufige Fragen zur AEVO Ada App für die AEVO Prüfungsvorbereitung.',
+};
 ---
 
 <Layout
   title="Support – AEVO Ada | Häufige Fragen & Kontakt"
   description="Support für die AEVO Ada App. Finde Antworten auf häufig gestellte Fragen oder kontaktiere uns direkt bei Problemen mit der App."
   keywords="AEVO Ada Support, AEVO Ada Hilfe, AEVO App Problem"
+  jsonLd={supportJsonLd}
 >
   <div class="max-w-4xl mx-auto px-4 sm:px-6 py-16">
 

@@ -1,0 +1,152 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { seoPages, type SeoPage } from '../data/seoPages';
+
+export function getStaticPaths() {
+  return seoPages.map((page) => ({
+    params: { slug: page.slug },
+    props: { page },
+  }));
+}
+
+const { page } = Astro.props as { page: SeoPage };
+const baseUrl = import.meta.env.BASE_URL.endsWith('/')
+  ? import.meta.env.BASE_URL
+  : `${import.meta.env.BASE_URL}/`;
+const pagePath = `${baseUrl}${page.slug}/`;
+const canonicalUrl = new URL(pagePath, Astro.site ?? 'https://aevo-ada-pruefung.de').href;
+const appStoreUrl = 'https://apps.apple.com/de/app/aevo-ihk-app-ada-schein/id6763579448';
+const withBase = (href: string) => (href.startsWith('/') ? `${baseUrl}${href.slice(1)}` : href);
+
+const articleJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: page.h1,
+  description: page.description,
+  inLanguage: 'de-DE',
+  datePublished: '2026-06-19',
+  dateModified: page.updatedDate,
+  keywords: page.keywords.split(',').map((keyword) => keyword.trim()),
+  author: {
+    '@type': 'Organization',
+    name: 'Lumi-Zone',
+  },
+  publisher: {
+    '@type': 'Organization',
+    name: 'Lumi-Zone',
+  },
+  mainEntityOfPage: {
+    '@type': 'WebPage',
+    '@id': canonicalUrl,
+  },
+};
+---
+
+<Layout
+  title={page.title}
+  description={page.description}
+  keywords={page.keywords}
+  ogType="article"
+  publishedDate="2026-06-19"
+  updatedDate={page.updatedDate}
+  breadcrumbs={[
+    { name: 'Startseite', href: baseUrl },
+    { name: page.h1, href: pagePath },
+  ]}
+  jsonLd={articleJsonLd}
+>
+  <section class="bg-cream py-14 sm:py-20">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <div class="max-w-3xl">
+        <p class="inline-flex items-center bg-wine/10 text-wine px-4 py-1.5 rounded-full text-sm font-semibold border border-wine/20 mb-6">
+          {page.eyebrow}
+        </p>
+        <h1 class="font-serif text-4xl sm:text-5xl font-bold text-brown leading-tight mb-6">
+          {page.h1}
+        </h1>
+        <p class="text-lg sm:text-xl text-muted leading-relaxed">
+          {page.intro}
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-10">
+        {page.heroPoints.map((point) => (
+          <div class="bg-card border border-cream-border rounded-2xl p-5">
+            <div class="w-8 h-8 rounded-lg bg-wine/10 text-wine flex items-center justify-center mb-3">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.25" d="M5 13l4 4L19 7" />
+              </svg>
+            </div>
+            <p class="text-sm font-semibold text-brown leading-relaxed">{point}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <article class="py-16 bg-cream-dark/35">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_18rem] gap-10 items-start">
+      <div class="space-y-8">
+        {page.sections.map((section) => (
+          <section class="bg-card border border-cream-border rounded-2xl p-6 sm:p-8">
+            <h2 class="font-serif text-2xl sm:text-3xl font-bold text-brown mb-4">
+              {section.title}
+            </h2>
+            <div class="space-y-4">
+              {section.body.map((paragraph) => (
+                <p class="text-muted leading-relaxed">{paragraph}</p>
+              ))}
+            </div>
+            {section.bullets && (
+              <ul class="mt-5 grid grid-cols-1 sm:grid-cols-2 gap-3" role="list">
+                {section.bullets.map((bullet) => (
+                  <li class="flex gap-3 text-sm text-brown">
+                    <span class="mt-1.5 w-2 h-2 rounded-full bg-gold flex-shrink-0"></span>
+                    <span>{bullet}</span>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </section>
+        ))}
+
+        {page.disclaimer && (
+          <p class="text-sm text-muted bg-cream border border-cream-border rounded-xl p-4">
+            {page.disclaimer}
+          </p>
+        )}
+      </div>
+
+      <aside class="lg:sticky lg:top-24 space-y-5">
+        <div class="bg-brown text-cream rounded-2xl p-6">
+          <p class="font-serif text-xl font-bold mb-3">{page.ctaTitle}</p>
+          <p class="text-sm text-cream/70 leading-relaxed mb-5">{page.ctaText}</p>
+          <a
+            href={appStoreUrl}
+            class="inline-flex items-center justify-center w-full bg-gold text-brown px-5 py-3 rounded-xl font-bold text-sm hover:bg-gold-light transition-colors"
+            target="_blank"
+            rel="noopener noreferrer"
+            data-umami-event="app-store-click"
+            data-umami-event-location={`seo-${page.slug}`}
+          >
+            Im App Store laden
+          </a>
+        </div>
+
+        <div class="bg-card border border-cream-border rounded-2xl p-5">
+          <p class="font-semibold text-brown mb-4">Weiterlesen</p>
+          <div class="space-y-4">
+            {page.relatedLinks.map((link) => (
+              <a href={withBase(link.href)} class="block group">
+                <span class="block text-sm font-semibold text-wine group-hover:text-wine-dark transition-colors">
+                  {link.label}
+                </span>
+                <span class="block text-xs text-muted leading-relaxed mt-1">{link.desc}</span>
+              </a>
+            ))}
+          </div>
+        </div>
+      </aside>
+    </div>
+  </article>
+</Layout>

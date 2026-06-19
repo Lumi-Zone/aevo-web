@@ -3,12 +3,19 @@ import Layout from '../layouts/Layout.astro';
 
 const lastUpdated = '30. April 2026';
 const baseUrl = import.meta.env.BASE_URL;
+const termsJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  name: 'Nutzungsbedingungen – AEVO Ada',
+  description: 'Nutzungsbedingungen der AEVO Ada App.',
+};
 ---
 
 <Layout
   title="Nutzungsbedingungen – AEVO Ada"
   description="Nutzungsbedingungen der AEVO Ada App. Bitte lies diese Bedingungen sorgfältig durch, bevor du die App nutzt."
   keywords="AEVO Ada Nutzungsbedingungen, AGB, Terms of Use"
+  jsonLd={termsJsonLd}
 >
   <div class="max-w-3xl mx-auto px-4 sm:px-6 py-16">
     <div class="mb-10">
@@ -41,7 +48,8 @@ const baseUrl = import.meta.env.BASE_URL;
       <p>
         Der Anbieter gewährt dir ein nicht ausschließliches, nicht übertragbares, widerrufliches Recht zur
         Installation und Nutzung der App auf Geräten, die du besitzt oder kontrollierst, ausschließlich im Rahmen
-        dieser Nutzungsbedingungen und der Regeln des jeweiligen App-Stores (Apple App Store / Google Play Store).
+        dieser Nutzungsbedingungen und der Regeln des jeweiligen App-Stores. AEVO Ada ist aktuell im Apple App Store
+        verfügbar; die Android-Version ist demnächst verfügbar.
       </p>
       <p>
         Die App und alle darin enthaltenen Inhalte (Fragen, Erklärungen, Texte, Grafiken, Logos, Software) sind
@@ -78,14 +86,14 @@ const baseUrl = import.meta.env.BASE_URL;
 
       <h3>5.2 Abonnement und Kündigung</h3>
       <p>
-        Premium-Abonnements werden über den Apple App Store oder Google Play Store abgerechnet. Es gelten die
-        Abrechnungs- und Stornierungsrichtlinien des jeweiligen App-Stores. Abonnements verlängern sich
+        Premium-Abonnements werden aktuell über den Apple App Store abgerechnet. Für die Android-Version gelten
+        nach Veröffentlichung die Abrechnungs- und Stornierungsrichtlinien von Google Play. Abonnements verlängern sich
         automatisch, sofern sie nicht mindestens 24 Stunden vor Ende der aktuellen Laufzeit gekündigt werden.
       </p>
 
       <h3>5.3 Rückerstattungen</h3>
       <p>
-        Rückerstattungen werden gemäß den Richtlinien des jeweiligen App-Stores (Apple/Google) bearbeitet.
+        Rückerstattungen werden gemäß den Richtlinien des jeweiligen App-Stores bearbeitet.
         Wir selbst können keine Rückerstattungen für App-Store-Käufe gewähren.
       </p>
 
@@ -132,9 +140,10 @@ const baseUrl = import.meta.env.BASE_URL;
 
       <h2>10. App-Store-Bestimmungen</h2>
       <p>
-        Für die Nutzung der App gelten zusätzlich die Nutzungsbedingungen des Apple App Store bzw. Google Play Store.
-        Apple und Google sind Dritte, die keine Verpflichtungen bezüglich der App übernehmen, mit Ausnahme der
-        in deren eigenen Bedingungen festgelegten Regelungen.
+        Für die Nutzung der App gelten zusätzlich die Nutzungsbedingungen des Apple App Store. Nach Veröffentlichung
+        der Android-Version gelten für diese Version zusätzlich die Nutzungsbedingungen von Google Play. Apple und
+        Google sind Dritte, die keine Verpflichtungen bezüglich der App übernehmen, mit Ausnahme der in deren eigenen
+        Bedingungen festgelegten Regelungen.
       </p>
 
       <h2>11. Änderungen der Nutzungsbedingungen</h2>

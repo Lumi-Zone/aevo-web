@@ -89,12 +89,37 @@ const premiumFeatures = [
 ];
 
 const appStoreUrl = 'https://apps.apple.com/de/app/aevo-ihk-app-ada-schein/id6763579448';
+const baseUrl = import.meta.env.BASE_URL.endsWith('/')
+  ? import.meta.env.BASE_URL
+  : `${import.meta.env.BASE_URL}/`;
+const guideLinks = [
+  {
+    href: `${baseUrl}aevo-pruefung/`,
+    title: 'AEVO Prüfung',
+    desc: 'Ablauf, Inhalte und Prüfungsteile der AEVO Prüfung 2026 verständlich erklärt.',
+  },
+  {
+    href: `${baseUrl}aevo-pruefungsvorbereitung/`,
+    title: 'AEVO Prüfungsvorbereitung',
+    desc: 'Lernplan, AEVO Test und Wiederholungssystem für deine Vorbereitung.',
+  },
+  {
+    href: `${baseUrl}aevo-pruefungsfragen/`,
+    title: 'AEVO Prüfungsfragen',
+    desc: 'Fragetypen, Übungsstrategie und Simulation für die schriftliche Prüfung.',
+  },
+  {
+    href: `${baseUrl}ausbilderschein-ada-schein/`,
+    title: 'Ausbilderschein / ADA-Schein',
+    desc: 'Die wichtigsten Begriffe rund um ADA-Schein, Ausbilderschein und AEVO.',
+  },
+];
 ---
 
 <Layout
-  title="AEVO Ada – AEVO Prüfungsvorbereitung App | Bestehe im ersten Anlauf"
+  title="AEVO Ada – AEVO App & Lern-App zur Prüfungsvorbereitung"
   description="AEVO Ada ist die smarte App zur Vorbereitung auf die AEVO-Prüfung (Ausbilder-Eignungsverordnung). 700+ Prüfungsfragen, realistische Simulationen und ein intelligentes Lernsystem. Kostenlos starten."
-  keywords="AEVO Prüfung, AEVO Prüfungsvorbereitung, Ausbilder-Eignungsverordnung, AEVO App, AEVO Lernen, AEVO Fragen, Ausbilder Prüfung, IHK AEVO, AEVO App iOS Android"
+  keywords="AEVO Ada, AEVO App, AEVO Lern-App, AEVO Prüfung, AEVO Prüfungsvorbereitung, Ausbilder-Eignungsverordnung, AEVO Fragen"
 >
   <!-- Hero Section -->
   <section class="relative overflow-hidden bg-cream pt-16 pb-20 sm:pt-24 sm:pb-28">
@@ -118,7 +143,7 @@ const appStoreUrl = 'https://apps.apple.com/de/app/aevo-ihk-app-ada-schein/id676
         </h1>
 
         <p class="text-lg sm:text-xl text-muted leading-relaxed mb-8 max-w-2xl mx-auto">
-          Die smarte Lern-App für angehende Ausbilder – mit 700+ offiziellen Prüfungsfragen, realistischen Simulationen und einem intelligenten Lernalgorithmus.
+          Die smarte AEVO Lern-App für angehende Ausbilder – mit 700+ prüfungsnahen Fragen, realistischen Simulationen und einem intelligenten Lernalgorithmus.
         </p>
 
         <!-- CTA Buttons -->
@@ -253,6 +278,31 @@ const appStoreUrl = 'https://apps.apple.com/de/app/aevo-ihk-app-ada-schein/id676
               <p class="text-muted text-sm leading-relaxed">{desc}</p>
             </div>
           </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- SEO Guides Section -->
+  <section class="py-20 bg-cream">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <div class="text-center mb-12">
+        <h2 class="font-serif text-3xl sm:text-4xl font-bold text-brown mb-4">
+          AEVO Wissen für deine <span class="text-wine">Prüfungsvorbereitung</span>
+        </h2>
+        <p class="text-muted text-lg max-w-2xl mx-auto">
+          Vertiefe die wichtigsten Themen rund um AEVO Prüfung, Prüfungsfragen, IHK-Bezug und ADA-Schein.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+        {guideLinks.map(({ href, title, desc }) => (
+          <a href={href} class="bg-card rounded-2xl p-6 border border-cream-border hover:shadow-md hover:border-wine/20 transition-all group">
+            <h3 class="font-serif text-xl font-bold text-brown group-hover:text-wine transition-colors mb-2">
+              {title}
+            </h3>
+            <p class="text-muted text-sm leading-relaxed">{desc}</p>
+          </a>
         ))}
       </div>
     </div>

@@ -3,12 +3,19 @@ import Layout from '../layouts/Layout.astro';
 
 const lastUpdated = '30. April 2026';
 const baseUrl = import.meta.env.BASE_URL;
+const privacyJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  name: 'Datenschutzerklärung – AEVO Ada',
+  description: 'Datenschutzerklärung der AEVO Ada App.',
+};
 ---
 
 <Layout
   title="Datenschutzerklärung – AEVO Ada"
   description="Datenschutzerklärung der AEVO Ada App. Informationen zur Erhebung, Verarbeitung und Nutzung personenbezogener Daten gemäß DSGVO."
   keywords="AEVO Ada Datenschutz, Datenschutzerklärung, DSGVO"
+  jsonLd={privacyJsonLd}
 >
   <div class="max-w-3xl mx-auto px-4 sm:px-6 py-16">
     <div class="mb-10">
@@ -58,8 +65,9 @@ const baseUrl = import.meta.env.BASE_URL;
 
       <h3>2.3 Daten im Rahmen von Premium-Käufen</h3>
       <p>
-        Bei der Buchung eines Premium-Abonnements werden Transaktionsdaten über den jeweiligen App-Store
-        (Apple App Store bzw. Google Play Store) verarbeitet. Wir selbst erhalten keine vollständigen Zahlungsdaten.
+        Bei der Buchung eines Premium-Abonnements werden Transaktionsdaten aktuell über den Apple App Store
+        verarbeitet. Für die Android-Version gelten nach Veröffentlichung die Zahlungs- und Datenschutzprozesse
+        von Google Play. Wir selbst erhalten keine vollständigen Zahlungsdaten.
         Die Abonnementverwaltung erfolgt über <strong>Adapty</strong> (adapty.io). Die Datenschutzerklärung
         von Adapty findest du unter <a href="https://adapty.io/privacy/" target="_blank" rel="noopener noreferrer">adapty.io/privacy</a>.
       </p>
@@ -77,8 +85,9 @@ const baseUrl = import.meta.env.BASE_URL;
 
       <h3>3.2 Apple App Store / Google Play Store</h3>
       <p>
-        Die App wird über den Apple App Store und den Google Play Store vertrieben. Beim Download und bei
-        In-App-Käufen gelten die jeweiligen Datenschutzbestimmungen von Apple und Google.
+        Die App wird aktuell über den Apple App Store vertrieben. Die Android-Version ist demnächst verfügbar.
+        Beim Download und bei In-App-Käufen gelten die jeweiligen Datenschutzbestimmungen von Apple bzw. nach
+        Veröffentlichung der Android-Version von Google.
       </p>
 
       <h2>4. Rechtsgrundlagen der Verarbeitung</h2>
