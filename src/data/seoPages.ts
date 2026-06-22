@@ -36,10 +36,10 @@ export const seoPages: SeoPage[] = [
     keywords:
       'AEVO Prüfung, ADA Prüfung, Ausbildereignungsprüfung, AEVO Prüfung 2026, Ausbilder-Eignungsverordnung',
     eyebrow: 'AEVO Prüfung 2026',
-    h1: 'AEVO Prüfung: Ablauf, Inhalte und Vorbereitung',
+    h1: 'AEVO Prüfung 2026: Ablauf, Inhalte und Vorbereitung',
     intro:
       'Die AEVO Prüfung weist deine berufs- und arbeitspädagogische Eignung nach. Hier findest du einen kompakten Überblick über Aufbau, Inhalte und eine sinnvolle Vorbereitung.',
-    updatedDate: '2026-06-19',
+    updatedDate: '2026-06-22',
     heroPoints: [
       'Schriftlicher und praktischer Prüfungsteil verständlich erklärt',
       'Alle vier AEVO-Handlungsfelder im Überblick',
@@ -67,10 +67,43 @@ export const seoPages: SeoPage[] = [
         ],
       },
       {
+        title: 'Wie läuft die schriftliche AEVO Prüfung ab?',
+        body: [
+          'Im schriftlichen Teil beantwortest du Aufgaben zu typischen Ausbildungssituationen. Dabei geht es nicht nur um Begriffe, sondern darum, Regeln, Methoden und Entscheidungen auf einen konkreten Fall anzuwenden.',
+          'Trainiere deshalb mit Fragen aus allen vier Handlungsfeldern. Lies nach jeder Antwort die Erklärung und halte Themen fest, bei denen du wiederholt unsicher bist. Das macht aus einer Übungsrunde einen belastbaren Lernfortschritt.',
+        ],
+        bullets: [
+          'Ausbildungsplanung und rechtliche Grundlagen',
+          'Auswahl und Einstellung von Auszubildenden',
+          'Lernmethoden, Motivation und Konflikte',
+          'Beurteilung, Abschluss und Übernahme',
+        ],
+      },
+      {
+        title: 'Was erwartet dich im praktischen Prüfungsteil?',
+        body: [
+          'Der praktische Teil prüft, wie du eine Ausbildungssituation planst und begründest. Je nach zuständiger Stelle kann eine Unterweisung oder die Präsentation einer Ausbildungssituation mit anschließendem Fachgespräch vorgesehen sein.',
+          'Kläre die konkrete Form, Fristen und Vorgaben immer bei deiner zuständigen Kammer. Für deine Vorbereitung hilft es, eine reale Lernsituation auszuwählen, Lernziel und Methode nachvollziehbar zu begründen und den Ablauf klar zu strukturieren.',
+        ],
+      },
+      {
         title: 'Wie bereitest du dich sinnvoll vor?',
         body: [
           'Eine gute Vorbereitung kombiniert Verständnis, Wiederholung und realistische Tests. Starte mit den Grundbegriffen, lerne die Handlungsfelder systematisch und prüfe deinen Stand regelmäßig mit AEVO Fragen.',
           'AEVO Ada unterstützt dich dabei mit Prüfungsfragen, Erklärungen, Statistik und Prüfungssimulation. So trainierst du nicht nur einzelne Antworten, sondern erkennst auch deine schwächeren Themenbereiche.',
+        ],
+      },
+      {
+        title: 'Dein Lernplan für die AEVO Prüfung 2026',
+        body: [
+          'Beginne mit einem Überblick über die vier Handlungsfelder. Arbeite danach Themenblock für Themenblock und nutze kurze tägliche Wiederholungen, statt alles in den letzten Tagen vor dem Termin nachzuholen.',
+          'In den letzten Wochen vor der Prüfung solltest du regelmäßig im Testmodus üben. Aus Fehlern entstehen dann konkrete Wiederholungsaufgaben. Die praktische Prüfung bereitest du parallel vor, damit Konzept, Lernziel und Begründung rechtzeitig sitzen.',
+        ],
+        bullets: [
+          'Woche 1: Handlungsfelder und Grundbegriffe ordnen',
+          'Woche 2: Fragen nach Themenbereich trainieren',
+          'Woche 3: Fehler gezielt wiederholen und simulieren',
+          'Woche 4: Praktischen Teil proben und Prüfungsstand testen',
         ],
       },
     ],
