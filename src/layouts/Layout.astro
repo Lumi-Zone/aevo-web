@@ -46,12 +46,19 @@ const robotsContent = noindex
 const defaultJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'SoftwareApplication',
+  '@id': new URL('ios-app/#softwareapplication', publicRoot).href,
   name: 'AEVO Ada',
+  alternateName: ['AEVO Ada App', 'AEVO IHK App ADA-Schein', 'AEVO Lern-App'],
   description:
     'Die smarte App zur Vorbereitung auf die AEVO-Prüfung (Ausbilder-Eignungsverordnung) mit 700+ Fragen, Prüfungssimulationen und intelligentem Lernalgorithmus.',
   applicationCategory: 'EducationalApplication',
+  applicationSubCategory: 'Prüfungsvorbereitung',
   operatingSystem: 'iOS',
+  url: new URL('ios-app/', publicRoot).href,
   downloadUrl: 'https://apps.apple.com/de/app/aevo-ihk-app-ada-schein/id6763579448',
+  installUrl: 'https://apps.apple.com/de/app/aevo-ihk-app-ada-schein/id6763579448',
+  image: new URL('apple-touch-icon.png', publicRoot).href,
+  inLanguage: 'de-DE',
   offers: {
     '@type': 'Offer',
     price: '0',
@@ -81,6 +88,7 @@ const navLinks = [
 
 const sitelinkTargets = [
   { href: base, label: 'AEVO Ada App' },
+  { href: `${base}ios-app/`, label: 'AEVO Ada iOS App' },
   { href: `${base}aevo-online/`, label: 'AEVO online lernen' },
   { href: `${base}aevo-pruefung/`, label: 'AEVO Prüfung 2026' },
   { href: `${base}aevo-pruefungsvorbereitung/`, label: 'AEVO Prüfungsvorbereitung' },
@@ -342,6 +350,9 @@ const jsonLdEntries = [
             <ul class="space-y-2">
               <li>
                 <a href={`${base}#features`} class="text-sm text-cream/60 hover:text-cream transition-colors">Funktionen</a>
+              </li>
+              <li>
+                <a href={`${base}ios-app/`} class="text-sm text-cream/60 hover:text-cream transition-colors">AEVO Ada iOS App</a>
               </li>
               <li>
                 <a href={`${base}#handlungsfelder`} class="text-sm text-cream/60 hover:text-cream transition-colors">Handlungsfelder</a>

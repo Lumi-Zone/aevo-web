@@ -1,0 +1,260 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const appStoreUrl = 'https://apps.apple.com/de/app/aevo-ihk-app-ada-schein/id6763579448';
+const baseUrl = import.meta.env.BASE_URL.endsWith('/')
+  ? import.meta.env.BASE_URL
+  : `${import.meta.env.BASE_URL}/`;
+const pagePath = `${baseUrl}ios-app/`;
+const canonicalUrl = new URL(pagePath, Astro.site ?? 'https://aevo-ada-pruefung.de').href;
+const iconUrl = new URL(`${baseUrl}apple-touch-icon.png`, Astro.site ?? 'https://aevo-ada-pruefung.de').href;
+const ogImageUrl = new URL(`${baseUrl}og-image.png`, Astro.site ?? 'https://aevo-ada-pruefung.de').href;
+
+const appJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  '@id': `${canonicalUrl}#softwareapplication`,
+  name: 'AEVO Ada',
+  alternateName: ['AEVO Ada App', 'AEVO IHK App ADA-Schein', 'AEVO Lern-App'],
+  description:
+    'AEVO Ada ist eine iOS App zur Vorbereitung auf die AEVO Prüfung mit 700+ Prüfungsfragen, Erklärungen, Fortschrittsstatistiken und Prüfungssimulation.',
+  applicationCategory: 'EducationalApplication',
+  applicationSubCategory: 'Prüfungsvorbereitung',
+  operatingSystem: 'iOS',
+  inLanguage: 'de-DE',
+  url: canonicalUrl,
+  downloadUrl: appStoreUrl,
+  installUrl: appStoreUrl,
+  sameAs: [appStoreUrl],
+  image: iconUrl,
+  screenshot: ogImageUrl,
+  offers: {
+    '@type': 'Offer',
+    price: '0',
+    priceCurrency: 'EUR',
+  },
+  publisher: {
+    '@type': 'Organization',
+    name: 'Lumi-Zone',
+    email: 'cfsmobiletech@gmail.com',
+  },
+};
+
+const faqJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'Für welche Geräte ist AEVO Ada verfügbar?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'AEVO Ada ist aktuell für iPhone und iPad im Apple App Store verfügbar. Die Android-Version ist demnächst verfügbar.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Was kann ich mit der AEVO Ada App lernen?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Die App unterstützt dich bei der AEVO Prüfungsvorbereitung mit 700+ Prüfungsfragen, Erklärungen, Fortschrittsstatistiken und realistischer Prüfungssimulation.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Ist AEVO Ada eine offizielle IHK App?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Nein. AEVO Ada ist ein unabhängiges Lernangebot und steht in keiner offiziellen Verbindung zur IHK oder anderen Kammern.',
+      },
+    },
+  ],
+};
+
+const featureCards = [
+  {
+    title: '700+ AEVO Prüfungsfragen',
+    text: 'Trainiere Inhalte aus allen vier Handlungsfeldern der Ausbilder-Eignungsverordnung.',
+  },
+  {
+    title: 'Erklärungen zu Antworten',
+    text: 'Verstehe den Denkweg hinter richtigen und falschen Antworten, statt nur auswendig zu lernen.',
+  },
+  {
+    title: 'Prüfungssimulation',
+    text: 'Übe unter realistischen Bedingungen und prüfe deinen Lernstand vor dem Termin.',
+  },
+  {
+    title: 'Fortschritt nach Themen',
+    text: 'Erkenne, welche Bereiche sicher sitzen und welche du gezielt wiederholen solltest.',
+  },
+];
+
+const relatedLinks = [
+  {
+    href: `${baseUrl}aevo-online/`,
+    label: 'AEVO online lernen',
+    desc: 'Digitale Prüfungsvorbereitung mit App, Testmodus und Simulation.',
+  },
+  {
+    href: `${baseUrl}aevo-pruefungsvorbereitung/`,
+    label: 'AEVO Prüfungsvorbereitung',
+    desc: 'Lernplan, Karteikarten-Prinzip und AEVO Test.',
+  },
+  {
+    href: `${baseUrl}aevo-pruefungsfragen/`,
+    label: 'AEVO Prüfungsfragen',
+    desc: 'Fragetypen und Übungsstrategie verstehen.',
+  },
+];
+---
+
+<Layout
+  title="AEVO Ada iOS App: AEVO Prüfung auf iPhone & iPad lernen"
+  description="AEVO Ada ist die iOS App zur AEVO Prüfungsvorbereitung: 700+ Prüfungsfragen, Erklärungen, Fortschritt und Simulation für iPhone und iPad."
+  keywords="AEVO Ada, AEVO App, AEVO iOS App, AEVO App iPhone, AEVO IHK App, ADA Schein App, Ausbilderschein App, AEVO Prüfungsvorbereitung App"
+  canonical={canonicalUrl}
+  breadcrumbs={[
+    { name: 'Startseite', href: baseUrl },
+    { name: 'AEVO Ada iOS App', href: pagePath },
+  ]}
+  jsonLd={[appJsonLd, faqJsonLd]}
+>
+  <section class="bg-cream py-14 sm:py-20">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_18rem] gap-10 items-center">
+      <div>
+        <p class="inline-flex items-center bg-wine/10 text-wine px-4 py-1.5 rounded-full text-sm font-semibold border border-wine/20 mb-6">
+          AEVO App für iOS
+        </p>
+        <h1 class="font-serif text-4xl sm:text-5xl font-bold text-brown leading-tight mb-6">
+          AEVO Ada iOS App: AEVO Prüfung auf iPhone und iPad lernen
+        </h1>
+        <p class="text-lg sm:text-xl text-muted leading-relaxed mb-8">
+          AEVO Ada macht deine Prüfungsvorbereitung mobil: mit 700+ prüfungsnahen Fragen, Erklärungen, Fortschrittsstatistiken und realistischer Simulation.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-3">
+          <a
+            href={appStoreUrl}
+            class="inline-flex items-center justify-center bg-brown text-cream px-6 py-3.5 rounded-xl font-semibold text-sm hover:bg-wine transition-colors shadow-md"
+            target="_blank"
+            rel="noopener noreferrer"
+            data-umami-event="app-store-click"
+            data-umami-event-location="ios-app-hero"
+          >
+            Im App Store laden
+          </a>
+          <a
+            href={`${baseUrl}aevo-pruefungsvorbereitung/`}
+            class="inline-flex items-center justify-center border border-cream-border bg-card text-brown px-6 py-3.5 rounded-xl font-semibold text-sm hover:border-wine/30 hover:text-wine transition-colors"
+          >
+            Vorbereitung ansehen
+          </a>
+        </div>
+      </div>
+
+      <div class="bg-card border border-cream-border rounded-2xl p-6 text-center shadow-sm">
+        <img
+          src={`${baseUrl}apple-touch-icon.png`}
+          alt="AEVO Ada App Icon"
+          class="w-24 h-24 rounded-3xl mx-auto mb-5 shadow-md"
+          width="180"
+          height="180"
+        />
+        <p class="font-serif text-2xl font-bold text-brown mb-2">AEVO Ada</p>
+        <p class="text-sm text-muted leading-relaxed mb-5">
+          iOS Lern-App für angehende Ausbilder in Deutschland.
+        </p>
+        <p class="text-xs text-muted bg-cream rounded-xl px-4 py-3">
+          Für iPhone und iPad verfügbar. Android-Version demnächst verfügbar.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 bg-cream-dark/35">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <div class="max-w-3xl mb-10">
+        <h2 class="font-serif text-3xl sm:text-4xl font-bold text-brown mb-4">
+          Warum eine eigene AEVO App hilft
+        </h2>
+        <p class="text-muted text-lg leading-relaxed">
+          Eine gute AEVO Prüfungsvorbereitung braucht Wiederholung, Feedback und klare Prioritäten. AEVO Ada bündelt diese Schritte in einer App, damit du auch kurze Lernphasen sinnvoll nutzen kannst.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+        {featureCards.map(({ title, text }) => (
+          <div class="bg-card border border-cream-border rounded-2xl p-6">
+            <h3 class="font-serif text-xl font-bold text-brown mb-2">{title}</h3>
+            <p class="text-sm text-muted leading-relaxed">{text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 bg-cream">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_18rem] gap-10 items-start">
+      <div class="space-y-8">
+        <section class="bg-card border border-cream-border rounded-2xl p-6 sm:p-8">
+          <h2 class="font-serif text-2xl sm:text-3xl font-bold text-brown mb-4">
+            Für welche Suchanfragen ist diese App relevant?
+          </h2>
+          <p class="text-muted leading-relaxed mb-5">
+            AEVO Ada richtet sich an Nutzer, die nach einer AEVO App, AEVO IHK App, ADA-Schein App, Ausbilderschein App oder einer mobilen AEVO Prüfungsvorbereitung für iPhone und iPad suchen.
+          </p>
+          <ul class="grid grid-cols-1 sm:grid-cols-2 gap-3" role="list">
+            {['AEVO App', 'AEVO iOS App', 'AEVO IHK App', 'ADA-Schein App', 'Ausbilderschein App', 'AEVO Prüfungsvorbereitung App'].map((item) => (
+              <li class="flex gap-3 text-sm text-brown">
+                <span class="mt-1.5 w-2 h-2 rounded-full bg-gold flex-shrink-0"></span>
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+        </section>
+
+        <section class="bg-card border border-cream-border rounded-2xl p-6 sm:p-8">
+          <h2 class="font-serif text-2xl sm:text-3xl font-bold text-brown mb-4">
+            Unabhängig von IHK und Kammern
+          </h2>
+          <p class="text-muted leading-relaxed">
+            AEVO Ada ist ein unabhängiges Lernangebot. Die App hilft dir bei der inhaltlichen Vorbereitung, ersetzt aber keine offiziellen Informationen deiner zuständigen Kammer zu Anmeldung, Terminen, Gebühren oder praktischer Prüfung.
+          </p>
+        </section>
+      </div>
+
+      <aside class="lg:sticky lg:top-24 space-y-5">
+        <div class="bg-brown text-cream rounded-2xl p-6">
+          <p class="font-serif text-xl font-bold mb-3">AEVO Ada herunterladen</p>
+          <p class="text-sm text-cream/70 leading-relaxed mb-5">
+            Starte mit der iOS App und lerne mobil für die AEVO Prüfung.
+          </p>
+          <a
+            href={appStoreUrl}
+            class="inline-flex items-center justify-center w-full bg-gold text-brown px-5 py-3 rounded-xl font-bold text-sm hover:bg-gold-light transition-colors"
+            target="_blank"
+            rel="noopener noreferrer"
+            data-umami-event="app-store-click"
+            data-umami-event-location="ios-app-sidebar"
+          >
+            Im App Store laden
+          </a>
+        </div>
+
+        <div class="bg-card border border-cream-border rounded-2xl p-5">
+          <p class="font-semibold text-brown mb-4">Weiterlesen</p>
+          <div class="space-y-4">
+            {relatedLinks.map((link) => (
+              <a href={link.href} class="block group">
+                <span class="block text-sm font-semibold text-wine group-hover:text-wine-dark transition-colors">
+                  {link.label}
+                </span>
+                <span class="block text-xs text-muted leading-relaxed mt-1">{link.desc}</span>
+              </a>
+            ))}
+          </div>
+        </div>
+      </aside>
+    </div>
+  </section>
+</Layout>
