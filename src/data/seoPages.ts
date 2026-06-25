@@ -467,15 +467,15 @@ export const seoPages: SeoPage[] = [
   },
   {
     slug: 'ausbilderschein-ada-schein',
-    title: 'Ausbilderschein, ADA-Schein & AEVO: Unterschied erklärt | AEVO Ada',
+    title: 'ADA-Schein oder Ausbilderschein: Unterschied erklärt | AEVO Ada',
     description:
-      'Ausbilderschein, ADA-Schein, AEVO und IHK Ausbilderschein einfach erklärt. Erfahre, was die Begriffe bedeuten und wie du dich online vorbereitest.',
+      'ADA-Schein oder Ausbilderschein? Erfahre den Unterschied, was die AEVO Prüfung damit zu tun hat und wie du dich online vorbereitest.',
     keywords:
       'Ausbilderschein, Ausbilderschein online, IHK Ausbilderschein, ADA Schein, ADA-Schein, ADA Schein online machen, AEVO ADA-Schein, AEVO IHK App ADA-Schein',
     eyebrow: 'Begriffe einfach erklärt',
-    h1: 'Ausbilderschein und ADA-Schein: was ist der Unterschied?',
+    h1: 'ADA-Schein oder Ausbilderschein: was ist der Unterschied?',
     intro:
-      'Ausbilderschein, ADA-Schein und AEVO werden im Alltag oft ähnlich verwendet. Gemeint ist meist der Nachweis der berufs- und arbeitspädagogischen Eignung, auf den du dich auch digital vorbereiten kannst.',
+      'ADA-Schein, Ausbilderschein und AEVO werden im Alltag oft ähnlich verwendet. Gemeint ist meist der Nachweis der berufs- und arbeitspädagogischen Eignung, den du für die Ausbilderrolle brauchst.',
     updatedDate: '2026-06-25',
     heroPoints: [
       'ADA-Schein und Ausbilderschein verständlich einordnen',
@@ -484,10 +484,23 @@ export const seoPages: SeoPage[] = [
     ],
     sections: [
       {
+        title: 'Kurz gesagt: ADA-Schein und Ausbilderschein meinen meist dasselbe',
+        body: [
+          'Wenn Menschen vom ADA-Schein oder Ausbilderschein sprechen, meinen sie in der Regel den Nachweis der Ausbildereignung nach der Ausbilder-Eignungsverordnung. Der Begriff ADA kommt von Ausbildung der Ausbilder.',
+          'Streng genommen ist AEVO die rechtliche Grundlage und die Prüfung weist deine berufs- und arbeitspädagogische Eignung nach. ADA-Schein und Ausbilderschein sind dagegen geläufige Begriffe aus der Alltagssprache.',
+        ],
+        bullets: [
+          'AEVO: rechtlicher Rahmen der Ausbildereignung',
+          'ADA-Schein: umgangssprachlicher Begriff für den Nachweis',
+          'Ausbilderschein: ebenfalls geläufige Bezeichnung',
+          'IHK Ausbilderschein: häufige Suche nach Prüfung über die zuständige Kammer',
+        ],
+      },
+      {
         title: 'Was ist der ADA-Schein?',
         body: [
           'ADA steht für Ausbildung der Ausbilder. Der Begriff ADA-Schein wird häufig umgangssprachlich für den Nachweis der Ausbildereignung verwendet.',
-          'In der Praxis geht es darum, dass du zeigen kannst, wie du Ausbildung planst, vorbereitest, durchführst und abschließt.',
+          'In der Praxis geht es darum, dass du zeigen kannst, wie du Ausbildung planst, vorbereitest, durchführst und abschließt. Genau diese Themen werden in den vier AEVO-Handlungsfeldern abgebildet.',
         ],
       },
       {
@@ -495,6 +508,20 @@ export const seoPages: SeoPage[] = [
         body: [
           'Auch Ausbilderschein ist ein geläufiger Suchbegriff. Er meint meist denselben Kontext: die Eignung, Auszubildende pädagogisch und organisatorisch korrekt zu begleiten.',
           'Wichtig ist: Das Bestehen der AEVO Prüfung ist ein zentraler Baustein, aber die tatsächliche Ausbilderrolle kann weitere betriebliche und fachliche Voraussetzungen haben.',
+        ],
+      },
+      {
+        title: 'Was ist der Unterschied zur AEVO Prüfung?',
+        body: [
+          'Die AEVO Prüfung ist der Prüfungsvorgang. Der ADA-Schein oder Ausbilderschein ist das, wonach viele Menschen suchen, wenn sie den bestandenen Nachweis meinen. Deshalb tauchen die Begriffe oft gemeinsam auf.',
+          'Für deine Vorbereitung ist entscheidend, dass du die Inhalte der AEVO lernst: rechtliche Grundlagen, Ausbildungsplanung, Lernmethoden, Motivation, Beurteilung und Abschluss der Ausbildung.',
+        ],
+      },
+      {
+        title: 'Reicht der Ausbilderschein allein aus?',
+        body: [
+          'Der Nachweis der berufs- und arbeitspädagogischen Eignung ist wichtig, aber nicht immer die einzige Voraussetzung. Je nach Betrieb, Beruf und zuständiger Stelle können fachliche, persönliche oder organisatorische Anforderungen zusätzlich relevant sein.',
+          'Prüfe deshalb immer die offiziellen Informationen deiner zuständigen Kammer oder Stelle. AEVO Ada unterstützt dich bei der Lernvorbereitung, ersetzt aber keine verbindliche Rechts- oder Prüfungsberatung.',
         ],
       },
       {
@@ -515,6 +542,19 @@ export const seoPages: SeoPage[] = [
         body: [
           'Wer nach ADA-Schein online machen oder Ausbilderschein online sucht, meint häufig eine flexible Vorbereitung auf die AEVO Inhalte. Die eigentliche Prüfung, Anmeldung und Anerkennung richten sich weiterhin nach den Vorgaben der zuständigen Stelle.',
           'Online lernen kann dir aber helfen, die Theorie strukturiert aufzubauen: mit Fragen, Erklärungen, Wiederholung und Simulation. Prüfe zusätzlich immer, welche formalen Schritte deine Kammer für Prüfung und praktischen Teil verlangt.',
+        ],
+      },
+      {
+        title: 'Welche Begriffe solltest du bei der Suche kennen?',
+        body: [
+          'Je nach Region, Anbieter oder Kammer begegnen dir unterschiedliche Formulierungen. Für Google und für deine eigene Recherche ist hilfreich, die Begriffe auseinanderhalten zu können, ohne dich davon verwirren zu lassen.',
+          'Wenn du Lernmaterial suchst, sind AEVO Prüfung, AEVO Prüfungsvorbereitung, ADA-Schein, Ausbilderschein und IHK Ausbilderschein meist eng miteinander verbunden. Achte trotzdem darauf, ob eine Quelle Lernhilfe, Kursanbieter oder offizielle Prüfungsinformation ist.',
+        ],
+        bullets: [
+          'AEVO Prüfung: Ablauf und Prüfungsteile',
+          'AEVO Prüfungsvorbereitung: Lernplan, Fragen und Simulation',
+          'ADA-Schein: umgangssprachlich für den Nachweis',
+          'Ausbilderschein online: flexible digitale Vorbereitung',
         ],
       },
     ],
