@@ -222,9 +222,17 @@ const guideLinks = [
               </div>
             ))}
             <div class="pt-2">
-              <div class="bg-wine text-cream text-center py-2.5 rounded-xl text-sm font-semibold">
+              <a
+                href={appStoreUrl}
+                class="block bg-wine text-cream text-center py-2.5 rounded-xl text-sm font-semibold hover:bg-wine-dark transition-colors"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="AEVO Ada im App Store laden"
+                data-umami-event="app-store-click"
+                data-umami-event-location="home-app-preview"
+              >
                 Jetzt kostenlos starten
-              </div>
+              </a>
             </div>
           </div>
         </div>
