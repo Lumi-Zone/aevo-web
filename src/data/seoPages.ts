@@ -132,14 +132,14 @@ export const seoPages: SeoPage[] = [
     slug: 'aevo-pruefungsvorbereitung',
     title: 'AEVO Prüfungsvorbereitung: Lernplan, Test & Karteikarten | AEVO Ada',
     description:
-      'Strukturierte AEVO Prüfungsvorbereitung mit Lernplan, AEVO Test, Karteikarten-Prinzip und App-gestützter Wiederholung.',
+      'Strukturierte AEVO Prüfungsvorbereitung online und digital: Lernplan, AEVO Test, Karteikarten-Prinzip und App-gestützte Wiederholung.',
     keywords:
-      'AEVO Prüfungsvorbereitung, AEVO Test, AEVO Karteikarten, AEVO Lernen, Ausbildung der Ausbilder',
+      'AEVO Prüfungsvorbereitung, AEVO Online, AEVO Digital, AEVO Test, AEVO Karteikarten, AEVO Lernen, Ausbildung der Ausbilder',
     eyebrow: 'Lernen mit System',
     h1: 'AEVO Prüfungsvorbereitung: so lernst du effizient',
     intro:
-      'Eine starke AEVO Prüfungsvorbereitung braucht klare Prioritäten: verstehen, wiederholen, testen und gezielt nacharbeiten.',
-    updatedDate: '2026-06-19',
+      'Eine starke AEVO Prüfungsvorbereitung braucht klare Prioritäten: verstehen, wiederholen, testen und gezielt nacharbeiten - am besten mit einer digitalen Routine, die in deinen Alltag passt.',
+    updatedDate: '2026-06-25',
     heroPoints: [
       'Lernplan statt zufälligem Pauken',
       'AEVO Test zur realistischen Standortbestimmung',
@@ -150,7 +150,14 @@ export const seoPages: SeoPage[] = [
         title: 'Der beste Start: Überblick vor Detailwissen',
         body: [
           'Beginne nicht mit isolierten Begriffen. Verschaffe dir zuerst einen Überblick über die vier Handlungsfelder und ordne jedes Thema einem Prüfungskontext zu. So erkennst du schneller, warum eine Antwort richtig oder falsch ist.',
-          'Plane feste Lernblöcke ein. Für viele Kandidaten funktionieren kurze tägliche Einheiten besser als wenige lange Sitzungen kurz vor dem Termin.',
+          'Plane feste Lernblöcke ein. Für viele Kandidaten funktionieren kurze tägliche Einheiten besser als wenige lange Sitzungen kurz vor dem Termin. Genau hier hilft eine AEVO Online- oder Digital-Routine, weil du auch unterwegs wiederholen kannst.',
+        ],
+      },
+      {
+        title: 'AEVO online und digital vorbereiten',
+        body: [
+          'AEVO online zu lernen bedeutet nicht, planlos Fragen am Bildschirm zu klicken. Entscheidend ist, dass du Lernstand, Fehler und Wiederholungen sichtbar machst und daraus konkrete nächste Schritte ableitest.',
+          'Eine digitale AEVO Prüfungsvorbereitung ist besonders stark, wenn sie kurze tägliche Lernphasen, thematische Fragen und Prüfungssimulationen kombiniert. So bleibt die Vorbereitung flexibel, ohne beliebig zu werden.',
         ],
       },
       {
@@ -333,14 +340,14 @@ export const seoPages: SeoPage[] = [
     slug: 'ausbilderschein-ada-schein',
     title: 'Ausbilderschein, ADA-Schein & AEVO: Unterschied erklärt | AEVO Ada',
     description:
-      'Ausbilderschein, ADA-Schein, AEVO und IHK Ausbilderschein einfach erklärt. Erfahre, was die Begriffe bedeuten und wie du dich vorbereitest.',
+      'Ausbilderschein, ADA-Schein, AEVO und IHK Ausbilderschein einfach erklärt. Erfahre, was die Begriffe bedeuten und wie du dich online vorbereitest.',
     keywords:
-      'Ausbilderschein, IHK Ausbilderschein, ADA Schein, ADA-Schein, AEVO ADA-Schein, AEVO IHK App ADA-Schein',
+      'Ausbilderschein, Ausbilderschein online, IHK Ausbilderschein, ADA Schein, ADA-Schein, ADA Schein online machen, AEVO ADA-Schein, AEVO IHK App ADA-Schein',
     eyebrow: 'Begriffe einfach erklärt',
     h1: 'Ausbilderschein und ADA-Schein: was ist der Unterschied?',
     intro:
-      'Ausbilderschein, ADA-Schein und AEVO werden im Alltag oft ähnlich verwendet. Gemeint ist meist der Nachweis der berufs- und arbeitspädagogischen Eignung.',
-    updatedDate: '2026-06-19',
+      'Ausbilderschein, ADA-Schein und AEVO werden im Alltag oft ähnlich verwendet. Gemeint ist meist der Nachweis der berufs- und arbeitspädagogischen Eignung, auf den du dich auch digital vorbereiten kannst.',
+    updatedDate: '2026-06-25',
     heroPoints: [
       'ADA-Schein und Ausbilderschein verständlich einordnen',
       'AEVO als Grundlage der Vorbereitung verstehen',
@@ -372,6 +379,13 @@ export const seoPages: SeoPage[] = [
           'Fragen je Handlungsfeld üben',
           'Fehler mit Erklärungen nacharbeiten',
           'Mit Simulationen Prüfungssicherheit aufbauen',
+        ],
+      },
+      {
+        title: 'ADA-Schein online machen: was bedeutet das?',
+        body: [
+          'Wer nach ADA-Schein online machen oder Ausbilderschein online sucht, meint häufig eine flexible Vorbereitung auf die AEVO Inhalte. Die eigentliche Prüfung, Anmeldung und Anerkennung richten sich weiterhin nach den Vorgaben der zuständigen Stelle.',
+          'Online lernen kann dir aber helfen, die Theorie strukturiert aufzubauen: mit Fragen, Erklärungen, Wiederholung und Simulation. Prüfe zusätzlich immer, welche formalen Schritte deine Kammer für Prüfung und praktischen Teil verlangt.',
         ],
       },
     ],
