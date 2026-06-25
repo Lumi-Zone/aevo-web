@@ -204,33 +204,54 @@ export const seoPages: SeoPage[] = [
   },
   {
     slug: 'aevo-pruefungsfragen',
-    title: 'AEVO Prüfungsfragen: Fragen, Test & Simulation | AEVO Ada',
+    title: 'AEVO Prüfungsfragen: Fragetypen, Test & Simulation | AEVO Ada',
     description:
-      'AEVO Prüfungsfragen verstehen und gezielt üben: Fragetypen, Erklärungen, Testmodus und Prüfungssimulation mit AEVO Ada.',
-    keywords: 'AEVO Prüfungsfragen, AEVO Fragen, AEVO Test, AEVO App, AEVO Prüfung',
+      'AEVO Prüfungsfragen und Fragetypen verstehen: typische Aufgaben, Fehleranalyse, Testmodus und Prüfungssimulation mit AEVO Ada.',
+    keywords:
+      'AEVO Prüfungsfragen, AEVO Fragen, AEVO Fragetypen, AEVO Test, AEVO App, AEVO Prüfung',
     eyebrow: 'Fragen gezielt üben',
-    h1: 'AEVO Prüfungsfragen: richtig üben und verstehen',
+    h1: 'AEVO Prüfungsfragen: welche Fragetypen dich erwarten',
     intro:
-      'AEVO Prüfungsfragen helfen dir nur dann wirklich, wenn du nicht bloß Antworten auswendig lernst, sondern die Logik hinter den Lösungen verstehst.',
-    updatedDate: '2026-06-19',
+      'AEVO Prüfungsfragen helfen dir nur dann wirklich, wenn du nicht bloß Antworten auswendig lernst, sondern die Logik hinter typischen Aufgaben und Ausbildungssituationen verstehst.',
+    updatedDate: '2026-06-25',
     heroPoints: [
       'Über 700 Fragen in AEVO Ada',
-      'Erklärungen statt reines Auswendiglernen',
+      'Fragetypen und Denkwege statt reines Auswendiglernen',
       'Realistische Simulation für die schriftliche Prüfung',
     ],
     sections: [
       {
-        title: 'Welche Fragetypen sind wichtig?',
+        title: 'Welche AEVO Fragetypen sind wichtig?',
         body: [
-          'In der AEVO Vorbereitung begegnen dir Fragen zu Recht, Planung, Methodik, Motivation, Beurteilung und Abschluss der Ausbildung. Viele Aufgaben prüfen, ob du eine Situation aus Sicht eines Ausbilders richtig bewertest.',
-          'Deshalb ist es wichtig, nach jeder Frage die Begründung zu lesen. So lernst du nicht nur die richtige Option, sondern auch den Denkweg dahinter.',
+          'In der AEVO Vorbereitung begegnen dir Wissensfragen, anwendungsbezogene Fragen und Aufgaben zu konkreten Ausbildungssituationen. Viele Fragen prüfen nicht nur, ob du einen Begriff kennst, sondern ob du als Ausbilder eine passende Entscheidung treffen kannst.',
+          'Typische Themen sind Recht, Ausbildungsplanung, Lernmethoden, Motivation, Konflikte, Beurteilung und Abschluss der Ausbildung. Je stärker du die Situation hinter der Frage erkennst, desto leichter findest du die fachlich sinnvolle Antwort.',
+        ],
+        bullets: [
+          'Begriffs- und Grundlagenfragen zu AEVO, BBiG und Ausbildungspraxis',
+          'Situationsfragen aus dem Alltag eines Ausbilders',
+          'Methodenfragen zu Unterweisung, Motivation und Feedback',
+          'Beurteilungs- und Abschlussfragen rund um Prüfung und Zeugnis',
+        ],
+      },
+      {
+        title: 'Warum Situationsfragen besonders wichtig sind',
+        body: [
+          'Viele AEVO Fragen beschreiben eine konkrete Situation: ein Auszubildender ist unsicher, eine Leistung fällt ab, ein Lernziel wurde nicht erreicht oder ein Konflikt entsteht im Betrieb. In solchen Aufgaben zählt nicht nur Fachwissen, sondern pädagogisches Urteilsvermögen.',
+          'Achte beim Üben darauf, wer handelt, welches Ziel verfolgt wird und welche rechtlichen oder didaktischen Grenzen gelten. So trainierst du nicht nur einzelne Antworten, sondern eine prüfungstaugliche Denkweise.',
+        ],
+      },
+      {
+        title: 'So nutzt du Erklärungen nach jeder Frage',
+        body: [
+          'Die Erklärung ist oft wertvoller als die richtige Antwort selbst. Wenn du verstehst, warum eine Option falsch ist, erkennst du Muster und tappst beim nächsten ähnlichen Fragetyp seltener in dieselbe Falle.',
+          'Notiere dir wiederkehrende Fehler: verwechselt du Begriffe, übersiehst du rechtliche Hinweise oder interpretierst du die Rolle des Ausbilders zu passiv? Genau diese Beobachtungen machen deine AEVO Prüfungsvorbereitung messbar besser.',
         ],
       },
       {
         title: 'AEVO Fragen nach Handlungsfeldern lernen',
         body: [
           'Eine gute Übungsroutine deckt alle vier Handlungsfelder ab. Wenn du nur deine Lieblingsthemen übst, entstehen blinde Flecken, die in der Prüfung teuer werden können.',
-          'AEVO Ada zeigt dir deinen Fortschritt nach Themenbereichen und hilft dir, schwierige Bereiche gezielt zu wiederholen.',
+          'AEVO Ada zeigt dir deinen Fortschritt nach Themenbereichen und hilft dir, schwierige Bereiche gezielt zu wiederholen. Besonders sinnvoll ist ein Wechsel aus thematischem Lernen, Wiederholung falscher Antworten und regelmäßigen Tests.',
         ],
         bullets: [
           'Fragen nach Thema üben',
@@ -240,10 +261,17 @@ export const seoPages: SeoPage[] = [
         ],
       },
       {
-        title: 'Warum Simulationen wichtig sind',
+        title: 'AEVO Test und Prüfungssimulation richtig einsetzen',
         body: [
-          'Einzelne Fragen sind gut für den Aufbau. Eine Prüfungssimulation trainiert zusätzlich Zeitgefühl, Konzentration und Entscheidungsdruck.',
-          'Nutze Simulationen erst, wenn du die Grundlagen kennst. Danach werden sie zum besten Werkzeug, um deinen echten Prüfungsstand einzuschätzen.',
+          'Einzelne Fragen sind gut für den Aufbau. Ein AEVO Test und eine Prüfungssimulation trainieren zusätzlich Zeitgefühl, Konzentration und Entscheidungsdruck.',
+          'Nutze Simulationen erst, wenn du die Grundlagen kennst. Danach werden sie zum besten Werkzeug, um deinen echten Prüfungsstand einzuschätzen. Prüfe nach jedem Test nicht nur die Punktzahl, sondern auch, welche Fragetypen dir noch schwerfallen.',
+        ],
+      },
+      {
+        title: 'Wichtig: keine Garantie für echte Prüfungsfragen',
+        body: [
+          'Seriöse Prüfungsvorbereitung sollte nicht versprechen, dass du echte oder identische Prüfungsfragen auswendig lernst. Besser ist es, prüfungsnahe Fragen zu nutzen, die Inhalte, Denkwege und typische Situationen abbilden.',
+          'Informiere dich zusätzlich bei deiner zuständigen Stelle über Ablauf, Termine und formale Vorgaben. AEVO Ada unterstützt dich als unabhängige Lern-App bei der inhaltlichen Vorbereitung.',
         ],
       },
     ],
