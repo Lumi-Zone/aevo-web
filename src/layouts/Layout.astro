@@ -79,10 +79,22 @@ const navLinks = [
   { href: `${base}support/`, label: 'Support' },
 ];
 
+const sitelinkTargets = [
+  { href: base, label: 'AEVO Ada App' },
+  { href: `${base}aevo-online/`, label: 'AEVO online lernen' },
+  { href: `${base}aevo-pruefung/`, label: 'AEVO Prüfung 2026' },
+  { href: `${base}aevo-pruefungsvorbereitung/`, label: 'AEVO Prüfungsvorbereitung' },
+  { href: `${base}aevo-pruefungsfragen/`, label: 'AEVO Prüfungsfragen' },
+  { href: `${base}ausbilderschein-ada-schein/`, label: 'Ausbilderschein / ADA-Schein' },
+  { href: `${base}support/`, label: 'Support' },
+];
+
 const isActive = (href: string) => {
   const path = Astro.url.pathname;
   if (href === base) return path === base || path === base.slice(0, -1);
-  return path.startsWith(href) || path.startsWith(href.slice(0, -1));
+  const normalizedHref = href.endsWith('/') ? href.slice(0, -1) : href;
+  const normalizedPath = path.endsWith('/') ? path.slice(0, -1) : path;
+  return normalizedPath === normalizedHref || normalizedPath.startsWith(`${normalizedHref}/`);
 };
 
 const breadcrumbJsonLd = breadcrumbs?.length
@@ -99,7 +111,45 @@ const breadcrumbJsonLd = breadcrumbs?.length
   : null;
 
 const pageJsonLd = jsonLd === undefined ? defaultJsonLd : jsonLd;
+const organizationJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  '@id': new URL('#organization', publicRoot).href,
+  name: 'AEVO Ada',
+  url: publicRoot.href,
+  logo: new URL('apple-touch-icon.png', publicRoot).href,
+  sameAs: [appStoreUrl],
+};
+const websiteJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  '@id': new URL('#website', publicRoot).href,
+  name: 'AEVO Ada',
+  alternateName: ['AEVO Ada App', 'AEVO Lern-App'],
+  url: publicRoot.href,
+  inLanguage: 'de-DE',
+  publisher: {
+    '@id': new URL('#organization', publicRoot).href,
+  },
+};
+const siteNavigationJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: 'Wichtige AEVO Ada Seiten',
+  itemListElement: sitelinkTargets.map((item, index) => ({
+    '@type': 'ListItem',
+    position: index + 1,
+    item: {
+      '@type': 'WebPage',
+      name: item.label,
+      url: new URL(item.href, publicRoot).href,
+    },
+  })),
+};
 const jsonLdEntries = [
+  organizationJsonLd,
+  websiteJsonLd,
+  siteNavigationJsonLd,
   ...(Array.isArray(pageJsonLd) ? pageJsonLd : pageJsonLd ? [pageJsonLd] : []),
   ...(breadcrumbJsonLd ? [breadcrumbJsonLd] : []),
 ];
@@ -299,6 +349,9 @@ const jsonLdEntries = [
               <li>
                 <a href={`${base}#premium`} class="text-sm text-cream/60 hover:text-cream transition-colors">Premium</a>
               </li>
+              <li>
+                <a href={`${base}aevo-online/`} class="text-sm text-cream/60 hover:text-cream transition-colors">AEVO online lernen</a>
+              </li>
             </ul>
           </div>
 
@@ -307,6 +360,9 @@ const jsonLdEntries = [
             <ul class="space-y-2">
               <li>
                 <a href={`${base}aevo-pruefung/`} class="text-sm text-cream/60 hover:text-cream transition-colors">AEVO Prüfung</a>
+              </li>
+              <li>
+                <a href={`${base}aevo-online/`} class="text-sm text-cream/60 hover:text-cream transition-colors">AEVO online</a>
               </li>
               <li>
                 <a href={`${base}aevo-pruefungsvorbereitung/`} class="text-sm text-cream/60 hover:text-cream transition-colors">Prüfungsvorbereitung</a>

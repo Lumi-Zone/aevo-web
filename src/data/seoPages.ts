@@ -112,6 +112,11 @@ export const seoPages: SeoPage[] = [
       'Starte mit AEVO Ada auf iPhone oder iPad und trainiere mit Fragen, Erklärungen und realistischer Simulation. Die Android-Version ist demnächst verfügbar.',
     relatedLinks: [
       {
+        href: '/aevo-online/',
+        label: 'AEVO online lernen',
+        desc: 'Digitale Vorbereitung mit App und Simulation.',
+      },
+      {
         href: '/aevo-pruefungsvorbereitung/',
         label: 'AEVO Prüfungsvorbereitung',
         desc: 'Lernplan, Tagesroutine und Wiederholungssystem.',
@@ -186,6 +191,11 @@ export const seoPages: SeoPage[] = [
       'AEVO Ada verbindet Fragen, Erklärungen, Wiederholung und Simulation in einer mobilen Lernroutine. Für iOS verfügbar, Android-Version demnächst verfügbar.',
     relatedLinks: [
       {
+        href: '/aevo-online/',
+        label: 'AEVO online',
+        desc: 'Digital lernen mit App, Fragen und Simulation.',
+      },
+      {
         href: '/aevo-pruefung/',
         label: 'AEVO Prüfung',
         desc: 'Ablauf und Inhalte der Prüfung verstehen.',
@@ -201,6 +211,87 @@ export const seoPages: SeoPage[] = [
         desc: 'IHK-Bezug und Prüfungsvorbereitung einordnen.',
       },
     ],
+  },
+  {
+    slug: 'aevo-online',
+    title: 'AEVO online lernen: digitale Prüfungsvorbereitung | AEVO Ada',
+    description:
+      'AEVO online lernen mit AEVO Ada: digitale Prüfungsvorbereitung, App, Lernplan, Prüfungsfragen, Testmodus und Simulation für angehende Ausbilder.',
+    keywords:
+      'AEVO online, AEVO digital, AEVO Prüfungsvorbereitung online, digitale AEVO Prüfungsvorbereitung, AEVO App, Ausbilderschein online, ADA Schein online machen',
+    eyebrow: 'Digital lernen',
+    h1: 'AEVO online lernen: digitale Prüfungsvorbereitung mit App',
+    intro:
+      'Wenn du AEVO online lernen möchtest, brauchst du mehr als lose Fragen: ein klares System aus Lernplan, Wiederholung, Testmodus und realistischen Prüfungssimulationen.',
+    updatedDate: '2026-06-25',
+    heroPoints: [
+      'Digitale AEVO Prüfungsvorbereitung für kurze Lernphasen',
+      'Prüfungsfragen, Erklärungen und Simulation in einer App',
+      'Für iOS verfügbar, Android-Version demnächst verfügbar',
+    ],
+    sections: [
+      {
+        title: 'Was bedeutet AEVO online lernen?',
+        body: [
+          'AEVO online lernen bedeutet, dass du die Inhalte der Ausbilder-Eignungsverordnung flexibel und digital vorbereitest. Wichtig ist dabei nicht nur der Zugriff auf Fragen, sondern ein nachvollziehbarer Lernweg.',
+          'AEVO Ada verbindet prüfungsnahe Fragen, Erklärungen, Wiederholung und Simulation. So kannst du auch kurze freie Momente nutzen, ohne den Überblick über deinen Fortschritt zu verlieren.',
+        ],
+      },
+      {
+        title: 'Digitale AEVO Prüfungsvorbereitung statt zufälligem Pauken',
+        body: [
+          'Eine digitale Vorbereitung ist dann stark, wenn sie Struktur schafft. Du solltest erkennen können, welche Handlungsfelder gut laufen, wo Fehler entstehen und welche Themen du gezielt wiederholen musst.',
+          'Gerade bei der AEVO Prüfung hilft ein Wechsel aus thematischem Lernen, Wiederholung falscher Antworten und regelmäßigen Tests. So trainierst du nicht nur Wissen, sondern auch Prüfungssicherheit.',
+        ],
+        bullets: [
+          'Fragen nach Handlungsfeld üben',
+          'Erklärungen direkt nach der Antwort lesen',
+          'Schwierige Fragen gezielt wiederholen',
+          'Regelmäßig Testmodus und Simulation nutzen',
+        ],
+      },
+      {
+        title: 'Ausbilderschein online vorbereiten',
+        body: [
+          'Wer nach Ausbilderschein online oder ADA-Schein online machen sucht, meint oft die flexible Vorbereitung auf die AEVO Inhalte. Die eigentliche Anmeldung, Prüfung und Anerkennung laufen weiterhin über die zuständige Stelle.',
+          'Online lernen kann dir helfen, die Theorie planbar aufzubauen und deinen Lernstand realistisch einzuschätzen. Prüfe zusätzlich immer die aktuellen Vorgaben deiner Kammer, besonders für Termine, Gebühren und den praktischen Prüfungsteil.',
+        ],
+      },
+      {
+        title: 'Warum eine App für AEVO online sinnvoll ist',
+        body: [
+          'Eine AEVO App passt besonders gut zu kurzen, wiederkehrenden Lerneinheiten. Statt lange Unterlagen nur einmal durchzuarbeiten, kannst du Fragen mehrfach beantworten, Fehler analysieren und deinen Fortschritt verfolgen.',
+          'AEVO Ada ist ein unabhängiges Lernangebot für angehende Ausbilder. Die App ersetzt keine offiziellen Informationen der Kammern, unterstützt dich aber bei der inhaltlichen Vorbereitung.',
+        ],
+      },
+    ],
+    ctaTitle: 'AEVO online mit App vorbereiten',
+    ctaText:
+      'Starte mit AEVO Ada auf iPhone oder iPad und lerne digital mit Fragen, Erklärungen, Statistik und Simulation. Die Android-Version ist demnächst verfügbar.',
+    relatedLinks: [
+      {
+        href: '/aevo-pruefungsvorbereitung/',
+        label: 'AEVO Prüfungsvorbereitung',
+        desc: 'Lernplan, Test und Wiederholungssystem.',
+      },
+      {
+        href: '/aevo-pruefungsfragen/',
+        label: 'AEVO Prüfungsfragen',
+        desc: 'Fragetypen und Simulation verstehen.',
+      },
+      {
+        href: '/ausbilderschein-ada-schein/',
+        label: 'Ausbilderschein online',
+        desc: 'ADA-Schein und Ausbilderschein einordnen.',
+      },
+      {
+        href: '/aevo-ihk/',
+        label: 'AEVO IHK',
+        desc: 'IHK-Bezug ohne offizielle Zugehörigkeit.',
+      },
+    ],
+    disclaimer:
+      'AEVO Ada ist ein unabhängiges Lernangebot und steht in keiner offiziellen Verbindung zur IHK oder anderen Kammern.',
   },
   {
     slug: 'aevo-pruefungsfragen',
@@ -280,6 +371,11 @@ export const seoPages: SeoPage[] = [
       'Lerne mit AEVO Ada unterwegs, wiederhole schwierige Fragen und simuliere die Prüfung unter realistischen Bedingungen.',
     relatedLinks: [
       {
+        href: '/aevo-online/',
+        label: 'AEVO online lernen',
+        desc: 'Digitale Vorbereitung mit App und Testmodus.',
+      },
+      {
         href: '/aevo-pruefungsvorbereitung/',
         label: 'AEVO Prüfungsvorbereitung',
         desc: 'Aus Fragen eine klare Lernroutine machen.',
@@ -345,6 +441,11 @@ export const seoPages: SeoPage[] = [
     ctaText:
       'Nutze AEVO Ada für Fragen, Erklärungen und Simulation. Die App ist unabhängig und nicht mit der IHK verbunden.',
     relatedLinks: [
+      {
+        href: '/aevo-online/',
+        label: 'AEVO online',
+        desc: 'Digitale Prüfungsvorbereitung mit AEVO Ada.',
+      },
       {
         href: '/aevo-pruefung/',
         label: 'AEVO Prüfung',
@@ -421,6 +522,11 @@ export const seoPages: SeoPage[] = [
     ctaText:
       'Bereite dich mit AEVO Ada auf die AEVO Inhalte vor. Die App ist für iOS verfügbar; Android-Version demnächst verfügbar.',
     relatedLinks: [
+      {
+        href: '/aevo-online/',
+        label: 'Ausbilderschein online',
+        desc: 'Online und digital für die AEVO Inhalte lernen.',
+      },
       {
         href: '/aevo-pruefung/',
         label: 'AEVO Prüfung',
