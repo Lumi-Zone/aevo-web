@@ -13,6 +13,7 @@ interface Props {
   updatedDate?: string;
   breadcrumbs?: Array<{ name: string; href: string }>;
   jsonLd?: Record<string, unknown> | Array<Record<string, unknown>> | null;
+  additionalJsonLd?: Record<string, unknown> | Array<Record<string, unknown>> | null;
 }
 
 const {
@@ -27,6 +28,7 @@ const {
   updatedDate,
   breadcrumbs,
   jsonLd,
+  additionalJsonLd,
 } = Astro.props;
 
 const rawBase = import.meta.env.BASE_URL;
@@ -36,6 +38,7 @@ const siteOrigin = Astro.site
   : 'https://lumi-zone.github.io/aevo-web/';
 const publicRoot = new URL(baseUrl, siteOrigin);
 const siteUrl = siteOrigin;
+const organizationId = new URL('#organization', publicRoot).href;
 const currentPath = Astro.url.pathname;
 const canonicalHref = canonical ?? new URL(currentPath, publicRoot).href;
 const ogImage = new URL(ogImageProp, publicRoot).href;
@@ -48,7 +51,7 @@ const defaultJsonLd = {
   '@type': 'SoftwareApplication',
   '@id': new URL('ios-app/#softwareapplication', publicRoot).href,
   name: 'AEVO Ada',
-  alternateName: ['AEVO Ada App', 'AEVO IHK App ADA-Schein', 'AEVO Lern-App'],
+  alternateName: ['AEVO Ada App', 'AEVO App', 'IHK AEVO App', 'ADA-Schein App', 'Ausbilderschein App'],
   description:
     'Die smarte App zur Vorbereitung auf die AEVO-Prüfung (Ausbilder-Eignungsverordnung) mit 700+ Fragen, Prüfungssimulationen und intelligentem Lernalgorithmus.',
   applicationCategory: 'EducationalApplication',
@@ -59,15 +62,19 @@ const defaultJsonLd = {
   installUrl: 'https://apps.apple.com/de/app/aevo-ihk-app-ada-schein/id6763579448',
   image: new URL('apple-touch-icon.png', publicRoot).href,
   inLanguage: 'de-DE',
+  featureList: [
+    '700+ prüfungsnahe AEVO-Fragen',
+    'Erklärungen zu Antworten',
+    'Fortschrittsstatistiken nach Themen',
+    '90-Minuten-Trainingssimulation',
+  ],
   offers: {
     '@type': 'Offer',
     price: '0',
     priceCurrency: 'EUR',
   },
   publisher: {
-    '@type': 'Organization',
-    name: 'Lumi-Zone',
-    email: 'cfsmobiletech@gmail.com',
+    '@id': organizationId,
   },
 };
 
@@ -80,6 +87,7 @@ const umamiScriptUrl = import.meta.env.PUBLIC_UMAMI_SCRIPT_URL?.trim() || 'https
 const umamiDomains = import.meta.env.PUBLIC_UMAMI_DOMAINS?.trim() || 'aevo-ada-pruefung.de';
 const navLinks = [
   { href: base, label: 'Startseite' },
+  { href: `${base}aevo-app/`, label: 'AEVO App' },
   { href: `${base}aevo-pruefung/`, label: 'AEVO Prüfung' },
   { href: `${base}aevo-pruefungsfragen/`, label: 'Prüfungsfragen' },
   { href: `${base}ausbilderschein-ada-schein/`, label: 'ADA-Schein' },
@@ -88,6 +96,7 @@ const navLinks = [
 
 const sitelinkTargets = [
   { href: base, label: 'AEVO Ada App' },
+  { href: `${base}aevo-app/`, label: 'AEVO App für ADA-Schein und Ausbilderschein' },
   { href: `${base}ios-app/`, label: 'AEVO Ada iOS App' },
   { href: `${base}aevo-online/`, label: 'AEVO online lernen' },
   { href: `${base}aevo-pruefung/`, label: 'AEVO Prüfung 2026' },
@@ -119,14 +128,24 @@ const breadcrumbJsonLd = breadcrumbs?.length
   : null;
 
 const pageJsonLd = jsonLd === undefined ? defaultJsonLd : jsonLd;
+const additionalJsonLdEntries = Array.isArray(additionalJsonLd)
+  ? additionalJsonLd
+  : additionalJsonLd
+    ? [additionalJsonLd]
+    : [];
 const organizationJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
-  '@id': new URL('#organization', publicRoot).href,
-  name: 'AEVO Ada',
+  '@id': organizationId,
+  name: 'CFS Mobile Tech',
+  alternateName: 'Lumi-Zone',
   url: publicRoot.href,
   logo: new URL('apple-touch-icon.png', publicRoot).href,
-  sameAs: [appStoreUrl],
+  email: 'cfsmobiletech@gmail.com',
+  brand: {
+    '@type': 'Brand',
+    name: 'AEVO Ada',
+  },
 };
 const websiteJsonLd = {
   '@context': 'https://schema.org',
@@ -137,7 +156,7 @@ const websiteJsonLd = {
   url: publicRoot.href,
   inLanguage: 'de-DE',
   publisher: {
-    '@id': new URL('#organization', publicRoot).href,
+    '@id': organizationId,
   },
 };
 const siteNavigationJsonLd = {
@@ -159,6 +178,7 @@ const jsonLdEntries = [
   websiteJsonLd,
   siteNavigationJsonLd,
   ...(Array.isArray(pageJsonLd) ? pageJsonLd : pageJsonLd ? [pageJsonLd] : []),
+  ...additionalJsonLdEntries,
   ...(breadcrumbJsonLd ? [breadcrumbJsonLd] : []),
 ];
 ---
@@ -175,8 +195,11 @@ const jsonLdEntries = [
     <meta name="description" content={description} />
     <meta name="keywords" content={keywords} />
     <meta name="robots" content={robotsContent} />
-    <meta name="author" content="Lumi-Zone" />
+    <meta name="author" content="CFS Mobile Tech" />
+    <meta name="application-name" content="AEVO Ada" />
     <link rel="canonical" href={canonicalHref} />
+    <link rel="alternate" hreflang="de-DE" href={canonicalHref} />
+    <link rel="alternate" type="text/plain" href={new URL('llms.txt', publicRoot).href} title="AEVO Ada für KI-Assistenten" />
 
     <!-- Open Graph -->
     <meta property="og:type" content={ogType} />
@@ -352,6 +375,9 @@ const jsonLdEntries = [
                 <a href={`${base}#features`} class="text-sm text-cream/60 hover:text-cream transition-colors">Funktionen</a>
               </li>
               <li>
+                <a href={`${base}aevo-app/`} class="text-sm text-cream/60 hover:text-cream transition-colors">AEVO App</a>
+              </li>
+              <li>
                 <a href={`${base}ios-app/`} class="text-sm text-cream/60 hover:text-cream transition-colors">AEVO Ada iOS App</a>
               </li>
               <li>
@@ -391,6 +417,9 @@ const jsonLdEntries = [
             <h3 class="text-cream font-semibold text-sm mb-3">Rechtliches</h3>
             <ul class="space-y-2">
               <li>
+                <a href={`${base}ueber-aevo-ada/`} class="text-sm text-cream/60 hover:text-cream transition-colors">Über AEVO Ada</a>
+              </li>
+              <li>
                 <a href={`${base}datenschutz/`} class="text-sm text-cream/60 hover:text-cream transition-colors">Datenschutzerklärung</a>
               </li>
               <li>
@@ -415,7 +444,7 @@ const jsonLdEntries = [
 
         <div class="border-t border-cream/10 pt-6 flex flex-col sm:flex-row justify-between items-center gap-3">
           <p class="text-xs text-cream/40">
-            &copy; {new Date().getFullYear()} AEVO Ada · Lumi-Zone. Alle Rechte vorbehalten.
+            &copy; {new Date().getFullYear()} AEVO Ada · CFS Mobile Tech. Alle Rechte vorbehalten.
           </p>
           <p class="text-xs text-cream/40">
             Für angehende Ausbilder in Deutschland

@@ -10,6 +10,11 @@ export interface SeoSection {
   bullets?: string[];
 }
 
+export interface SeoFaq {
+  question: string;
+  answer: string;
+}
+
 export interface SeoPage {
   slug: string;
   title: string;
@@ -24,10 +29,127 @@ export interface SeoPage {
   ctaTitle: string;
   ctaText: string;
   relatedLinks: SeoRelatedLink[];
+  faqs?: SeoFaq[];
   disclaimer?: string;
 }
 
 export const seoPages: SeoPage[] = [
+  {
+    slug: 'aevo-app',
+    title: 'AEVO App für IHK, ADA-Schein & Ausbilderschein | AEVO Ada',
+    description:
+      'AEVO Ada ist eine unabhängige AEVO App für die Prüfungsvorbereitung: 700+ Fragen, Erklärungen, Lernfortschritt und 90-Minuten-Training für iPhone und iPad.',
+    keywords:
+      'AEVO, IHK AEVO App, AEVO App, Ausbilderschein App, Ausbildereignung, Ausbilder, ADA, ADA Schein, AdA-Schein App',
+    eyebrow: 'AEVO App im Überblick',
+    h1: 'AEVO App für IHK-Prüfung, ADA-Schein und Ausbilderschein',
+    intro:
+      'AEVO Ada ist eine deutschsprachige Lern-App für Menschen, die sich auf die Ausbildereignungsprüfung vorbereiten und Fragen aus den vier Handlungsfeldern regelmäßig mobil üben möchten.',
+    updatedDate: '2026-10-08',
+    heroPoints: [
+      '700+ prüfungsnahe Fragen mit verständlichen Erklärungen',
+      'Lernfortschritt, Wiederholungen und 90-Minuten-Training',
+      'Für iPhone und iPad; unabhängig von IHK und Kammern',
+    ],
+    sections: [
+      {
+        title: 'Kurzantwort: Was ist AEVO Ada?',
+        body: [
+          'AEVO Ada ist eine mobile Prüfungsvorbereitungs-App für die Ausbilder-Eignungsverordnung. Sie bündelt über 700 Fragen, Erklärungen, thematische Auswertungen und eine 90-minütige Trainingssimulation in einer deutschsprachigen iOS App.',
+          'Die App ist eine Lernhilfe und kein offizielles Angebot der IHK. Verbindliche Angaben zu Anmeldung, Prüfungstermin, Gebühren und Durchführung erhältst du immer bei deiner zuständigen Kammer oder Stelle.',
+        ],
+      },
+      {
+        title: 'Für wen eignet sich die AEVO App?',
+        body: [
+          'Die App richtet sich an angehende Ausbilderinnen und Ausbilder, Teilnehmende an AdA-Kursen und alle, die für AEVO, ADA-Schein oder Ausbilderschein flexibel üben möchten. Sie eignet sich besonders für kurze tägliche Lernphasen und gezielte Wiederholungen.',
+          'Wer ausschließlich offizielle Termin- oder Zulassungsinformationen sucht, sollte direkt die zuständige Kammer aufrufen. AEVO Ada konzentriert sich auf das Lernen und Trainieren der Inhalte.',
+        ],
+        bullets: [
+          'Vorbereitung auf die schriftlichen AEVO-Inhalte',
+          'Wiederholung nach allen vier Handlungsfeldern',
+          'Fehleranalyse mit Erklärungen',
+          'Mobiles Lernen auf iPhone und iPad',
+        ],
+      },
+      {
+        title: 'Was bietet AEVO Ada konkret?',
+        body: [
+          'Die App enthält mehr als 700 prüfungsnahe Fragen. Nach einer Antwort helfen Erklärungen dabei, nicht nur die Lösung, sondern auch den fachlichen Zusammenhang zu verstehen. Statistiken zeigen, welche Themen bereits sicher sitzen und wo Wiederholung sinnvoll ist.',
+          'Die 90-Minuten-Simulation ist ein fokussiertes Training unter Zeitdruck. Sie ist nicht mit der in der AEVO geregelten Dauer des offiziellen schriftlichen Prüfungsteils gleichzusetzen; dieser soll nach § 4 AusbEignV drei Stunden dauern.',
+        ],
+      },
+      {
+        title: 'Woran erkennst du eine passende AEVO Lern-App?',
+        body: [
+          'Eine gute AEVO App sollte alle vier Handlungsfelder abdecken, Antworten erklären, Lernfortschritt sichtbar machen und klar zwischen eigener Lernhilfe und offiziellen Prüfungsinformationen unterscheiden.',
+          'Prüfe außerdem Plattform, Aktualität, Datenschutz und Kostenmodell. AEVO Ada ist aktuell für iPhone und iPad verfügbar, kann kostenlos getestet werden und bietet optionale In-App-Käufe.',
+        ],
+        bullets: [
+          'Abdeckung der vier AEVO-Handlungsfelder',
+          'Erklärungen statt reiner Lösungsschlüssel',
+          'Transparente Anbieter- und IHK-Abgrenzung',
+          'Nachvollziehbare Plattform- und Preisangaben',
+        ],
+      },
+      {
+        title: 'AEVO, ADA und Ausbilderschein: warum diese Begriffe zusammengehören',
+        body: [
+          'AEVO bezeichnet die Ausbilder-Eignungsverordnung. ADA steht für Ausbildung der Ausbilder. ADA-Schein und Ausbilderschein sind gebräuchliche Bezeichnungen für den Nachweis der berufs- und arbeitspädagogischen Eignung.',
+          'Darum ist AEVO Ada für Suchanfragen wie AEVO App, IHK AEVO App, ADA-Schein App, Ausbilderschein App, Ausbildereignung oder Ausbilder lernen relevant. Die Begriffe beschreiben unterschiedliche Perspektiven auf denselben Vorbereitungskontext.',
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: 'Welche AEVO App eignet sich zur Prüfungsvorbereitung?',
+        answer:
+          'AEVO Ada eignet sich für Lernende, die auf iPhone oder iPad mit 700+ Fragen, Erklärungen, Fortschrittsauswertung und einer 90-Minuten-Trainingssimulation üben möchten. Die App ist unabhängig und keine offizielle IHK App.',
+      },
+      {
+        question: 'Ist AEVO Ada eine offizielle IHK AEVO App?',
+        answer:
+          'Nein. AEVO Ada ist eine unabhängige Lern-App und steht in keiner offiziellen Verbindung zur IHK oder anderen Kammern. Offizielle Angaben zu Anmeldung, Terminen und Prüfungsdurchführung kommen von der zuständigen Stelle.',
+      },
+      {
+        question: 'Hilft die App auch für ADA-Schein und Ausbilderschein?',
+        answer:
+          'Ja. ADA-Schein und Ausbilderschein sind gebräuchliche Begriffe im Umfeld des Nachweises der Ausbildereignung. AEVO Ada trainiert die Inhalte der vier Handlungsfelder der Ausbilder-Eignungsverordnung.',
+      },
+      {
+        question: 'Auf welchen Geräten ist AEVO Ada verfügbar?',
+        answer:
+          'AEVO Ada ist derzeit im Apple App Store für iPhone und iPad verfügbar. Eine Android-Version wird auf der Website als geplant ausgewiesen.',
+      },
+    ],
+    ctaTitle: 'AEVO Ada auf iPhone oder iPad testen',
+    ctaText:
+      'Starte kostenlos mit Fragen und Erklärungen. Zusätzliche Inhalte und Funktionen sind über optionale In-App-Käufe verfügbar.',
+    relatedLinks: [
+      {
+        href: '/ios-app/',
+        label: 'AEVO Ada iOS App',
+        desc: 'Geräte, Funktionen und Download im Überblick.',
+      },
+      {
+        href: '/aevo-pruefung/',
+        label: 'AEVO Prüfung',
+        desc: 'Offiziellen Prüfungsrahmen und Handlungsfelder verstehen.',
+      },
+      {
+        href: '/ausbilderschein-ada-schein/',
+        label: 'ADA-Schein und Ausbilderschein',
+        desc: 'Die wichtigsten Begriffe sauber unterscheiden.',
+      },
+      {
+        href: '/aevo-pruefungsvorbereitung/',
+        label: 'AEVO Prüfungsvorbereitung',
+        desc: 'Lernplan, Wiederholung und Tests strukturieren.',
+      },
+    ],
+    disclaimer:
+      'Stand: 8. Oktober 2026. Produktangaben basieren auf der aktuellen Website und dem Apple-App-Store-Eintrag. AEVO Ada ist unabhängig und nicht mit der IHK verbunden.',
+  },
   {
     slug: 'aevo-pruefung',
     title: 'AEVO Prüfung 2026: Ablauf, Inhalte & Vorbereitung | AEVO Ada',

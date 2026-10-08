@@ -15,7 +15,7 @@ const features = [
   {
     iconPath: 'M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z',
     title: 'Realistische Prüfungssimulation',
-    desc: '90 Minuten, echte Bedingungen – übe so, als wärst du bereits in der Prüfung.',
+    desc: '90 Minuten fokussiertes Training unter Zeitdruck – mit Aufgaben aus allen vier Handlungsfeldern.',
   },
   {
     iconPath: 'M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636',
@@ -94,6 +94,11 @@ const baseUrl = import.meta.env.BASE_URL.endsWith('/')
   : `${import.meta.env.BASE_URL}/`;
 const guideLinks = [
   {
+    href: `${baseUrl}aevo-app/`,
+    title: 'AEVO App für ADA-Schein & Ausbilderschein',
+    desc: 'Funktionen, Zielgruppe, Unabhängigkeit und Auswahlkriterien kompakt erklärt.',
+  },
+  {
     href: `${baseUrl}ios-app/`,
     title: 'AEVO Ada iOS App',
     desc: 'Die AEVO App für iPhone und iPad mit Fragen, Simulation und Lernfortschritt.',
@@ -124,12 +129,49 @@ const guideLinks = [
     desc: 'Die wichtigsten Begriffe rund um ADA-Schein, Ausbilderschein und AEVO.',
   },
 ];
+
+const homeFaqs = [
+  {
+    q: 'Was ist die AEVO-Prüfung?',
+    a: 'Die AEVO-Prüfung weist deine berufs- und arbeitspädagogische Eignung nach. Für die tatsächliche Ausbildung im Betrieb können zusätzlich fachliche, persönliche und betriebliche Voraussetzungen gelten.',
+  },
+  {
+    q: 'Wie viele Fragen enthält AEVO Ada?',
+    a: 'AEVO Ada enthält über 700 prüfungsnahe Fragen aus allen vier Handlungsfeldern der AEVO. Die Inhalte werden regelmäßig aktualisiert.',
+  },
+  {
+    q: 'Ist die App kostenlos?',
+    a: 'Ja. Du kannst die App kostenlos herunterladen und einen Teil der Inhalte testen. AEVO Ada Pro schaltet zusätzliche Fragen, Erklärungen und die Trainingssimulation frei.',
+  },
+  {
+    q: 'Ist AEVO Ada eine offizielle IHK App?',
+    a: 'Nein. AEVO Ada ist eine unabhängige Lern-App und steht in keiner offiziellen Verbindung zur IHK oder anderen Kammern.',
+  },
+  {
+    q: 'Wie funktioniert die Prüfungssimulation?',
+    a: 'Die App bietet ein 90-minütiges Training mit Aufgaben aus allen vier Handlungsfeldern. Es trainiert Zeitdruck und Konzentration, ist aber nicht mit der offiziellen Dauer des schriftlichen Prüfungsteils gleichzusetzen.',
+  },
+];
+
+const homeFaqJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: homeFaqs.map((faq) => ({
+    '@type': 'Question',
+    name: faq.q,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: faq.a,
+    },
+  })),
+};
 ---
 
 <Layout
   title="AEVO Ada – AEVO App & Lern-App zur Prüfungsvorbereitung"
   description="AEVO Ada ist die smarte AEVO App zur digitalen und Online-Prüfungsvorbereitung. 700+ Prüfungsfragen, realistische Simulationen und ein intelligentes Lernsystem. Kostenlos starten."
   keywords="AEVO Ada, AEVO App, AEVO Lern-App, AEVO Online, AEVO Digital, AEVO Prüfung, AEVO Prüfungsvorbereitung, Ausbilder-Eignungsverordnung, AEVO Fragen"
+  additionalJsonLd={homeFaqJsonLd}
 >
   <!-- Hero Section -->
   <section class="relative overflow-hidden bg-cream pt-16 pb-20 sm:pt-24 sm:pb-28">
@@ -410,28 +452,7 @@ const guideLinks = [
       </div>
 
       <div class="space-y-4">
-        {[
-          {
-            q: 'Was ist die AEVO-Prüfung?',
-            a: 'Die AEVO-Prüfung (Ausbilder-Eignungsverordnung) ist eine Prüfung, die nachweist, dass du die berufs- und arbeitspädagogischen Fähigkeiten zur Ausbildung von Azubis besitzt. Sie ist Voraussetzung, um selbstständig ausbilden zu dürfen.',
-          },
-          {
-            q: 'Wie viele Fragen enthält AEVO Ada?',
-            a: 'AEVO Ada enthält über 700 Prüfungsfragen aus allen vier Handlungsfeldern der AEVO – regelmäßig aktualisiert und von Experten geprüft.',
-          },
-          {
-            q: 'Ist die App kostenlos?',
-            a: 'Ja! Du kannst sofort kostenlos mit dem Lernen beginnen. Mit AEVO Ada Pro schaltest du unbegrenzten Zugang zu allen Fragen, Erklärungen und der Prüfungssimulation frei.',
-          },
-          {
-            q: 'Für welche Prüfungsform eignet sich die App?',
-            a: 'AEVO Ada unterstützt dich bei der schriftlichen Prüfung (Multiple-Choice-Fragen) sowie bei der praktischen mündlichen Prüfung mit Szenarien und Fallbeispielen.',
-          },
-          {
-            q: 'Wie funktioniert die Prüfungssimulation?',
-            a: 'Die Simulation bildet die echte AEVO-Prüfung nach: 90 Minuten, alle vier Handlungsfelder, echte Bedingungen. Du kannst sie nicht pausieren – genau wie die echte Prüfung.',
-          },
-        ].map(({ q, a }) => (
+        {homeFaqs.map(({ q, a }) => (
           <details class="bg-card rounded-2xl border border-cream-border group overflow-hidden">
             <summary class="px-6 py-4 cursor-pointer font-semibold text-brown text-sm flex justify-between items-center gap-4 list-none hover:text-wine transition-colors">
               {q}

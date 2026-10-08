@@ -1,0 +1,132 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const baseUrl = import.meta.env.BASE_URL.endsWith('/')
+  ? import.meta.env.BASE_URL
+  : `${import.meta.env.BASE_URL}/`;
+const pagePath = `${baseUrl}ueber-aevo-ada/`;
+const siteOrigin = Astro.site ?? 'https://aevo-ada-pruefung.de';
+const canonicalUrl = new URL(pagePath, siteOrigin).href;
+const appStoreUrl = 'https://apps.apple.com/de/app/aevo-ihk-app-ada-schein/id6763579448';
+
+const aboutJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'AboutPage',
+  '@id': canonicalUrl,
+  name: 'Über AEVO Ada',
+  description:
+    'Anbieter, Zweck, redaktionelle Einordnung, Quellen und Unabhängigkeit der AEVO Ada Lern-App.',
+  inLanguage: 'de-DE',
+  dateModified: '2026-10-08',
+  mainEntity: {
+    '@type': 'SoftwareApplication',
+    '@id': new URL(`${baseUrl}ios-app/#softwareapplication`, siteOrigin).href,
+    name: 'AEVO Ada',
+    sameAs: [appStoreUrl],
+  },
+};
+---
+
+<Layout
+  title="Über AEVO Ada: Anbieter, Quellen & Unabhängigkeit"
+  description="Wer hinter AEVO Ada steht, wofür die App gedacht ist und wie Inhalte, Quellen und die Abgrenzung zur IHK transparent eingeordnet werden."
+  keywords="AEVO Ada Anbieter, AEVO App unabhängig, IHK AEVO App Anbieter, AEVO Ada Quellen"
+  canonical={canonicalUrl}
+  breadcrumbs={[
+    { name: 'Startseite', href: baseUrl },
+    { name: 'Über AEVO Ada', href: pagePath },
+  ]}
+  jsonLd={aboutJsonLd}
+>
+  <section class="bg-cream py-14 sm:py-20">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <p class="inline-flex items-center bg-wine/10 text-wine px-4 py-1.5 rounded-full text-sm font-semibold border border-wine/20 mb-6">
+        Transparenz
+      </p>
+      <h1 class="font-serif text-4xl sm:text-5xl font-bold text-brown leading-tight mb-6">
+        Über AEVO Ada
+      </h1>
+      <p class="text-lg sm:text-xl text-muted leading-relaxed max-w-3xl">
+        AEVO Ada ist eine unabhängige Lern-App von CFS Mobile Tech. Sie unterstützt angehende Ausbilderinnen und Ausbilder beim strukturierten Üben für die AEVO-Inhalte.
+      </p>
+    </div>
+  </section>
+
+  <article class="py-16 bg-cream-dark/35">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 space-y-8">
+      <section class="bg-card border border-cream-border rounded-2xl p-6 sm:p-8">
+        <h2 class="font-serif text-2xl sm:text-3xl font-bold text-brown mb-4">Produkt und Anbieter</h2>
+        <div class="space-y-4 text-muted leading-relaxed">
+          <p>
+            AEVO Ada wird von CFS Mobile Tech angeboten und ist im Apple App Store für iPhone und iPad verfügbar. Die App kombiniert 700+ prüfungsnahe Fragen, Erklärungen, Lernstatistiken und eine 90-minütige Trainingssimulation.
+          </p>
+          <p>
+            Aktuelle Plattform-, Kompatibilitäts-, Preis- und Versionsangaben findest du im
+            <a href={appStoreUrl} class="text-wine font-semibold hover:underline" target="_blank" rel="noopener noreferrer">offiziellen App-Store-Eintrag</a>.
+          </p>
+        </div>
+      </section>
+
+      <section class="bg-card border border-cream-border rounded-2xl p-6 sm:p-8">
+        <h2 class="font-serif text-2xl sm:text-3xl font-bold text-brown mb-4">Unabhängigkeit und Grenzen</h2>
+        <div class="space-y-4 text-muted leading-relaxed">
+          <p>
+            AEVO Ada ist weder eine offizielle IHK-App noch mit einer Industrie- und Handelskammer oder einer anderen Kammer verbunden. Die App ist eine ergänzende Lernhilfe und ersetzt keine verbindlichen Informationen der zuständigen Stelle.
+          </p>
+          <p>
+            Prüfungstermine, Gebühren, Zulassung und örtliche Hinweise können sich unterscheiden. Dafür ist immer die zuständige Kammer oder Prüfungsstelle maßgeblich.
+          </p>
+        </div>
+      </section>
+
+      <section class="bg-card border border-cream-border rounded-2xl p-6 sm:p-8">
+        <h2 class="font-serif text-2xl sm:text-3xl font-bold text-brown mb-4">Redaktionelle Leitlinien</h2>
+        <p class="text-muted leading-relaxed mb-5">
+          Damit Website-Inhalte verständlich, überprüfbar und zitierbar bleiben, gelten folgende Leitlinien:
+        </p>
+        <ul class="grid grid-cols-1 sm:grid-cols-2 gap-3" role="list">
+          {[
+            'Produktaussagen werden klar von offiziellen Prüfungsangaben getrennt.',
+            'Fachliche Grundlagen werden mit Primärquellen verlinkt.',
+            'IHK-Bezug und unabhängiger Anbieterstatus werden offengelegt.',
+            'Inhalte erhalten ein sichtbares Datum der letzten Prüfung.',
+          ].map((item) => (
+            <li class="flex gap-3 text-sm text-brown">
+              <span class="mt-1.5 w-2 h-2 rounded-full bg-gold flex-shrink-0"></span>
+              <span>{item}</span>
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      <section class="bg-card border border-cream-border rounded-2xl p-6 sm:p-8">
+        <h2 class="font-serif text-2xl sm:text-3xl font-bold text-brown mb-4">Primärquellen</h2>
+        <ul class="space-y-4" role="list">
+          <li>
+            <a href="https://www.gesetze-im-internet.de/ausbeignv_2009/" class="font-semibold text-wine hover:underline" target="_blank" rel="noopener noreferrer">
+              Ausbilder-Eignungsverordnung (AusbEignV)
+            </a>
+            <p class="text-sm text-muted mt-1">Gesetze im Internet – Bundesministerium der Justiz / Bundesamt für Justiz</p>
+          </li>
+          <li>
+            <a href="https://www.bibb.de/dienst/publikationen/de/6991" class="font-semibold text-wine hover:underline" target="_blank" rel="noopener noreferrer">
+              Die novellierte Ausbilder-Eignungsverordnung
+            </a>
+            <p class="text-sm text-muted mt-1">Bundesinstitut für Berufsbildung (BIBB)</p>
+          </li>
+        </ul>
+      </section>
+
+      <div class="flex flex-col sm:flex-row gap-3">
+        <a href={`${baseUrl}aevo-app/`} class="inline-flex justify-center bg-wine text-cream px-6 py-3 rounded-xl font-semibold text-sm hover:bg-wine-dark transition-colors">
+          AEVO App im Überblick
+        </a>
+        <a href="mailto:cfsmobiletech@gmail.com" class="inline-flex justify-center bg-card border border-cream-border text-brown px-6 py-3 rounded-xl font-semibold text-sm hover:border-wine/30 hover:text-wine transition-colors">
+          Kontakt aufnehmen
+        </a>
+      </div>
+
+      <p class="text-xs text-muted">Zuletzt geprüft: 08.10.2026</p>
+    </div>
+  </article>
+</Layout>

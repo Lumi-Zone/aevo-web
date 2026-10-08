@@ -17,6 +17,27 @@ const pagePath = `${baseUrl}${page.slug}/`;
 const canonicalUrl = new URL(pagePath, Astro.site ?? 'https://aevo-ada-pruefung.de').href;
 const appStoreUrl = 'https://apps.apple.com/de/app/aevo-ihk-app-ada-schein/id6763579448';
 const withBase = (href: string) => (href.startsWith('/') ? `${baseUrl}${href.slice(1)}` : href);
+const siteOrigin = Astro.site ?? 'https://aevo-ada-pruefung.de';
+const organizationId = new URL(`${baseUrl}#organization`, siteOrigin).href;
+const officialSources = [
+  ...(page.slug === 'aevo-app'
+    ? [{
+        href: appStoreUrl,
+        label: 'AEVO Ada im Apple App Store',
+        publisher: 'Apple App Store – Plattform-, Anbieter- und Produktangaben',
+      }]
+    : []),
+  {
+    href: 'https://www.gesetze-im-internet.de/ausbeignv_2009/',
+    label: 'Ausbilder-Eignungsverordnung (AusbEignV)',
+    publisher: 'Bundesministerium der Justiz / Bundesamt für Justiz',
+  },
+  {
+    href: 'https://www.bibb.de/dienst/publikationen/de/6991',
+    label: 'Die novellierte Ausbilder-Eignungsverordnung',
+    publisher: 'Bundesinstitut für Berufsbildung (BIBB)',
+  },
+];
 
 const articleJsonLd = {
   '@context': 'https://schema.org',
@@ -24,22 +45,77 @@ const articleJsonLd = {
   headline: page.h1,
   description: page.description,
   inLanguage: 'de-DE',
-  datePublished: '2026-06-19',
+  datePublished: page.slug === 'aevo-app' ? '2026-10-08' : '2026-06-19',
   dateModified: page.updatedDate,
   keywords: page.keywords.split(',').map((keyword) => keyword.trim()),
   author: {
     '@type': 'Organization',
-    name: 'Lumi-Zone',
+    '@id': organizationId,
+    name: 'CFS Mobile Tech',
   },
   publisher: {
     '@type': 'Organization',
-    name: 'Lumi-Zone',
+    '@id': organizationId,
+    name: 'CFS Mobile Tech',
   },
+  about: [
+    { '@type': 'Thing', name: 'Ausbilder-Eignungsverordnung', alternateName: 'AEVO' },
+    { '@type': 'Thing', name: 'Ausbildereignungsprüfung', alternateName: ['AdA-Prüfung', 'ADA-Prüfung'] },
+    { '@type': 'Thing', name: 'Ausbilderschein', alternateName: 'ADA-Schein' },
+  ],
+  citation: officialSources.map((source) => source.href),
   mainEntityOfPage: {
     '@type': 'WebPage',
     '@id': canonicalUrl,
   },
 };
+
+const faqJsonLd = page.faqs?.length
+  ? {
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: page.faqs.map((faq) => ({
+        '@type': 'Question',
+        name: faq.question,
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: faq.answer,
+        },
+      })),
+    }
+  : null;
+
+const appJsonLd = page.slug === 'aevo-app'
+  ? {
+      '@context': 'https://schema.org',
+      '@type': 'SoftwareApplication',
+      '@id': new URL(`${baseUrl}ios-app/#softwareapplication`, siteOrigin).href,
+      name: 'AEVO Ada',
+      alternateName: ['AEVO App', 'IHK AEVO App', 'ADA-Schein App', 'Ausbilderschein App'],
+      applicationCategory: 'EducationalApplication',
+      applicationSubCategory: 'AEVO Prüfungsvorbereitung',
+      operatingSystem: 'iOS 16.4 oder neuer, iPadOS 16.4 oder neuer',
+      inLanguage: 'de-DE',
+      description: page.description,
+      url: new URL(`${baseUrl}ios-app/`, siteOrigin).href,
+      downloadUrl: appStoreUrl,
+      installUrl: appStoreUrl,
+      featureList: [
+        '700+ prüfungsnahe AEVO-Fragen',
+        'Erklärungen zu Antworten',
+        'Lernfortschritt nach Themen',
+        '90-Minuten-Trainingssimulation',
+      ],
+      offers: {
+        '@type': 'Offer',
+        price: '0',
+        priceCurrency: 'EUR',
+        category: 'Kostenloser Download mit optionalen In-App-Käufen',
+      },
+      publisher: { '@id': organizationId },
+      sameAs: [appStoreUrl],
+    }
+  : null;
 ---
 
 <Layout
@@ -47,13 +123,13 @@ const articleJsonLd = {
   description={page.description}
   keywords={page.keywords}
   ogType="article"
-  publishedDate="2026-06-19"
+  publishedDate={page.slug === 'aevo-app' ? '2026-10-08' : '2026-06-19'}
   updatedDate={page.updatedDate}
   breadcrumbs={[
     { name: 'Startseite', href: baseUrl },
     { name: page.h1, href: pagePath },
   ]}
-  jsonLd={articleJsonLd}
+  jsonLd={[articleJsonLd, ...(faqJsonLd ? [faqJsonLd] : []), ...(appJsonLd ? [appJsonLd] : [])]}
 >
   <section class="bg-cream py-14 sm:py-20">
     <div class="max-w-5xl mx-auto px-4 sm:px-6">
@@ -115,6 +191,54 @@ const articleJsonLd = {
             {page.disclaimer}
           </p>
         )}
+
+        {page.faqs && page.faqs.length > 0 && (
+          <section class="bg-card border border-cream-border rounded-2xl p-6 sm:p-8">
+            <h2 class="font-serif text-2xl sm:text-3xl font-bold text-brown mb-5">
+              Häufige Fragen zur AEVO App
+            </h2>
+            <div class="space-y-3">
+              {page.faqs.map((faq) => (
+                <details class="border border-cream-border rounded-xl overflow-hidden group">
+                  <summary class="px-5 py-4 cursor-pointer font-semibold text-brown text-sm flex items-center justify-between gap-4 list-none hover:text-wine transition-colors">
+                    {faq.question}
+                    <span class="text-wine group-open:rotate-45 transition-transform" aria-hidden="true">+</span>
+                  </summary>
+                  <p class="px-5 pb-5 pt-3 border-t border-cream-border text-sm text-muted leading-relaxed">
+                    {faq.answer}
+                  </p>
+                </details>
+              ))}
+            </div>
+          </section>
+        )}
+
+        <section class="bg-cream border border-cream-border rounded-2xl p-6 sm:p-8" aria-labelledby="official-sources">
+          <h2 id="official-sources" class="font-serif text-2xl font-bold text-brown mb-3">
+            Offizielle Grundlagen und Quellen
+          </h2>
+          <p class="text-sm text-muted leading-relaxed mb-5">
+            Fachliche Angaben werden anhand der geltenden AEVO und öffentlich zugänglicher Informationen des BIBB eingeordnet. Verbindliche organisatorische Details nennt deine zuständige Kammer.
+          </p>
+          <ul class="space-y-3" role="list">
+            {officialSources.map((source) => (
+              <li>
+                <a
+                  href={source.href}
+                  class="text-sm font-semibold text-wine hover:text-wine-dark hover:underline"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {source.label}
+                </a>
+                <span class="block text-xs text-muted mt-1">{source.publisher}</span>
+              </li>
+            ))}
+          </ul>
+          <p class="text-xs text-muted mt-5">
+            Zuletzt inhaltlich geprüft: <time datetime={page.updatedDate}>{page.updatedDate.split('-').reverse().join('.')}</time>
+          </p>
+        </section>
       </div>
 
       <aside class="lg:sticky lg:top-24 space-y-5">

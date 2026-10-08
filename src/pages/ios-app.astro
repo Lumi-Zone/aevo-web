@@ -15,12 +15,12 @@ const appJsonLd = {
   '@type': 'SoftwareApplication',
   '@id': `${canonicalUrl}#softwareapplication`,
   name: 'AEVO Ada',
-  alternateName: ['AEVO Ada App', 'AEVO IHK App ADA-Schein', 'AEVO Lern-App'],
+  alternateName: ['AEVO Ada App', 'AEVO App', 'IHK AEVO App', 'ADA-Schein App', 'Ausbilderschein App'],
   description:
     'AEVO Ada ist eine iOS App zur Vorbereitung auf die AEVO Prüfung mit 700+ Prüfungsfragen, Erklärungen, Fortschrittsstatistiken und Prüfungssimulation.',
   applicationCategory: 'EducationalApplication',
   applicationSubCategory: 'Prüfungsvorbereitung',
-  operatingSystem: 'iOS',
+  operatingSystem: 'iOS 16.4 oder neuer, iPadOS 16.4 oder neuer',
   inLanguage: 'de-DE',
   url: canonicalUrl,
   downloadUrl: appStoreUrl,
@@ -28,6 +28,12 @@ const appJsonLd = {
   sameAs: [appStoreUrl],
   image: iconUrl,
   screenshot: ogImageUrl,
+  featureList: [
+    '700+ prüfungsnahe AEVO-Fragen',
+    'Erklärungen zu Antworten',
+    'Fortschrittsstatistiken nach Themen',
+    '90-Minuten-Trainingssimulation',
+  ],
   offers: {
     '@type': 'Offer',
     price: '0',
@@ -35,7 +41,7 @@ const appJsonLd = {
   },
   publisher: {
     '@type': 'Organization',
-    name: 'Lumi-Zone',
+    name: 'CFS Mobile Tech',
     email: 'cfsmobiletech@gmail.com',
   },
 };
