@@ -23,6 +23,7 @@ export interface SeoPage {
   eyebrow: string;
   h1: string;
   intro: string;
+  publishedDate?: string;
   updatedDate: string;
   heroPoints: string[];
   sections: SeoSection[];
@@ -234,9 +235,9 @@ export const seoPages: SeoPage[] = [
       'Starte mit AEVO Ada auf iPhone oder iPad und trainiere mit Fragen, Erklärungen und realistischer Simulation. Die Android-Version ist demnächst verfügbar.',
     relatedLinks: [
       {
-        href: '/aevo-online/',
-        label: 'AEVO online lernen',
-        desc: 'Digitale Vorbereitung mit App und Simulation.',
+        href: '/aevo-praktische-pruefung/',
+        label: 'AEVO praktische Prüfung',
+        desc: 'Präsentation, Durchführung und Fachgespräch vorbereiten.',
       },
       {
         href: '/aevo-pruefungsvorbereitung/',
@@ -254,6 +255,142 @@ export const seoPages: SeoPage[] = [
         desc: 'Begriffe und Unterschiede verständlich erklärt.',
       },
     ],
+  },
+  {
+    slug: 'aevo-praktische-pruefung',
+    title: 'AEVO praktische Prüfung: Präsentation & Fachgespräch | AEVO Ada',
+    description:
+      'AEVO praktische Prüfung vorbereiten: Ablauf, 15-Minuten-Präsentation, praktische Durchführung, Fachgespräch, Themenwahl und Checkliste verständlich erklärt.',
+    keywords:
+      'AEVO praktische Prüfung, AEVO Präsentation, AEVO Fachgespräch, AEVO Unterweisung, praktische Ausbildereignungsprüfung, ADA praktische Prüfung',
+    eyebrow: 'Praktischer Prüfungsteil',
+    h1: 'AEVO praktische Prüfung: Präsentation und Fachgespräch vorbereiten',
+    intro:
+      'Im praktischen Teil zeigst du, wie du eine berufstypische Ausbildungssituation planst, gestaltest und fachlich begründest. Dieser Leitfaden verbindet den gesetzlichen Rahmen mit einer konkreten Vorbereitung.',
+    publishedDate: '2026-10-30',
+    updatedDate: '2026-10-30',
+    heroPoints: [
+      'Präsentation oder praktische Durchführung sinnvoll auswählen',
+      'Lernziel, Methode und Lernerfolg nachvollziehbar begründen',
+      'Fachgespräch mit typischen Begründungsfragen vorbereiten',
+    ],
+    sections: [
+      {
+        title: 'Kurzantwort: Wie läuft die praktische AEVO Prüfung ab?',
+        body: [
+          'Nach § 4 Ausbilder-Eignungsverordnung besteht der praktische Teil aus der Präsentation einer berufstypischen Ausbildungssituation und einem Fachgespräch. Beides dauert zusammen höchstens 30 Minuten; die Präsentation soll 15 Minuten nicht überschreiten. Anstelle der Präsentation kann die Ausbildungssituation praktisch durchgeführt werden.',
+          'Die genaue Organisation, einzureichende Unterlagen und örtlichen Vorgaben legt die zuständige Stelle fest. Prüfe deshalb zusätzlich immer die aktuelle Einladung und die Hinweise deiner Kammer.',
+        ],
+      },
+      {
+        title: 'Präsentation oder praktische Durchführung?',
+        body: [
+          'Bei einer Präsentation erklärst du dem Prüfungsausschuss, wie du eine konkrete Ausbildungssituation gestalten würdest. Das eignet sich, wenn du Planung, Zielgruppe, Methode, Ablauf und Lernkontrolle übersichtlich mit Medien darstellen kannst.',
+          'Bei der praktischen Durchführung zeigst du die Ausbildungssituation unmittelbar. Diese Form kann sinnvoll sein, wenn sich ein klar abgegrenzter Lernschritt sicher, anschaulich und innerhalb der verfügbaren Zeit vermitteln lässt. Entscheidend ist nicht die spektakulärste Methode, sondern eine begründete, zur Zielgruppe und zum Lernziel passende Entscheidung.',
+        ],
+        bullets: [
+          'Präsentation: Planung und didaktische Entscheidungen strukturiert erläutern',
+          'Durchführung: Lernprozess in einer konkreten Situation sichtbar machen',
+          'Beide Wege: Lernziel, Zielgruppe, Methode und Erfolgskontrolle begründen',
+          'Örtliche Vorgaben der zuständigen Stelle vorab prüfen',
+        ],
+      },
+      {
+        title: 'So wählst du eine geeignete Ausbildungssituation',
+        body: [
+          'Wähle eine berufstypische Situation mit einem klaren, realistischen Lernziel. Der geplante Lernschritt sollte zur Vorerfahrung der auszubildenden Person passen und in der vorgesehenen Zeit nachvollziehbar bearbeitet werden können.',
+          'Beschreibe nicht nur, was gelernt werden soll, sondern auch, woran du den Lernerfolg erkennst. Berücksichtige außerdem Arbeitssicherheit, benötigte Materialien, mögliche Fehler und eine passende Form der Rückmeldung.',
+        ],
+        bullets: [
+          'Ausgangssituation und Zielgruppe konkret benennen',
+          'Feinlernziel beobachtbar und überprüfbar formulieren',
+          'Methode aus Lernziel und Lernvoraussetzungen ableiten',
+          'Lernerfolg und Transfer in den Arbeitsalltag prüfen',
+        ],
+      },
+      {
+        title: 'Auf das Fachgespräch vorbereiten',
+        body: [
+          'Im Fachgespräch erläuterst du die Auswahl und Gestaltung deiner Ausbildungssituation. Bereite dich darauf vor, nicht nur deinen Ablauf zu beschreiben, sondern Alternativen abzuwägen und deine Entscheidungen fachlich zu begründen.',
+          'Übe kurze Antworten auf Fragen wie: Warum passt diese Methode zur Zielgruppe? Wie gehst du mit unterschiedlichen Vorkenntnissen um? Wie stellst du Arbeitssicherheit sicher? Wie reagierst du auf einen Fehler? Welche andere Methode wäre möglich und warum hast du sie nicht gewählt?',
+        ],
+        bullets: [
+          'Didaktische Entscheidung mit Lernziel und Zielgruppe verknüpfen',
+          'Methodische Alternativen nennen und abwägen',
+          'Motivation, Feedback und Lernkontrolle erklären',
+          'Rechtliche und sicherheitsrelevante Aspekte einordnen',
+        ],
+      },
+      {
+        title: 'Checkliste für die letzten sieben Tage',
+        body: [
+          'Probiere deinen vollständigen Ablauf mehrmals unter realistischen Zeitbedingungen. Bitte eine andere Person, Verständnisfragen zu stellen und unklare Übergänge zu markieren. Kürze alles, was nicht direkt zum Lernziel oder zur Begründung beiträgt.',
+          'Kontrolliere am Vortag deine Unterlagen, Medien und gegebenenfalls benötigten Materialien. Plane außerdem eine einfache Alternative ein, falls Technik oder ein Hilfsmittel ausfällt.',
+        ],
+        bullets: [
+          'Ablauf laut und mit Stoppuhr proben',
+          'Lernziel und Erfolgskontrolle in einem Satz erklären können',
+          'Fünf typische Fachgesprächsfragen beantworten',
+          'Unterlagen, Technik und Plan B prüfen',
+        ],
+      },
+      {
+        title: 'Wie AEVO Ada die Vorbereitung ergänzt',
+        body: [
+          'AEVO Ada trainiert vor allem das Fachwissen aus den vier Handlungsfeldern mit Fragen, Erklärungen und Lernstatistiken. Dieses Wissen hilft dir, Entscheidungen im Fachgespräch sicherer einzuordnen.',
+          'Die praktische Prüfung solltest du zusätzlich mit einer eigenen Ausbildungssituation, realistischen Probeläufen und den konkreten Vorgaben deiner zuständigen Stelle vorbereiten.',
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: 'Wie lange dauert die praktische AEVO Prüfung?',
+        answer:
+          'Präsentation und Fachgespräch dauern nach § 4 AusbEignV zusammen höchstens 30 Minuten. Die Präsentation soll 15 Minuten nicht überschreiten. Für Landwirtschaft und Hauswirtschaft gelten besondere Regelungen.',
+      },
+      {
+        question: 'Muss ich präsentieren oder kann ich eine Unterweisung durchführen?',
+        answer:
+          'Anstelle der Präsentation kann eine Ausbildungssituation praktisch durchgeführt werden. Welche organisatorischen Vorgaben gelten, solltest du in den aktuellen Hinweisen deiner zuständigen Stelle prüfen.',
+      },
+      {
+        question: 'Was wird im Fachgespräch gefragt?',
+        answer:
+          'Im Fachgespräch erläuterst du Auswahl und Gestaltung der Ausbildungssituation. Typisch sind Fragen zu Lernziel, Zielgruppe, Methodenwahl, Alternativen, Motivation, Lernkontrolle, Arbeitssicherheit und dem Umgang mit Schwierigkeiten.',
+      },
+      {
+        question: 'Reicht die App allein für die praktische Prüfung?',
+        answer:
+          'Nein. AEVO Ada stärkt das Fachwissen für die vier Handlungsfelder. Für den praktischen Teil brauchst du zusätzlich eine eigene Ausbildungssituation, Probeläufe und die Vorgaben deiner zuständigen Stelle.',
+      },
+    ],
+    ctaTitle: 'Fachwissen für das Fachgespräch festigen',
+    ctaText:
+      'Trainiere die vier AEVO-Handlungsfelder mit Fragen, Erklärungen und Fortschrittsauswertung auf iPhone und iPad.',
+    relatedLinks: [
+      {
+        href: '/aevo-pruefung/',
+        label: 'AEVO Prüfung im Überblick',
+        desc: 'Schriftlichen und praktischen Prüfungsteil einordnen.',
+      },
+      {
+        href: '/aevo-pruefungsvorbereitung/',
+        label: 'AEVO Prüfungsvorbereitung',
+        desc: 'Lernplan, Wiederholung und Testmodus strukturieren.',
+      },
+      {
+        href: '/aevo-pruefungsfragen/',
+        label: 'AEVO Prüfungsfragen',
+        desc: 'Fachwissen mit Fragen und Erklärungen festigen.',
+      },
+      {
+        href: '/ausbilderschein-ada-schein/',
+        label: 'ADA-Schein und Ausbilderschein',
+        desc: 'Begriffe und Nachweis der Ausbildereignung verstehen.',
+      },
+    ],
+    disclaimer:
+      'Stand: 30. Oktober 2026. Maßgeblich sind die Ausbilder-Eignungsverordnung und die aktuellen organisatorischen Vorgaben deiner zuständigen Stelle.',
   },
   {
     slug: 'aevo-pruefungsvorbereitung',

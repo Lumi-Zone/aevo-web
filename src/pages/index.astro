@@ -88,7 +88,7 @@ const premiumFeatures = [
   'Detaillierte Fortschrittsstatistiken',
 ];
 
-const appStoreUrl = 'https://apps.apple.com/de/app/aevo-ihk-app-ada-schein/id6763579448';
+const appStoreUrl = 'https://apps.apple.com/de/app/aevo-ada-schein-ihk-pr%C3%BCfung/id6763579448';
 const baseUrl = import.meta.env.BASE_URL.endsWith('/')
   ? import.meta.env.BASE_URL
   : `${import.meta.env.BASE_URL}/`;
@@ -112,6 +112,11 @@ const guideLinks = [
     href: `${baseUrl}aevo-pruefung/`,
     title: 'AEVO Prüfung',
     desc: 'Ablauf, Inhalte und Prüfungsteile der AEVO Prüfung 2026 verständlich erklärt.',
+  },
+  {
+    href: `${baseUrl}aevo-praktische-pruefung/`,
+    title: 'AEVO praktische Prüfung',
+    desc: 'Präsentation, praktische Durchführung und Fachgespräch gezielt vorbereiten.',
   },
   {
     href: `${baseUrl}aevo-pruefungsvorbereitung/`,
