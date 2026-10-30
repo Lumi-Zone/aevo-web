@@ -15,10 +15,11 @@ const baseUrl = import.meta.env.BASE_URL.endsWith('/')
   : `${import.meta.env.BASE_URL}/`;
 const pagePath = `${baseUrl}${page.slug}/`;
 const canonicalUrl = new URL(pagePath, Astro.site ?? 'https://aevo-ada-pruefung.de').href;
-const appStoreUrl = 'https://apps.apple.com/de/app/aevo-ihk-app-ada-schein/id6763579448';
+const appStoreUrl = 'https://apps.apple.com/de/app/aevo-ada-schein-ihk-pr%C3%BCfung/id6763579448';
 const withBase = (href: string) => (href.startsWith('/') ? `${baseUrl}${href.slice(1)}` : href);
 const siteOrigin = Astro.site ?? 'https://aevo-ada-pruefung.de';
 const organizationId = new URL(`${baseUrl}#organization`, siteOrigin).href;
+const publishedDate = page.publishedDate ?? (page.slug === 'aevo-app' ? '2026-10-08' : '2026-06-19');
 const officialSources = [
   ...(page.slug === 'aevo-app'
     ? [{
@@ -45,7 +46,7 @@ const articleJsonLd = {
   headline: page.h1,
   description: page.description,
   inLanguage: 'de-DE',
-  datePublished: page.slug === 'aevo-app' ? '2026-10-08' : '2026-06-19',
+  datePublished: publishedDate,
   dateModified: page.updatedDate,
   keywords: page.keywords.split(',').map((keyword) => keyword.trim()),
   author: {
@@ -91,7 +92,13 @@ const appJsonLd = page.slug === 'aevo-app'
       '@type': 'SoftwareApplication',
       '@id': new URL(`${baseUrl}ios-app/#softwareapplication`, siteOrigin).href,
       name: 'AEVO Ada',
-      alternateName: ['AEVO App', 'IHK AEVO App', 'ADA-Schein App', 'Ausbilderschein App'],
+      alternateName: [
+        'Aevo AdA-Schein IHK Prüfung',
+        'AEVO App',
+        'IHK AEVO App',
+        'ADA-Schein App',
+        'Ausbilderschein App',
+      ],
       applicationCategory: 'EducationalApplication',
       applicationSubCategory: 'AEVO Prüfungsvorbereitung',
       operatingSystem: 'iOS 16.4 oder neuer, iPadOS 16.4 oder neuer',
@@ -100,6 +107,7 @@ const appJsonLd = page.slug === 'aevo-app'
       url: new URL(`${baseUrl}ios-app/`, siteOrigin).href,
       downloadUrl: appStoreUrl,
       installUrl: appStoreUrl,
+      isAccessibleForFree: true,
       featureList: [
         '700+ prüfungsnahe AEVO-Fragen',
         'Erklärungen zu Antworten',
@@ -112,6 +120,10 @@ const appJsonLd = page.slug === 'aevo-app'
         priceCurrency: 'EUR',
         category: 'Kostenloser Download mit optionalen In-App-Käufen',
       },
+      author: {
+        '@type': 'Person',
+        name: 'Mehmet Karakaya',
+      },
       publisher: { '@id': organizationId },
       sameAs: [appStoreUrl],
     }
@@ -123,7 +135,7 @@ const appJsonLd = page.slug === 'aevo-app'
   description={page.description}
   keywords={page.keywords}
   ogType="article"
-  publishedDate={page.slug === 'aevo-app' ? '2026-10-08' : '2026-06-19'}
+  publishedDate={publishedDate}
   updatedDate={page.updatedDate}
   breadcrumbs={[
     { name: 'Startseite', href: baseUrl },

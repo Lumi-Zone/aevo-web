@@ -25,6 +25,8 @@ jobs:
       PUBLIC_UMAMI_WEBSITE_ID: ${{ vars.PUBLIC_UMAMI_WEBSITE_ID }}
       PUBLIC_UMAMI_DOMAINS: ${{ vars.PUBLIC_UMAMI_DOMAINS }}
       PUBLIC_UMAMI_SCRIPT_URL: ${{ vars.PUBLIC_UMAMI_SCRIPT_URL }}
+      PUBLIC_BING_SITE_AUTH: ${{ vars.PUBLIC_BING_SITE_AUTH }}
+      PUBLIC_GOOGLE_SITE_VERIFICATION: ${{ vars.PUBLIC_GOOGLE_SITE_VERIFICATION }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -60,3 +62,12 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
+      - name: Checkout IndexNow helper
+        uses: actions/checkout@v4
+
+      - name: Notify Bing and other IndexNow search engines
+        continue-on-error: true
+        env:
+          INDEXNOW_SITE_ORIGIN: https://aevo-ada-pruefung.de
+        run: node scripts/submit-indexnow.mjs

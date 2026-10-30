@@ -29,10 +29,42 @@ function pagesConfig() {
 
 const { site, base } = pagesConfig();
 
+// Keep sitemap freshness explicit and stable. Search engines can use these
+// dates to prioritize recrawls; using the build time would incorrectly mark
+// every page as changed on every deployment.
+const sitemapLastModified = new Map([
+  ['/', '2026-10-30'],
+  ['/aevo-app/', '2026-10-30'],
+  ['/aevo-ihk/', '2026-10-30'],
+  ['/aevo-online/', '2026-10-30'],
+  ['/aevo-praktische-pruefung/', '2026-10-30'],
+  ['/aevo-pruefung/', '2026-10-30'],
+  ['/aevo-pruefungsfragen/', '2026-10-30'],
+  ['/aevo-pruefungsvorbereitung/', '2026-10-30'],
+  ['/ausbilder-werden/', '2026-10-30'],
+  ['/ausbilderschein-ada-schein/', '2026-10-30'],
+  ['/datenschutz/', '2026-10-30'],
+  ['/ios-app/', '2026-10-30'],
+  ['/nutzungsbedingungen/', '2026-10-30'],
+  ['/support/', '2026-10-30'],
+  ['/ueber-aevo-ada/', '2026-10-30'],
+]);
+
 export default defineConfig({
   site,
   base,
-  integrations: [sitemap()],
+  integrations: [
+    sitemap({
+      serialize(item) {
+        const pathname = new URL(item.url).pathname;
+        const normalizedPath = base !== '/' && pathname.startsWith(base)
+          ? `/${pathname.slice(base.length)}`
+          : pathname;
+        const lastmod = sitemapLastModified.get(normalizedPath);
+        return lastmod ? { ...item, lastmod } : item;
+      },
+    }),
+  ],
   vite: {
     plugins: [tailwindcss()],
   },

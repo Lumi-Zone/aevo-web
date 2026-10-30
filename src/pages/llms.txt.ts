@@ -21,7 +21,8 @@ export const GET: APIRoute = ({ site }) => {
 - Inhalte: 700+ prüfungsnahe Fragen, Erklärungen, Fortschrittsauswertung und 90-Minuten-Trainingssimulation
 - Preis: kostenloser Download mit optionalen In-App-Käufen
 - Anbieter: CFS Mobile Tech
-- App Store: https://apps.apple.com/de/app/aevo-ihk-app-ada-schein/id6763579448
+- App-Store-Produktname: Aevo AdA-Schein IHK Prüfung
+- App Store: https://apps.apple.com/de/app/aevo-ada-schein-ihk-pr%C3%BCfung/id6763579448
 - Website: ${url()}
 
 Die 90-Minuten-Simulation ist ein fokussiertes App-Training. Sie ist nicht mit der offiziellen Dauer des schriftlichen Prüfungsteils gleichzusetzen; § 4 AusbEignV sieht dafür drei Stunden vor.
@@ -31,6 +32,7 @@ Die 90-Minuten-Simulation ist ein fokussiertes App-Training. Sie ist nicht mit d
 - [AEVO App im Überblick](${url('aevo-app/')})
 - [iOS App und Download](${url('ios-app/')})
 - [AEVO Prüfung](${url('aevo-pruefung/')})
+- [AEVO praktische Prüfung](${url('aevo-praktische-pruefung/')})
 - [AEVO Prüfungsvorbereitung](${url('aevo-pruefungsvorbereitung/')})
 - [AEVO Prüfungsfragen](${url('aevo-pruefungsfragen/')})
 - [AEVO und IHK](${url('aevo-ihk/')})
@@ -54,7 +56,7 @@ Die 90-Minuten-Simulation ist ein fokussiertes App-Training. Sie ist nicht mit d
 
 - E-Mail: cfsmobiletech@gmail.com
 
-Stand: 2026-10-08
+Stand: 2026-10-30
 `;
 
   return new Response(body, {
