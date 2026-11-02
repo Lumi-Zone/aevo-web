@@ -103,6 +103,7 @@ const umamiScriptUrl = import.meta.env.PUBLIC_UMAMI_SCRIPT_URL?.trim() || 'https
 const umamiDomains = import.meta.env.PUBLIC_UMAMI_DOMAINS?.trim() || 'aevo-ada-pruefung.de';
 const navLinks = [
   { href: base, label: 'Startseite' },
+  { href: `${base}ratgeber/`, label: 'Ratgeber' },
   { href: `${base}aevo-app/`, label: 'AEVO App' },
   { href: `${base}aevo-pruefung/`, label: 'AEVO Prüfung' },
   { href: `${base}aevo-pruefungsfragen/`, label: 'Prüfungsfragen' },
@@ -112,6 +113,7 @@ const navLinks = [
 
 const sitelinkTargets = [
   { href: base, label: 'AEVO Ada App' },
+  { href: `${base}ratgeber/`, label: 'AEVO Ratgeber' },
   { href: `${base}aevo-app/`, label: 'AEVO App für ADA-Schein und Ausbilderschein' },
   { href: `${base}ios-app/`, label: 'AEVO Ada iOS App' },
   { href: `${base}aevo-online/`, label: 'AEVO online lernen' },
@@ -119,6 +121,9 @@ const sitelinkTargets = [
   { href: `${base}aevo-pruefung/`, label: 'AEVO Prüfung 2026' },
   { href: `${base}aevo-pruefungsvorbereitung/`, label: 'AEVO Prüfungsvorbereitung' },
   { href: `${base}aevo-pruefungsfragen/`, label: 'AEVO Prüfungsfragen' },
+  { href: `${base}aevo-lernplan-4-wochen/`, label: 'AEVO Lernplan für 4 Wochen' },
+  { href: `${base}aevo-unterweisung-themen-beispiele/`, label: 'AEVO Unterweisung Themen und Beispiele' },
+  { href: `${base}ausbilderschein-kosten-dauer-gueltigkeit/`, label: 'Ausbilderschein Kosten, Dauer und Gültigkeit' },
   { href: `${base}ausbilderschein-ada-schein/`, label: 'Ausbilderschein / ADA-Schein' },
   { href: `${base}support/`, label: 'Support' },
 ];
@@ -229,6 +234,7 @@ const jsonLdEntries = [
     <link rel="canonical" href={canonicalHref} />
     <link rel="alternate" hreflang="de-DE" href={canonicalHref} />
     <link rel="alternate" type="text/plain" href={new URL('llms.txt', publicRoot).href} title="AEVO Ada für KI-Assistenten" />
+    <link rel="alternate" type="application/rss+xml" href={new URL('feed.xml', publicRoot).href} title="AEVO Ada Ratgeber" />
 
     <!-- Open Graph -->
     <meta property="og:type" content={ogType} />
@@ -425,6 +431,9 @@ const jsonLdEntries = [
             <h3 class="text-cream font-semibold text-sm mb-3">AEVO Lernen</h3>
             <ul class="space-y-2">
               <li>
+                <a href={`${base}ratgeber/`} class="text-sm text-cream/60 hover:text-cream transition-colors">Alle Ratgeber</a>
+              </li>
+              <li>
                 <a href={`${base}aevo-pruefung/`} class="text-sm text-cream/60 hover:text-cream transition-colors">AEVO Prüfung</a>
               </li>
               <li>
@@ -438,6 +447,12 @@ const jsonLdEntries = [
               </li>
               <li>
                 <a href={`${base}aevo-pruefungsfragen/`} class="text-sm text-cream/60 hover:text-cream transition-colors">Prüfungsfragen</a>
+              </li>
+              <li>
+                <a href={`${base}aevo-lernplan-4-wochen/`} class="text-sm text-cream/60 hover:text-cream transition-colors">4-Wochen-Lernplan</a>
+              </li>
+              <li>
+                <a href={`${base}aevo-unterweisung-themen-beispiele/`} class="text-sm text-cream/60 hover:text-cream transition-colors">Unterweisungsthemen</a>
               </li>
               <li>
                 <a href={`${base}ausbilderschein-ada-schein/`} class="text-sm text-cream/60 hover:text-cream transition-colors">Ausbilderschein / ADA-Schein</a>

@@ -1,0 +1,96 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { seoPages } from '../data/seoPages';
+
+const baseUrl = import.meta.env.BASE_URL.endsWith('/')
+  ? import.meta.env.BASE_URL
+  : `${import.meta.env.BASE_URL}/`;
+const siteOrigin = Astro.site ?? 'https://aevo-ada-pruefung.de';
+const canonicalUrl = new URL(`${baseUrl}ratgeber/`, siteOrigin).href;
+const articles = [...seoPages].sort((a, b) => b.updatedDate.localeCompare(a.updatedDate));
+const formatDate = (date: string) => new Intl.DateTimeFormat('de-DE', {
+  day: '2-digit',
+  month: 'long',
+  year: 'numeric',
+}).format(new Date(`${date}T12:00:00Z`));
+
+const collectionJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  '@id': `${canonicalUrl}#collection`,
+  url: canonicalUrl,
+  name: 'AEVO Ratgeber',
+  description: 'Praxisnahe Ratgeber zu AEVO-Prüfung, Ausbilderschein, Lernplan, Prüfungsfragen und praktischer Unterweisung.',
+  inLanguage: 'de-DE',
+  mainEntity: {
+    '@type': 'ItemList',
+    numberOfItems: articles.length,
+    itemListElement: articles.map((article, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      url: new URL(`${baseUrl}${article.slug}/`, siteOrigin).href,
+      name: article.h1,
+    })),
+  },
+};
+---
+
+<Layout
+  title="AEVO Ratgeber: Prüfung, Lernplan & Ausbilderschein | AEVO Ada"
+  description="AEVO Ratgeber mit fundierten Antworten zu Prüfung, Lernplan, Prüfungsfragen, Unterweisung, Kosten und Ausbilderschein – mit offiziellen Quellen."
+  keywords="AEVO Ratgeber, AEVO Prüfung, Ausbilderschein, AEVO Lernplan, AEVO Unterweisung, AEVO Prüfungsfragen"
+  canonical={canonicalUrl}
+  jsonLd={collectionJsonLd}
+  breadcrumbs={[
+    { name: 'Startseite', href: baseUrl },
+    { name: 'AEVO Ratgeber', href: `${baseUrl}ratgeber/` },
+  ]}
+>
+  <section class="bg-cream py-14 sm:py-20">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <p class="inline-flex items-center bg-wine/10 text-wine px-4 py-1.5 rounded-full text-sm font-semibold border border-wine/20 mb-6">
+        Wissen für angehende Ausbilder
+      </p>
+      <h1 class="font-serif text-4xl sm:text-5xl font-bold text-brown leading-tight mb-6">
+        AEVO Ratgeber
+      </h1>
+      <p class="text-lg sm:text-xl text-muted leading-relaxed max-w-3xl">
+        Verlässliche, verständliche Antworten zur AEVO-Prüfung und zum Ausbilderschein – von der ersten Planung bis zu Prüfungsfragen, Unterweisung und Fachgespräch.
+      </p>
+      <div class="mt-8 flex flex-wrap gap-3 text-sm text-muted">
+        <span class="bg-card border border-cream-border rounded-full px-4 py-2">{articles.length} ausführliche Ratgeber</span>
+        <span class="bg-card border border-cream-border rounded-full px-4 py-2">Mit offiziellen Quellen</span>
+        <span class="bg-card border border-cream-border rounded-full px-4 py-2">Regelmäßig inhaltlich geprüft</span>
+      </div>
+    </div>
+  </section>
+
+  <main class="bg-cream-dark/35 py-16">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {articles.map((article) => (
+          <article class="bg-card border border-cream-border rounded-2xl p-6 sm:p-7 flex flex-col">
+            <div class="flex flex-wrap items-center gap-2 text-xs text-muted mb-4">
+              <span class="font-semibold text-wine">{article.eyebrow}</span>
+              <span aria-hidden="true">·</span>
+              <time datetime={article.updatedDate}>Aktualisiert {formatDate(article.updatedDate)}</time>
+            </div>
+            <h2 class="font-serif text-2xl font-bold text-brown leading-snug mb-3">
+              <a href={`${baseUrl}${article.slug}/`} class="hover:text-wine transition-colors">
+                {article.h1}
+              </a>
+            </h2>
+            <p class="text-sm text-muted leading-relaxed mb-6 flex-1">{article.intro}</p>
+            <a
+              href={`${baseUrl}${article.slug}/`}
+              class="inline-flex items-center gap-2 text-sm font-semibold text-wine hover:text-wine-dark"
+              aria-label={`${article.h1} lesen`}
+            >
+              Ratgeber lesen <span aria-hidden="true">→</span>
+            </a>
+          </article>
+        ))}
+      </div>
+    </div>
+  </main>
+</Layout>

@@ -15,6 +15,12 @@ export interface SeoFaq {
   answer: string;
 }
 
+export interface SeoSource {
+  href: string;
+  label: string;
+  publisher: string;
+}
+
 export interface SeoPage {
   slug: string;
   title: string;
@@ -31,6 +37,7 @@ export interface SeoPage {
   ctaText: string;
   relatedLinks: SeoRelatedLink[];
   faqs?: SeoFaq[];
+  sources?: SeoSource[];
   disclaimer?: string;
 }
 
@@ -384,6 +391,11 @@ export const seoPages: SeoPage[] = [
         desc: 'Fachwissen mit Fragen und Erklärungen festigen.',
       },
       {
+        href: '/aevo-unterweisung-themen-beispiele/',
+        label: 'Unterweisung: Themen und Beispiele',
+        desc: 'Feinlernziel, Methode und Thema konkret auswählen.',
+      },
+      {
         href: '/ausbilderschein-ada-schein/',
         label: 'ADA-Schein und Ausbilderschein',
         desc: 'Begriffe und Nachweis der Ausbildereignung verstehen.',
@@ -463,6 +475,11 @@ export const seoPages: SeoPage[] = [
         href: '/aevo-pruefungsfragen/',
         label: 'AEVO Fragen',
         desc: 'Mit passenden Fragetypen gezielt üben.',
+      },
+      {
+        href: '/aevo-lernplan-4-wochen/',
+        label: 'AEVO Lernplan für 4 Wochen',
+        desc: 'Lerneinheiten und Simulation konkret terminieren.',
       },
       {
         href: '/aevo-ihk/',
@@ -841,6 +858,11 @@ export const seoPages: SeoPage[] = [
         label: 'Ausbilder werden',
         desc: 'Was zur Ausbilderrolle dazugehört.',
       },
+      {
+        href: '/ausbilderschein-kosten-dauer-gueltigkeit/',
+        label: 'Kosten, Dauer und Gültigkeit',
+        desc: 'Budget, Zeitaufwand und Gültigkeit einordnen.',
+      },
     ],
   },
   {
@@ -908,6 +930,449 @@ export const seoPages: SeoPage[] = [
         desc: 'Ablauf und Inhalte der Prüfung.',
       },
     ],
+  },
+  {
+    slug: 'ausbilderschein-kosten-dauer-gueltigkeit',
+    title: 'Ausbilderschein: Kosten, Dauer & Gültigkeit | AEVO Ada',
+    description:
+      'Was kostet der Ausbilderschein, wie lange dauert die Vorbereitung und wie lange ist er gültig? Gebühren, Zeitbedarf und Voraussetzungen verständlich erklärt.',
+    keywords:
+      'Ausbilderschein Kosten, AEVO Prüfung Kosten, ADA Schein Kosten, Ausbilderschein Dauer, Ausbilderschein Gültigkeit, AEVO Kurs Kosten',
+    eyebrow: 'Kosten und Zeitaufwand',
+    h1: 'Ausbilderschein: Kosten, Dauer und Gültigkeit im Überblick',
+    intro:
+      'Für den Ausbilderschein gibt es keinen bundesweit einheitlichen Gesamtpreis. Prüfung, Vorbereitung und Lernmaterial werden getrennt kalkuliert; die bestandene AEVO-Prüfung ist grundsätzlich unbefristet gültig.',
+    publishedDate: '2026-11-02',
+    updatedDate: '2026-11-02',
+    heroPoints: [
+      'Prüfungsgebühr und Vorbereitung getrennt betrachten',
+      'Zeitaufwand passend zu Vorwissen und Lernform planen',
+      'Unbefristeter Nachweis, aber weitere Eignungsvoraussetzungen beachten',
+    ],
+    sections: [
+      {
+        title: 'Kurzantwort: Was kostet der Ausbilderschein?',
+        body: [
+          'Einen einheitlichen Preis für den Ausbilderschein gibt es nicht. Deine Gesamtkosten setzen sich typischerweise aus der Gebühr der zuständigen Kammer, einem optionalen Vorbereitungskurs, Lernmaterialien und gegebenenfalls Fahrt- oder Übernachtungskosten zusammen.',
+          'Die Gebühren unterscheiden sich nach Kammer und Anbieter. Als konkretes Beispiel nennt die IHK Nord Westfalen mit Stand Juli 2026 eine Prüfungsgebühr von 234 Euro und für ihren Vorbereitungskurs 585 Euro zusätzlich. Dieses Beispiel ist keine bundesweite Preisliste: Prüfe den aktuellen Gebührentarif deiner zuständigen Stelle, bevor du dich anmeldest.',
+        ],
+      },
+      {
+        title: 'Welche Kostenblöcke solltest du einplanen?',
+        body: [
+          'Vergleiche Angebote nicht nur anhand des Kurspreises. Entscheidend ist, welche Leistungen enthalten sind: Unterricht, Skripte, Betreuung für den praktischen Teil, Probedurchläufe oder digitale Übungen können separat berechnet werden.',
+          'Frage außerdem frühzeitig, ob dein Arbeitgeber die Kosten ganz oder teilweise übernimmt. Für Betriebe kann die Qualifizierung eigener Ausbilder ein direktes Interesse sein; einen automatischen Anspruch auf Kostenübernahme gibt es daraus jedoch nicht.',
+        ],
+        bullets: [
+          'Prüfungsgebühr der zuständigen Kammer oder Stelle',
+          'Präsenz-, Online- oder Selbstlernkurs',
+          'Bücher, App, Skripte und Übungsmaterial',
+          'Anfahrt, Übernachtung und Freistellung',
+        ],
+      },
+      {
+        title: 'Wie lange dauert der Weg zum Ausbilderschein?',
+        body: [
+          'Die Vorbereitungsdauer ist nicht gesetzlich als feste Kurslänge vorgeschrieben. Sie hängt von deinem Vorwissen, deiner Lernform, dem nächsten Prüfungstermin und der Zeit ab, die du pro Woche investieren kannst. Kompaktkurse bündeln den Stoff in wenigen Tagen; berufsbegleitende Angebote verteilen ihn häufig über mehrere Wochen.',
+          'Plane neben der Theorie eigene Zeit für Übungsfragen und die praktische Prüfung ein. Ein vierwöchiger Lernplan kann bei soliden Vorkenntnissen funktionieren; wenn rechtliche und pädagogische Grundlagen neu sind, ist ein größerer Puffer meist sinnvoller.',
+        ],
+      },
+      {
+        title: 'Wie lange dauert die AEVO-Prüfung selbst?',
+        body: [
+          'Nach § 4 Ausbilder-Eignungsverordnung soll der schriftliche Prüfungsteil drei Stunden dauern. Er umfasst fallbezogene Aufgaben aus allen vier Handlungsfeldern.',
+          'Der praktische Teil besteht aus der Präsentation einer berufstypischen Ausbildungssituation und einem Fachgespräch und dauert zusammen höchstens 30 Minuten. Die Präsentation soll 15 Minuten nicht überschreiten; an ihrer Stelle kann eine Ausbildungssituation praktisch durchgeführt werden.',
+        ],
+        bullets: [
+          'Schriftlicher Teil: laut Verordnung drei Stunden',
+          'Praktischer Teil: insgesamt höchstens 30 Minuten',
+          'Präsentation: höchstens 15 Minuten',
+          'Konkrete Organisation: Hinweise der zuständigen Stelle prüfen',
+        ],
+      },
+      {
+        title: 'Ist der Ausbilderschein unbegrenzt gültig?',
+        body: [
+          'Der bestandene Nachweis der berufs- und arbeitspädagogischen Eignung ist grundsätzlich unbefristet gültig und muss üblicherweise nicht verlängert werden. Bewahre das Prüfungszeugnis deshalb dauerhaft auf.',
+          'Der Nachweis allein berechtigt dich aber nicht automatisch, in jedem Betrieb und jedem Beruf auszubilden. Zusätzlich müssen unter anderem persönliche und fachliche Eignung sowie die Eignung der Ausbildungsstätte vorliegen. Die zuständige Kammer berät und prüft den konkreten Einzelfall.',
+        ],
+      },
+      {
+        title: 'So vergleichst du Kursangebote sinnvoll',
+        body: [
+          'Wähle die Lernform nach deinem Alltag und nicht allein nach dem niedrigsten Preis. Ein günstiger Selbstlernkurs kann gut passen, wenn du strukturiert und eigenständig lernst. Wer Rückmeldung zur Präsentation oder praktische Probeläufe braucht, profitiert eher von persönlicher Betreuung.',
+          'Lass dir vor der Buchung den Leistungsumfang, mögliche Zusatzkosten, Stornobedingungen und die Unterstützung für den praktischen Teil schriftlich nennen. Die Prüfungsanmeldung erfolgt je nach Angebot separat oder wird organisatorisch begleitet.',
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: 'Wie viel kostet der Ausbilderschein insgesamt?',
+        answer:
+          'Es gibt keinen bundesweit einheitlichen Gesamtpreis. Rechne mit der regionalen Prüfungsgebühr sowie – je nach Lernweg – Kosten für Kurs, Lernmaterial und Anreise. Frage deine zuständige Kammer und den Kursanbieter nach einer vollständigen Aufstellung.',
+      },
+      {
+        question: 'Kann ich den Ausbilderschein ohne Kurs machen?',
+        answer:
+          'Die AEVO schreibt keinen bestimmten Vorbereitungskurs als Prüfungsvoraussetzung vor. Ob Selbststudium für dich sinnvoll ist, hängt von Vorwissen, Lernroutine und der Vorbereitung auf den praktischen Teil ab. Verbindliche Anmeldebedingungen nennt die zuständige Stelle.',
+      },
+      {
+        question: 'Wie lange ist der Ausbilderschein gültig?',
+        answer:
+          'Der bestandene AEVO-Nachweis ist grundsätzlich unbefristet gültig. Für die tatsächliche Tätigkeit als Ausbilder müssen zusätzlich die persönliche und fachliche Eignung sowie die Eignung des Betriebs erfüllt sein.',
+      },
+      {
+        question: 'Wie lange sollte ich für die Vorbereitung einplanen?',
+        answer:
+          'Je nach Vorwissen und Lernform reichen die Modelle von kompakten Intensivkursen bis zu mehreren berufsbegleitenden Wochen. Plane neben der Theorie ausreichend Zeit für Übungsfragen, Wiederholung und den praktischen Prüfungsteil ein.',
+      },
+    ],
+    sources: [
+      {
+        href: 'https://www.ihk.de/nordwestfalen/wirtschaftsspiegel-online/praxis-und-ratgeber/ausbilderschein-aevo-pruefung-ablauf-kosten-7139206',
+        label: 'Ausbilderschein: Ablauf, Kosten und Anmeldung',
+        publisher: 'IHK Nord Westfalen – Preisbeispiel und Hinweise, Stand Juli 2026',
+      },
+    ],
+    ctaTitle: 'Flexibel und ohne Kursbindung üben',
+    ctaText:
+      'Ergänze deinen Lernweg mit 700+ Fragen, Erklärungen und Fortschrittsauswertung auf iPhone und iPad.',
+    relatedLinks: [
+      {
+        href: '/ausbilderschein-ada-schein/',
+        label: 'ADA-Schein und Ausbilderschein',
+        desc: 'Begriffe und Nachweis richtig einordnen.',
+      },
+      {
+        href: '/aevo-lernplan-4-wochen/',
+        label: 'AEVO Lernplan für 4 Wochen',
+        desc: 'Die verfügbare Zeit konkret aufteilen.',
+      },
+      {
+        href: '/aevo-pruefung/',
+        label: 'AEVO Prüfung',
+        desc: 'Ablauf und Inhalte beider Prüfungsteile.',
+      },
+      {
+        href: '/aevo-praktische-pruefung/',
+        label: 'Praktische AEVO-Prüfung',
+        desc: 'Präsentation und Fachgespräch vorbereiten.',
+      },
+    ],
+    disclaimer:
+      'Stand: 2. November 2026. Gebühren und organisatorische Vorgaben können sich regional ändern. Verbindlich sind die Angaben deiner zuständigen Kammer oder Stelle.',
+  },
+  {
+    slug: 'aevo-lernplan-4-wochen',
+    title: 'AEVO Lernplan: In 4 Wochen zur Prüfung | AEVO Ada',
+    description:
+      'AEVO Lernplan für vier Wochen: Tagesroutine, Handlungsfelder, Wiederholung, Prüfungssimulation und praktische Prüfung konkret strukturieren.',
+    keywords:
+      'AEVO Lernplan, AEVO in 4 Wochen, AEVO lernen, AEVO Vorbereitung Zeitplan, Ausbilderschein Lernplan, ADA Prüfung lernen',
+    eyebrow: '4-Wochen-Lernplan',
+    h1: 'AEVO Lernplan: in 4 Wochen strukturiert zur Prüfung',
+    intro:
+      'Dieser Vier-Wochen-Plan verbindet die vier Handlungsfelder mit aktiver Wiederholung, Übungsfragen und Probeläufen. Passe den Umfang an dein Vorwissen und deinen tatsächlichen Prüfungstermin an.',
+    publishedDate: '2026-11-02',
+    updatedDate: '2026-11-02',
+    heroPoints: [
+      '30 bis 60 Minuten an fünf Lerntagen pro Woche',
+      'Jede Woche Wissen aufbauen und aktiv testen',
+      'Praktischen Teil von Anfang an parallel vorbereiten',
+    ],
+    sections: [
+      {
+        title: 'Kurzantwort: Wie lerne ich in vier Wochen für AEVO?',
+        body: [
+          'Plane fünf Lerneinheiten pro Woche mit jeweils etwa 30 bis 60 Minuten. Nutze die ersten beiden Wochen für Grundlagen und Handlungsfelder, die dritte für Anwendung und Fehleranalyse und die vierte für Simulation, Wiederholung und den praktischen Teil.',
+          'Vier Wochen sind kein garantierter Zeitraum für jede Person. Wenn dir rechtliche Grundlagen, Ausbildungspraxis oder didaktische Begriffe noch völlig neu sind, beginne früher oder erhöhe den Umfang behutsam. Entscheidend ist, ob du Inhalte erklären und auf Situationen anwenden kannst – nicht nur, ob du alle Seiten gelesen hast.',
+        ],
+      },
+      {
+        title: 'Vor dem Start: Lernstand in 30 Minuten prüfen',
+        body: [
+          'Mache zuerst einen gemischten Test ohne Hilfsmittel. Markiere jede Antwort nicht nur als richtig oder falsch, sondern zusätzlich als sicher, unsicher oder geraten. So erkennst du Wissenslücken, die eine reine Punktzahl verdeckt.',
+          'Lege danach feste Lernzeiten, einen Ort und ein einfaches Fehlerprotokoll fest. Notiere pro Fehler den Themenbereich, die Ursache und einen Merksatz. Diese Liste wird in Woche drei und vier zu deinem wichtigsten Wiederholungsplan.',
+        ],
+        bullets: [
+          'Ausgangstest mit allen vier Handlungsfeldern',
+          'Fehler nach Wissen, Lesen oder Anwendung unterscheiden',
+          'Fünf feste Lernfenster im Kalender reservieren',
+          'Thema für den praktischen Teil grob auswählen',
+        ],
+      },
+      {
+        title: 'Woche 1: Voraussetzungen prüfen und Ausbildung vorbereiten',
+        body: [
+          'Starte mit Handlungsfeld 1 und 2. Ordne Ausbildungsordnung, Ausbildungsrahmenplan, betriebliche Planung, Auswahl von Auszubildenden und Ausbildungsvertrag in einen gemeinsamen Ablauf ein. Ziel ist ein verständliches Gesamtbild statt einer Sammlung isolierter Begriffe.',
+          'Beende jede Einheit mit zehn bis zwanzig Fragen. Lies die Erklärungen auch bei richtigen Antworten, wenn du geraten hast. Formuliere am fünften Lerntag eine eigene Zusammenfassung und wiederhole anschließend nur die noch unsicheren Themen.',
+        ],
+        bullets: [
+          'Tag 1: Überblick und Handlungsfeld 1',
+          'Tag 2: rechtliche und betriebliche Voraussetzungen',
+          'Tag 3: Handlungsfeld 2 und Ausbildungsplanung',
+          'Tag 4: Auswahl, Vertrag und beteiligte Stellen',
+          'Tag 5: gemischter Test und Fehlerprotokoll',
+        ],
+      },
+      {
+        title: 'Woche 2: Ausbildung durchführen und abschließen',
+        body: [
+          'Widme den größten Teil der Woche Handlungsfeld 3: Lernziele, Methodenwahl, Motivation, Feedback, Konflikte, Beurteilung und Förderung. Übe an konkreten Situationen, weil du in der Prüfung Entscheidungen begründen musst.',
+          'Bearbeite anschließend Handlungsfeld 4 mit Prüfungsvorbereitung, Zeugnissen und Abschluss der Ausbildung. Entwickle parallel dein Feinlernziel und die Methode für die praktische Prüfung weiter.',
+        ],
+        bullets: [
+          'Tag 1: Lernziele und Lernvoraussetzungen',
+          'Tag 2: Ausbildungsmethoden und Medieneinsatz',
+          'Tag 3: Motivation, Feedback und Konflikte',
+          'Tag 4: Beurteilung, Prüfung und Abschluss',
+          'Tag 5: Fallfragen aus Handlungsfeld 3 und 4',
+        ],
+      },
+      {
+        title: 'Woche 3: Anwenden, erklären und Schwächen schließen',
+        body: [
+          'Wechsle jetzt von Stoffaufnahme zu aktiver Anwendung. Bearbeite gemischte Situationsfragen unter Zeitdruck und erkläre bei jeder unsicheren Aufgabe laut, warum eine Antwort passt und die Alternativen weniger geeignet sind.',
+          'Gruppiere dein Fehlerprotokoll nach Ursache. Wissenslücken schließt du mit einer kurzen Wiederholung; Lesefehler mit einer festen Prüfroutine; Anwendungsfehler mit zusätzlichen Fällen. Probiere außerdem deine Präsentation oder Unterweisung erstmals vollständig mit Stoppuhr.',
+        ],
+      },
+      {
+        title: 'Woche 4: Simulieren und prüfungsreif werden',
+        body: [
+          'Führe zu Wochenbeginn eine vollständige Simulation durch und werte sie am selben Tag aus. Wiederhole danach gezielt nur die schwachen Bereiche. Eine zweite Simulation gegen Ende der Woche zeigt, ob deine Korrekturen greifen.',
+          'Für den praktischen Teil brauchst du mindestens zwei vollständige Probeläufe mit anschließendem Fachgespräch. Bitte eine andere Person, kritische Warum-Fragen zu Lernziel, Methode, Zielgruppe, Sicherheit und Lernkontrolle zu stellen.',
+        ],
+        bullets: [
+          'Eine vollständige Simulation zu Wochenbeginn',
+          'Zwei fokussierte Tage für Schwachstellen',
+          'Mindestens zwei praktische Probeläufe',
+          'Letzter Tag: leicht wiederholen, Material prüfen, schlafen',
+        ],
+      },
+      {
+        title: 'Die tägliche 45-Minuten-Routine',
+        body: [
+          'Beginne mit fünf Minuten Abruf ohne Unterlagen: Was weißt du noch von gestern? Nutze danach zwanzig Minuten für ein neues oder schwaches Thema und fünfzehn Minuten für Fragen. Die letzten fünf Minuten gehören dem Fehlerprotokoll und dem nächsten konkreten Lernziel.',
+          'Wenn du nur zwanzig Minuten hast, streiche nicht die aktive Abfrage. Zehn konzentrierte Fragen mit sauberer Auswertung bringen häufig mehr als passives Lesen ohne Kontrolle. An längeren Tagen kannst du einen zusätzlichen Fall oder einen Abschnitt der praktischen Prüfung bearbeiten.',
+        ],
+      },
+      {
+        title: 'Woran erkennst du, dass du prüfungsbereit bist?',
+        body: [
+          'Eine einzelne gute Punktzahl reicht nicht. Du solltest über mehrere gemischte Tests stabil abschneiden, Antworten begründen und typische Fehlerursachen kennen. Bei neuen Situationen musst du das passende Handlungsfeld und den pädagogischen oder rechtlichen Kern erkennen können.',
+          'Für den praktischen Teil solltest du deinen Ablauf innerhalb der Zeit sicher präsentieren, das Lernziel präzise benennen und Alternativen erklären können. Prüfe formale Details immer anhand der aktuellen Einladung deiner zuständigen Stelle.',
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: 'Reichen vier Wochen für die AEVO-Prüfung?',
+        answer:
+          'Vier Wochen können bei regelmäßigem Lernen und passenden Vorkenntnissen ausreichen, sind aber keine Garantie. Prüfe deinen Lernstand früh und plane mehr Zeit ein, wenn rechtliche, pädagogische oder praktische Grundlagen neu sind.',
+      },
+      {
+        question: 'Wie viele Stunden pro Woche sollte ich lernen?',
+        answer:
+          'Als praktikabler Ausgangspunkt dienen fünf Einheiten mit je 30 bis 60 Minuten. Passe den Umfang an Vorwissen und Testresultate an. Aktives Üben und Fehlerauswertung sind wichtiger als eine starre Stundenzahl.',
+      },
+      {
+        question: 'Wann sollte ich mit Prüfungssimulationen beginnen?',
+        answer:
+          'Nutze kurze Tests von Anfang an. Vollständige Simulationen sind besonders in Woche drei und vier sinnvoll, wenn du die Grundlagen aller vier Handlungsfelder kennst und die Ergebnisse gezielt nacharbeiten kannst.',
+      },
+      {
+        question: 'Wie integriere ich die praktische Prüfung in den Lernplan?',
+        answer:
+          'Wähle das Thema in der ersten Woche, formuliere in Woche zwei Lernziel und Methode, mache in Woche drei den ersten vollständigen Probelauf und in Woche vier mindestens zwei weitere Proben mit Fachgespräch.',
+      },
+    ],
+    ctaTitle: 'Deinen Lernplan täglich umsetzen',
+    ctaText:
+      'Nutze Fragen, Erklärungen, Wiederholungen und Simulation, um aus dem Zeitplan eine messbare Lernroutine zu machen.',
+    relatedLinks: [
+      {
+        href: '/aevo-pruefungsvorbereitung/',
+        label: 'AEVO Prüfungsvorbereitung',
+        desc: 'Lernmethoden und Wiederholungssystem vertiefen.',
+      },
+      {
+        href: '/aevo-pruefungsfragen/',
+        label: 'AEVO Prüfungsfragen',
+        desc: 'Fragetypen sinnvoll in den Plan einbauen.',
+      },
+      {
+        href: '/aevo-unterweisung-themen-beispiele/',
+        label: 'Unterweisung: Themen und Beispiele',
+        desc: 'Den praktischen Teil konkret planen.',
+      },
+      {
+        href: '/ausbilderschein-kosten-dauer-gueltigkeit/',
+        label: 'Kosten, Dauer und Gültigkeit',
+        desc: 'Zeit und Budget für den Ausbilderschein einordnen.',
+      },
+    ],
+    disclaimer:
+      'Der Lernplan ist eine Orientierung und keine Bestehensgarantie. Passe Umfang und Reihenfolge an deinen Lernstand sowie die Vorgaben deiner zuständigen Stelle an.',
+  },
+  {
+    slug: 'aevo-unterweisung-themen-beispiele',
+    title: 'AEVO Unterweisung: Themen, Beispiele & Auswahl | AEVO Ada',
+    description:
+      'Thema für die AEVO-Unterweisung finden: 12 Beispiele, Auswahlkriterien, Feinlernziel, Methodenwahl und Checkliste für die praktische Prüfung.',
+    keywords:
+      'AEVO Unterweisung Themen, AEVO praktische Prüfung Themen, AEVO Unterweisung Beispiele, AdA Unterweisung, AEVO Präsentation Thema, Feinlernziel AEVO',
+    eyebrow: 'Themen für die Unterweisung',
+    h1: 'AEVO Unterweisung: Themen und Beispiele richtig auswählen',
+    intro:
+      'Ein gutes Thema ist berufstypisch, klar begrenzt und in der verfügbaren Zeit vermittelbar. Entscheidend sind ein beobachtbares Feinlernziel, die passende Methode und eine nachvollziehbare Lernerfolgskontrolle.',
+    publishedDate: '2026-11-02',
+    updatedDate: '2026-11-02',
+    heroPoints: [
+      '12 übertragbare Themenbeispiele aus verschiedenen Berufen',
+      'Thema nach Lernziel, Zielgruppe und Zeit auswählen',
+      'Methodenwahl und Fachgespräch schlüssig begründen',
+    ],
+    sections: [
+      {
+        title: 'Kurzantwort: Welches Thema eignet sich für die AEVO-Unterweisung?',
+        body: [
+          'Geeignet ist eine konkrete berufstypische Tätigkeit, die zu den Vorkenntnissen der lernenden Person passt und einen sichtbaren Lernerfolg ermöglicht. Das Thema sollte klein genug für die Prüfungszeit sein, aber genügend didaktische Entscheidungen für das Fachgespräch bieten.',
+          'Wähle nicht zuerst eine beliebte Methode und suche danach ein Thema. Formuliere zunächst Zielgruppe und Feinlernziel; entscheide anschließend, ob etwa Lehrgespräch, Vier-Stufen-Methode, Leittext oder eine andere Form den Lernprozess am besten unterstützt.',
+        ],
+      },
+      {
+        title: 'Fünf Kriterien für ein prüfungstaugliches Thema',
+        body: [
+          'Ein Thema überzeugt nicht durch besondere Komplexität, sondern durch eine klare didaktische Begründung. Der Prüfungsausschuss muss erkennen können, was die auszubildende Person am Ende selbstständig wissen, erklären oder ausführen kann.',
+          'Prüfe außerdem, ob Material und Umgebung sicher handhabbar sind und ob du eine technische Alternative hast. Ein Thema mit hohem Aufbauaufwand oder schwer kontrollierbaren Risiken ist für eine kurze Prüfungssituation oft unnötig anspruchsvoll.',
+        ],
+        bullets: [
+          'Berufstypisch und der Ausbildungsordnung zuordenbar',
+          'In der Prüfungszeit realistisch abgrenzbar',
+          'Feinlernziel beobachtbar und überprüfbar',
+          'Zur Zielgruppe und ihren Vorkenntnissen passend',
+          'Sicher, materialseitig beherrschbar und mit Plan B',
+        ],
+      },
+      {
+        title: '12 Themenbeispiele aus verschiedenen Berufen',
+        body: [
+          'Die folgenden Beispiele sind Ausgangspunkte, keine fertigen Prüfungskonzepte. Passe sie an Ausbildungsberuf, Ausbildungsordnung, Ausbildungsstand und örtliche Vorgaben an. Formuliere jeweils nur einen klaren Lernschritt.',
+          'Kaufmännisch eignen sich etwa eine Rechnung sachlich prüfen, einen Wareneingang dokumentieren oder ein kundenorientiertes Telefongespräch vorbereiten. In IT-Berufen kommen ein sicheres Passwortkonzept erklären, ein Netzwerkkabel prüfen oder ein Ticket vollständig dokumentieren infrage.',
+        ],
+        bullets: [
+          'Kaufleute: Rechnung prüfen oder Wareneingang erfassen',
+          'Einzelhandel: Reklamationsgespräch strukturiert vorbereiten',
+          'IT: Support-Ticket vollständig dokumentieren',
+          'IT: Netzwerkkabel mit Prüfgerät kontrollieren',
+          'Lager: Ware kennzeichnen oder Versandstück sichern',
+          'Metall: Messschieber korrekt ablesen und pflegen',
+          'Elektro: Sicherheitsregeln einer Tätigkeit zuordnen',
+          'Gastronomie: Arbeitsplatz hygienisch vorbereiten',
+          'Hotellerie: Gästeanfrage datenschutzgerecht erfassen',
+          'Büro: Datenschutzgerechten Aktenversand vorbereiten',
+          'Logistik: Lieferdokumente auf Vollständigkeit prüfen',
+          'Handwerk: Werkzeug auswählen, prüfen und sicher übergeben',
+        ],
+      },
+      {
+        title: 'Vom Thema zum präzisen Feinlernziel',
+        body: [
+          'Ein Thema wie „Rechnungsprüfung“ ist noch kein Lernziel. Ein überprüfbares Feinlernziel beschreibt, wer was unter welchen Bedingungen und in welcher Qualität tun kann. Beispiel: Die auszubildende Person prüft nach der Unterweisung eine Eingangsrechnung anhand von Bestellung und Lieferschein selbstständig auf sachliche Richtigkeit und dokumentiert Abweichungen fehlerfrei.',
+          'Vermeide unklare Verben wie kennen, verstehen oder wissen, wenn du den Erfolg nicht beobachten kannst. Besser sind prüfen, auswählen, erklären, durchführen, dokumentieren oder begründen. Im Fachgespräch kannst du dann zeigen, wie die Lernkontrolle direkt aus dem Ziel folgt.',
+        ],
+      },
+      {
+        title: 'Welche Methode passt zu welchem Lernziel?',
+        body: [
+          'Für eine klar strukturierte praktische Fertigkeit kann die Vier-Stufen-Methode passen: vorbereiten, vormachen und erklären, nachmachen und erklären lassen, selbstständig üben. Sie ist jedoch keine automatische Standardantwort für jedes Thema.',
+          'Ein Lehrgespräch eignet sich eher, wenn die lernende Person Vorwissen aktiv einbringen und Zusammenhänge erarbeiten soll. Für komplexere, selbstständige Aufgaben können Leittext, Fallmethode oder Lernauftrag sinnvoll sein. Begründe die Wahl immer aus Lernziel, Zielgruppe, Zeit und Situation.',
+        ],
+        bullets: [
+          'Praktische Fertigkeit: häufig Vier-Stufen-Methode',
+          'Zusammenhänge erarbeiten: fragend-entwickelndes Lehrgespräch',
+          'Entscheidungen abwägen: Fallmethode',
+          'Selbstständiges Planen: Leittext oder Lernauftrag',
+        ],
+      },
+      {
+        title: 'Beispiel für einen vollständigen roten Faden',
+        body: [
+          'Ausgangssituation: Eine Auszubildende im ersten Ausbildungsjahr kennt Bestellung und Lieferschein, hat aber noch keine Eingangsrechnung selbstständig geprüft. Feinlernziel: Sie gleicht die drei Dokumente ab, erkennt Abweichungen und dokumentiert diese korrekt.',
+          'Ablauf: Vorwissen aktivieren, Prüfschritte gemeinsam strukturieren, ein Beispiel bearbeiten lassen und anschließend mit einer neuen Rechnung kontrollieren. Lernerfolg: Die Auszubildende erklärt den Ablauf und prüft den zweiten Fall selbstständig. Transfer: Sie wendet die Checkliste im nächsten realen Vorgang an.',
+        ],
+      },
+      {
+        title: 'Typische Fehler bei Themenwahl und Durchführung',
+        body: [
+          'Zu große Themen führen zu oberflächlichen Abläufen. „Kunden beraten“ oder „Arbeitssicherheit erklären“ sollte daher auf eine konkrete Situation und ein einzelnes Feinlernziel reduziert werden. Ein zweiter häufiger Fehler ist eine Methode, die auswendig beschrieben, aber nicht aus der Zielgruppe begründet wird.',
+          'Vermeide außerdem lange Unternehmensvorstellungen, überladene Folien und Lernkontrollen, die nicht zum Ziel passen. Plane stattdessen einen klaren Einstieg, aktive Lernzeit, konkretes Feedback, Erfolgskontrolle und einen kurzen Ausblick auf den Transfer.',
+        ],
+      },
+      {
+        title: 'Checkliste vor der endgültigen Entscheidung',
+        body: [
+          'Sprich dein Konzept laut durch und stoppe die Zeit. Bitte eine fachfremde Person, nach Ziel, Methode und Lernerfolg zu fragen. Wenn du diese drei Punkte nicht in wenigen klaren Sätzen erklären kannst, ist das Thema wahrscheinlich noch zu breit.',
+          'Prüfe abschließend die Einladung und Hinweise deiner zuständigen Stelle. Form, Unterlagen, erlaubte Medien und organisatorische Anforderungen können regional unterschiedlich gehandhabt werden.',
+        ],
+        bullets: [
+          'Feinlernziel in einem Satz formulierbar',
+          'Methode aus Ziel und Zielgruppe begründbar',
+          'Erfolg während der Prüfung sichtbar prüfbar',
+          'Zeitpuffer und technische Alternative vorhanden',
+          'Örtliche Vorgaben vollständig kontrolliert',
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: 'Welches AEVO-Thema ist besonders einfach?',
+        answer:
+          'Ein Thema ist dann gut handhabbar, wenn es zu deinem Beruf und deiner Erfahrung passt, klar begrenzt ist und einen sichtbaren Lernerfolg ermöglicht. Eine vermeintlich einfache Standardunterweisung ist nicht automatisch die beste Wahl.',
+      },
+      {
+        question: 'Muss ich die Vier-Stufen-Methode verwenden?',
+        answer:
+          'Nein. Die Methode muss zu Lernziel, Zielgruppe und Situation passen. Die Vier-Stufen-Methode kann für praktische Fertigkeiten geeignet sein; für kognitive oder entscheidungsorientierte Ziele können andere Methoden überzeugender sein.',
+      },
+      {
+        question: 'Wie formuliere ich ein Feinlernziel?',
+        answer:
+          'Beschreibe beobachtbar, was die lernende Person nach der Unterweisung unter welchen Bedingungen und in welcher Qualität selbstständig kann. Nutze konkrete Verben wie prüfen, durchführen, dokumentieren oder begründen.',
+      },
+      {
+        question: 'Darf ich ein Thema aus dem Internet übernehmen?',
+        answer:
+          'Du kannst dich inspirieren lassen, musst das Konzept aber auf deinen Ausbildungsberuf, die Zielgruppe und die Vorgaben deiner zuständigen Stelle zuschneiden. Ein übernommenes Standardskript ohne eigene Begründung erschwert besonders das Fachgespräch.',
+      },
+    ],
+    ctaTitle: 'Fachwissen für die Begründung festigen',
+    ctaText:
+      'Trainiere Lernziele, Methoden, Motivation, Beurteilung und rechtliche Grundlagen mit prüfungsnahen Fragen.',
+    relatedLinks: [
+      {
+        href: '/aevo-praktische-pruefung/',
+        label: 'AEVO praktische Prüfung',
+        desc: 'Ablauf, Präsentation und Fachgespräch im Überblick.',
+      },
+      {
+        href: '/aevo-lernplan-4-wochen/',
+        label: 'AEVO Lernplan für 4 Wochen',
+        desc: 'Praktischen und schriftlichen Teil parallel planen.',
+      },
+      {
+        href: '/aevo-pruefungsfragen/',
+        label: 'AEVO Prüfungsfragen',
+        desc: 'Theorie für das Fachgespräch festigen.',
+      },
+      {
+        href: '/aevo-pruefung/',
+        label: 'AEVO Prüfung',
+        desc: 'Gesamten Prüfungsrahmen verstehen.',
+      },
+    ],
+    disclaimer:
+      'Die Beispiele sind allgemeine Lernideen und keine verbindlichen Prüfungsvorgaben. Maßgeblich sind Ausbildungsordnung, Einladung und Hinweise deiner zuständigen Stelle.',
   },
 ];
 

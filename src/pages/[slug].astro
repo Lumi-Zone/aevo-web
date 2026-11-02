@@ -20,7 +20,7 @@ const withBase = (href: string) => (href.startsWith('/') ? `${baseUrl}${href.sli
 const siteOrigin = Astro.site ?? 'https://aevo-ada-pruefung.de';
 const organizationId = new URL(`${baseUrl}#organization`, siteOrigin).href;
 const publishedDate = page.publishedDate ?? (page.slug === 'aevo-app' ? '2026-10-08' : '2026-06-19');
-const officialSources = [
+const defaultSources = [
   ...(page.slug === 'aevo-app'
     ? [{
         href: appStoreUrl,
@@ -39,20 +39,37 @@ const officialSources = [
     publisher: 'Bundesinstitut für Berufsbildung (BIBB)',
   },
 ];
+const officialSources = [...(page.sources ?? []), ...defaultSources].filter(
+  (source, index, sources) => sources.findIndex((candidate) => candidate.href === source.href) === index,
+);
+const articleText = [page.intro, ...page.sections.flatMap((section) => [section.title, ...section.body, ...(section.bullets ?? [])])].join(' ');
+const wordCount = articleText.trim().split(/\s+/).length;
+const readingMinutes = Math.max(1, Math.ceil(wordCount / 200));
+const formatDate = (date: string) => new Intl.DateTimeFormat('de-DE', {
+  day: '2-digit',
+  month: 'long',
+  year: 'numeric',
+}).format(new Date(`${date}T12:00:00Z`));
 
 const articleJsonLd = {
   '@context': 'https://schema.org',
-  '@type': 'Article',
+  '@type': 'BlogPosting',
+  '@id': `${canonicalUrl}#article`,
+  url: canonicalUrl,
   headline: page.h1,
   description: page.description,
+  abstract: page.intro,
+  image: [new URL(`${baseUrl}og-image.png`, siteOrigin).href],
   inLanguage: 'de-DE',
   datePublished: publishedDate,
   dateModified: page.updatedDate,
+  wordCount,
+  timeRequired: `PT${readingMinutes}M`,
   keywords: page.keywords.split(',').map((keyword) => keyword.trim()),
   author: {
-    '@type': 'Organization',
-    '@id': organizationId,
-    name: 'CFS Mobile Tech',
+    '@type': 'Person',
+    name: 'Mehmet Karakaya',
+    url: new URL(`${baseUrl}ueber-aevo-ada/`, siteOrigin).href,
   },
   publisher: {
     '@type': 'Organization',
@@ -65,6 +82,10 @@ const articleJsonLd = {
     { '@type': 'Thing', name: 'Ausbilderschein', alternateName: 'ADA-Schein' },
   ],
   citation: officialSources.map((source) => source.href),
+  isPartOf: {
+    '@type': 'WebSite',
+    '@id': new URL(`${baseUrl}#website`, siteOrigin).href,
+  },
   mainEntityOfPage: {
     '@type': 'WebPage',
     '@id': canonicalUrl,
@@ -139,6 +160,7 @@ const appJsonLd = page.slug === 'aevo-app'
   updatedDate={page.updatedDate}
   breadcrumbs={[
     { name: 'Startseite', href: baseUrl },
+    { name: 'AEVO Ratgeber', href: `${baseUrl}ratgeber/` },
     { name: page.h1, href: pagePath },
   ]}
   jsonLd={[articleJsonLd, ...(faqJsonLd ? [faqJsonLd] : []), ...(appJsonLd ? [appJsonLd] : [])]}
@@ -155,6 +177,11 @@ const appJsonLd = page.slug === 'aevo-app'
         <p class="text-lg sm:text-xl text-muted leading-relaxed">
           {page.intro}
         </p>
+        <div class="mt-6 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-muted" aria-label="Artikelinformationen">
+          <span>Von <a href={`${baseUrl}ueber-aevo-ada/`} class="font-semibold text-wine hover:underline">Mehmet Karakaya</a></span>
+          <span>Aktualisiert: <time datetime={page.updatedDate}>{formatDate(page.updatedDate)}</time></span>
+          <span>{readingMinutes} Min. Lesezeit</span>
+        </div>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-10">
@@ -175,8 +202,21 @@ const appJsonLd = page.slug === 'aevo-app'
   <article class="py-16 bg-cream-dark/35">
     <div class="max-w-5xl mx-auto px-4 sm:px-6 grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_18rem] gap-10 items-start">
       <div class="space-y-8">
-        {page.sections.map((section) => (
-          <section class="bg-card border border-cream-border rounded-2xl p-6 sm:p-8">
+        <nav class="bg-card border border-cream-border rounded-2xl p-6" aria-labelledby="article-toc-title">
+          <h2 id="article-toc-title" class="font-serif text-xl font-bold text-brown mb-4">In diesem Ratgeber</h2>
+          <ol class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-2 text-sm">
+            {page.sections.map((section, index) => (
+              <li>
+                <a href={`#abschnitt-${index + 1}`} class="text-wine hover:text-wine-dark hover:underline">
+                  {section.title}
+                </a>
+              </li>
+            ))}
+          </ol>
+        </nav>
+
+        {page.sections.map((section, index) => (
+          <section id={`abschnitt-${index + 1}`} class="bg-card border border-cream-border rounded-2xl p-6 sm:p-8 scroll-mt-28">
             <h2 class="font-serif text-2xl sm:text-3xl font-bold text-brown mb-4">
               {section.title}
             </h2>
@@ -207,7 +247,7 @@ const appJsonLd = page.slug === 'aevo-app'
         {page.faqs && page.faqs.length > 0 && (
           <section class="bg-card border border-cream-border rounded-2xl p-6 sm:p-8">
             <h2 class="font-serif text-2xl sm:text-3xl font-bold text-brown mb-5">
-              Häufige Fragen zur AEVO App
+              Häufige Fragen: {page.eyebrow}
             </h2>
             <div class="space-y-3">
               {page.faqs.map((faq) => (

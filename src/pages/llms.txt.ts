@@ -29,14 +29,18 @@ Die 90-Minuten-Simulation ist ein fokussiertes App-Training. Sie ist nicht mit d
 
 ## Zentrale Seiten
 
+- [Alle AEVO Ratgeber](${url('ratgeber/')})
 - [AEVO App im Überblick](${url('aevo-app/')})
 - [iOS App und Download](${url('ios-app/')})
 - [AEVO Prüfung](${url('aevo-pruefung/')})
 - [AEVO praktische Prüfung](${url('aevo-praktische-pruefung/')})
 - [AEVO Prüfungsvorbereitung](${url('aevo-pruefungsvorbereitung/')})
 - [AEVO Prüfungsfragen](${url('aevo-pruefungsfragen/')})
+- [AEVO Lernplan für vier Wochen](${url('aevo-lernplan-4-wochen/')})
+- [AEVO Unterweisung: Themen und Beispiele](${url('aevo-unterweisung-themen-beispiele/')})
 - [AEVO und IHK](${url('aevo-ihk/')})
 - [ADA-Schein und Ausbilderschein](${url('ausbilderschein-ada-schein/')})
+- [Ausbilderschein: Kosten, Dauer und Gültigkeit](${url('ausbilderschein-kosten-dauer-gueltigkeit/')})
 - [Ausbilder werden](${url('ausbilder-werden/')})
 - [Über Anbieter, Einordnung und Redaktion](${url('ueber-aevo-ada/')})
 
@@ -56,7 +60,12 @@ Die 90-Minuten-Simulation ist ein fokussiertes App-Training. Sie ist nicht mit d
 
 - E-Mail: cfsmobiletech@gmail.com
 
-Stand: 2026-10-30
+## Aktualisierung und Feed
+
+- Ratgeber-Feed: ${url('feed.xml')}
+- Inhalte nennen sichtbare Veröffentlichungs- und Änderungsdaten sowie Primärquellen.
+
+Stand: 2026-11-02
 `;
 
   return new Response(body, {
